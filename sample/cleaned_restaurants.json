@@ -1,0 +1,415 @@
+[
+  {
+    "placeId": "ChIJM40rfmv0K4gREJ3wKht5ey4",
+    "name": "The Bauer Kitchen",
+    "street": "187 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2L 0A5"
+  },
+  {
+    "placeId": "ChIJ3Q1cmgP0K4gRMg_ATXh0ClY",
+    "name": "Tim Hortons",
+    "street": "65 University Avenue East",
+    "city": "Waterloo",
+    "postalCode": "N2J 2V9"
+  },
+  {
+    "placeId": "ChIJbU6D4Az0K4gRGm7S0WGYD6E",
+    "name": "Huether Hotel",
+    "street": "59 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2X27"
+  },
+  {
+    "placeId": "ChIJdTPZC_LzK4gRxOJWmCJ_pQU",
+    "name": "Tim Hortons",
+    "street": "384 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z3"
+  },
+  {
+    "placeId": "ChIJycchUvTzK4gRCgcKBRAWmvo",
+    "name": "Burrito Boyz Waterloo",
+    "street": "258 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Y9"
+  },
+  {
+    "placeId": "ChIJ2drVF-zzK4gRcfVpe3fGJH4",
+    "name": "East Side Mario's",
+    "street": "450 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z6"
+  },
+  {
+    "placeId": "ChIJdwGOhu7zK4gRZNK6OlAN-H8",
+    "name": "Wildcraft Grill + Long Bar",
+    "street": "425 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z5"
+  },
+  {
+    "placeId": "ChIJqcgBqRL0K4gRyXv1v0SUtwU",
+    "name": "Trio Restaurant",
+    "street": "40 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 2W8"
+  },
+  {
+    "placeId": "ChIJycchUvTzK4gRlD24RofA7sY",
+    "name": "King Tin Restaurant",
+    "street": "318 Spruce Street",
+    "city": "Waterloo",
+    "postalCode": "N2J 0B7"
+  },
+  {
+    "placeId": "ChIJX_05N5vzK4gRDi36BCTSTqU",
+    "name": "Canadian Pizza",
+    "street": "315 Lincoln Road",
+    "city": "Waterloo",
+    "postalCode": "N2J 4H7"
+  },
+  {
+    "placeId": "ChIJk80zzEH0K4gRGMwaNzeGV8U",
+    "name": "Casa Rugantino",
+    "street": "709 Belmont Avenue West",
+    "city": "Kitchener",
+    "postalCode": "N2M 1P1"
+  },
+  {
+    "placeId": "ChIJNy3KGxL0K4gR_rxOs0N3mOE",
+    "name": "Sol\u00e9 Uptown",
+    "street": "83 Erb Street West",
+    "city": "Waterloo",
+    "postalCode": "N2L 6L9"
+  },
+  {
+    "placeId": "ChIJp6htNPLzK4gRwU7zutTnBQM",
+    "name": "McDonald's",
+    "street": "362 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z2"
+  },
+  {
+    "placeId": "ChIJSTTnZrZ3LIgRSiPA0-q1cbY",
+    "name": "Elixir Bistro",
+    "street": "693 Belmont Avenue West",
+    "city": "Kitchener",
+    "postalCode": "N2M 1P1"
+  },
+  {
+    "placeId": "ChIJoV7eWvTzK4gRMG29_Ekr2Mw",
+    "name": "Bhima's Warung",
+    "street": "262 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Y8"
+  },
+  {
+    "placeId": "ChIJAU-_2fzzK4gR5C93JyGq_aY",
+    "name": "Tim Hortons",
+    "street": "465 Phillip Street",
+    "city": "Waterloo",
+    "postalCode": "N2L 6C7"
+  },
+  {
+    "placeId": "ChIJQ9ap4vL0K4gRFBLDA_I96HQ",
+    "name": "Yo Sushi",
+    "street": "103 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 1A7"
+  },
+  {
+    "placeId": "ChIJrYsz7hL0K4gR18o78ee3Xhk",
+    "name": "Thai Sun",
+    "street": "75 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2V 1P2"
+  },
+  {
+    "placeId": "ChIJo2Z3G_P0K4gR92YO6OU10v0",
+    "name": "Bobby O'Brien's",
+    "street": "125 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 1A7"
+  },
+  {
+    "placeId": "ChIJ4bK3r4zzK4gR9esGd8dAnbU",
+    "name": "Swiss Chalet",
+    "street": "267 Weber Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 3H8"
+  },
+  {
+    "placeId": "ChIJ0bqrUQ30K4gRDUjgQINlq_Q",
+    "name": "Crystal Palace Restaurant",
+    "street": "10 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1N9"
+  },
+  {
+    "placeId": "ChIJy4uAuxL0K4gR4GQtmdL7XK8",
+    "name": "Beertown Public House Waterloo",
+    "street": "75 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1N9"
+  },
+  {
+    "placeId": "ChIJWfsfHA30K4gRMEtfFG5IWrI",
+    "name": "Jane Bond",
+    "street": "5 Princess Street West",
+    "city": "Waterloo",
+    "postalCode": "N2L 2X7"
+  },
+  {
+    "placeId": "ChIJ5RgB4PLzK4gRVSpq_phsK7c",
+    "name": "Wild Wing",
+    "street": "321 Weber Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 3H8"
+  },
+  {
+    "placeId": "ChIJ-fl5khv0K4gRyh8cE7xWpko",
+    "name": "Dairy Queen Grill & Chill",
+    "street": "50 Westmount Road North",
+    "city": "Waterloo",
+    "postalCode": "N2L 2R5"
+  },
+  {
+    "placeId": "ChIJP_Ie6gb0K4gRO7D5w_qpCyE",
+    "name": "Campus Pizza",
+    "street": "160 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3E9"
+  },
+  {
+    "placeId": "ChIJwX36LvLzK4gR_m69xkFRQkE",
+    "name": "Bianca's Pizza",
+    "street": "363 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 4L6"
+  },
+  {
+    "placeId": "ChIJPfyO4Xb0K4gRt2chkToZwtA",
+    "name": "Tim Hortons",
+    "street": "109 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2X5"
+  },
+  {
+    "placeId": "ChIJPfyO4Xb0K4gRcp5ZHT7X7q4",
+    "name": "Gino's Pizza",
+    "street": "94 Bridgeport Road East",
+    "city": "Waterloo",
+    "postalCode": "N2J 2J9"
+  },
+  {
+    "placeId": "ChIJrYsz7hL0K4gRC8oQ-BuYAGY",
+    "name": "Gourmet Pizza Cafe",
+    "street": "75 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1P2"
+  },
+  {
+    "placeId": "ChIJP_Ie6gb0K4gRZacC1pfH44M",
+    "name": "Kismet Restaurant",
+    "street": "160 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3E9"
+  },
+  {
+    "placeId": "ChIJdy6Mngz0K4gRG_77QkZuVek",
+    "name": "Ethel's Lounge",
+    "street": "114 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2X6"
+  },
+  {
+    "placeId": "ChIJk-donkH0K4gRPKIuQKwD2Sc",
+    "name": "Tim Hortons",
+    "street": "638 Belmont Avenue West",
+    "city": "Kitchener",
+    "postalCode": "N2M 1N6"
+  },
+  {
+    "placeId": "ChIJdwBckYz0K4gRW14uy3tGlSM",
+    "name": "Pepi's Pizza",
+    "street": "87 Water Street North",
+    "city": "Kitchener",
+    "postalCode": "N2H 5A1"
+  },
+  {
+    "placeId": "ChIJa4WfFv_zK4gR6W1w1QjLZJg",
+    "name": "Tim Hortons",
+    "street": "151 Columbia Street West",
+    "city": "Waterloo",
+    "postalCode": "N2L 5Z5"
+  },
+  {
+    "placeId": "ChIJHwYDnPXzK4gRXtqYfXMzDp0",
+    "name": "Aunty's Kitchen - Waterloo",
+    "street": "160 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3E9"
+  },
+  {
+    "placeId": "ChIJEWFka_P0K4gRC6FxBKlWtVg",
+    "name": "Pizza pizza",
+    "street": "185 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 1A7"
+  },
+  {
+    "placeId": "ChIJlccFOVH0K4gRzh_hoAGlEBg",
+    "name": "Highland Halal Shawarma",
+    "street": "200 Highland Road West",
+    "city": "Kitchener",
+    "postalCode": "N2M 3C2"
+  },
+  {
+    "placeId": "ChIJ94IZ5-3zK4gRE_EveHXCBz8",
+    "name": "Twice The Deal Pizza",
+    "street": "402 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z3"
+  },
+  {
+    "placeId": "ChIJQWSQivL0K4gR8WZZNO_djSg",
+    "name": "Coffee Culture Caf\u00e9 & Eatery",
+    "street": "1 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 2K4"
+  },
+  {
+    "placeId": "ChIJlYN1e4vzK4gRQs9DouOToi4",
+    "name": "Popeyes Louisiana Kitchen",
+    "street": "85 University Avenue East",
+    "city": "Waterloo",
+    "postalCode": "N2J 2W1"
+  },
+  {
+    "placeId": "ChIJb-toC470K4gRgZETB7ri6Cs",
+    "name": "Mei King Restaurant",
+    "street": "82 Margaret Avenue",
+    "city": "Kitchener",
+    "postalCode": "N2H 4H4"
+  },
+  {
+    "placeId": "ChIJk2a2SfTzK4gRZFAK3dEBk14",
+    "name": "Quick Sandwiches",
+    "street": "95 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 5A2"
+  },
+  {
+    "placeId": "ChIJ5QTVOovzK4gRlhgXZvJulHE",
+    "name": "WingsUp! Waterloo",
+    "street": "65 University Avenue East",
+    "city": "Waterloo",
+    "postalCode": "N2J 2V8"
+  },
+  {
+    "placeId": "ChIJP97RqxL0K4gROJwoJHlUKu0",
+    "name": "McCabe's Irish Pub & Grill",
+    "street": "44 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1N8"
+  },
+  {
+    "placeId": "ChIJNwVfVw30K4gRos1ZcMSYykc",
+    "name": "Famoso Italian Pizzeria - Waterloo",
+    "street": "15 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1N9"
+  },
+  {
+    "placeId": "ChIJnTdBS230K4gR2Wkm7xC5Ax8",
+    "name": "Copper Branch",
+    "street": "80 King Street South",
+    "city": "Waterloo",
+    "postalCode": "N2J 1P5"
+  },
+  {
+    "placeId": "ChIJC3-gA3T0K4gR3C1JoFsbSpg",
+    "name": "iShawarma",
+    "street": "66 Bridgeport Road East",
+    "city": "Waterloo",
+    "postalCode": "N2J 2J9"
+  },
+  {
+    "placeId": "ChIJ291hoRH0K4gRkWGCTk_y_q4",
+    "name": "Proof Kitchen + Lounge",
+    "street": "110 Erb Street West",
+    "city": "Waterloo",
+    "postalCode": "N2L 1T5"
+  },
+  {
+    "placeId": "ChIJYwOiTQ70K4gRLEvrfiwqEu0",
+    "name": "Park Inn",
+    "street": "50 Young Street West",
+    "city": "Waterloo",
+    "postalCode": "N2L 2Z3"
+  },
+  {
+    "placeId": "ChIJUeZX4gn0K4gRlGRU9nsBDyU",
+    "name": "Mr.Sub",
+    "street": "75 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3C5"
+  },
+  {
+    "placeId": "ChIJf5laWGj0K4gR6fwDg4ObSOM",
+    "name": "Taste of Mediterranean",
+    "street": "835 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 1N6"
+  },
+  {
+    "placeId": "ChIJ4QpP0kH0K4gRWfl9xwbLgcc",
+    "name": "Raja Chettinad Fine Indian Cuisine (South and North Indian, Indo-Chinese, Halal)",
+    "street": "725 Belmont Avenue West",
+    "city": "Kitchener",
+    "postalCode": "N2M 1P3"
+  },
+  {
+    "placeId": "ChIJLwqSLmb0K4gRzxNOhUNorsU",
+    "name": "Subway",
+    "street": "835 King Street West",
+    "city": "Kitchener",
+    "postalCode": "N2G 1G3"
+  },
+  {
+    "placeId": "ChIJaUX9-Qn0K4gRIYvT5pRuTOE",
+    "name": "Bento Sushi",
+    "street": "75 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3C5"
+  },
+  {
+    "placeId": "ChIJUeZX4gn0K4gRLiIEBsI9TVo",
+    "name": "Wilf's",
+    "street": "75 University Avenue West",
+    "city": "Waterloo",
+    "postalCode": "N2L 3C5"
+  },
+  {
+    "placeId": "ChIJF2h-dfXzK4gR9M9Dnfld-FY",
+    "name": "Papa Johns Pizza",
+    "street": "220 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Y7"
+  },
+  {
+    "placeId": "ChIJk8-PdfXzK4gRccaMm_7wkEw",
+    "name": "Mucho Burrito Fresh Mexican Grill",
+    "street": "220 King Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Y7"
+  },
+  {
+    "placeId": "ChIJWUvfTqKMK4gRK19ENBIx9eg",
+    "name": "Korner Kitchen Breakfast and Lunch Eatery",
+    "street": "183 Weber Street North",
+    "city": "Waterloo",
+    "postalCode": "N2J 3H3"
+  }
+]

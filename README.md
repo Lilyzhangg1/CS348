@@ -1,26 +1,48 @@
-# CS348
+# WaterlooEats (CS348 Project)
 
-# Installation
+WaterlooEats is a database-driven web application designed to help users in the Kitchener-Waterloo area discover, rate, and track local restaurants. This project uses FastAPI for the backend, React for the frontend, and SQLite as the database.
 
-## MySQL
-### Windows
-  `winget install Oracle.MySQL`
-### MacOS
- `brew install mysql`
+---
+## Sample test
+- located in the sample directory
 
- ## Python
- verify python is installed by running `python3 --version`
+## 📦 Installation & Setup
 
- ## Setup
-Make a virtual environment using the command
-`python3 -m venv venv`
-Run
-`source venv/bin/activate`
-Install required packages using
-`python3 -m pip install -r requirements.txt`
+### Prerequisites
 
-Make a `.env` file with your `DB_USER` and `DB_PASS` set and run the command
+- Python 3.8+
+- SQLite
+- Node.js
 
-`python3 setup_users_db.py` 
+### Setup (Backend)
 
-the users inserted into your database should be printed to the command line.
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/your-username/waterlooeats.git
+   cd waterlooeats
+   ```
+2. **Create and activate a virtual environment**:
+    ```bash
+    python3 -m venv venv
+    source venv/Scripts/activate  # On Mac/Linux: source venv/bin/activate
+    ```
+3. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. **Create sample database**:
+   ```bash
+   cd sample
+   sqlite3 waterlooeats.db < tables_up.sql
+   ```
+5. **Insert sample data**:
+    ```bash
+    python3 insert_sample.py
+    ```
+6. **Run backend server**:
+   ```bash
+    uvicorn main:app --reload
+    ```
+    
+
+   
