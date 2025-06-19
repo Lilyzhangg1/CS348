@@ -38,7 +38,7 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
 4. **Create sample database**:
    ```bash
    cd sample
-   sqlite3 waterlooeats.db < tables_up.sql
+   sqlite3 waterlooeats.db < ../db/tables_up.sql
    ```
 5. **Insert sample data**:
     ```bash
