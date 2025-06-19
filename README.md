@@ -23,7 +23,7 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
 
 1. **Clone the repo**:
    ```bash
-   git clone https://github.com/your-username/waterlooeats.git
+   git clone https://github.com/ritaxiang/waterlooeats.git
    cd waterlooeats
    ```
 2. **Create and activate a virtual environment**:
