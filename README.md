@@ -6,6 +6,11 @@ WaterlooEats is a database-driven web application designed to help users in the 
 ## Sample test
 - located in the sample directory
 
+## Fetching data
+To fetch sample (and ultimately production) data, use the `fetch_clean_data.py` script, specify the range (radius) of the restaurant search to increase the number of tuples fetched.
+
+To get the api key, hit up Bk (😭 please don't query too much, money money)
+
 ## 📦 Installation & Setup
 
 ### Prerequisites
