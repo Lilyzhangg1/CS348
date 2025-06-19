@@ -7,7 +7,7 @@ from models.user_create_request import UserCreate
 from models.user_login_request import UserLogin
 from models.get_restaurants_response import RestaurantOut
 app = FastAPI()
-DB = "sample/waterlooeats.db" # we'll change to production after generating production set
+DB = "../sample/waterlooeats.db" # we'll change to production after generating production set
 
 # --------------------- UTILS ---------------------
 

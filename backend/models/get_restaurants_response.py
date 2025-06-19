@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class RestaurantOut(BaseModel):
     placeId: str
@@ -6,4 +7,4 @@ class RestaurantOut(BaseModel):
     street: str
     city: str
     postalCode: str
-    avgRating: float = None
+    avgRating: Optional[float] = None
