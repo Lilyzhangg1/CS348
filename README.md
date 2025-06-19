@@ -46,6 +46,7 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
     ```
 6. **Run backend server**:
    ```bash
+    cd ../backend
     uvicorn main:app --reload
     ```
     
