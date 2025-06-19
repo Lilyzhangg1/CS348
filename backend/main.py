@@ -6,10 +6,21 @@ import hashlib
 from models.user_create_request import UserCreate
 from models.user_login_request import UserLogin
 from models.get_restaurants_response import RestaurantOut
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 DB = "../sample/waterlooeats.db" # we'll change to production after generating production set
 
 # --------------------- UTILS ---------------------
+
 
 def get_db():
     conn = sqlite3.connect(DB)
