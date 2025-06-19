@@ -49,6 +49,13 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
     cd ../backend
     uvicorn main:app --reload
     ```
-    
+7. **Run frontend server**:
+   In a new terminal, run:
+   ```bash
+    cd frontend
+    npm i
+    npm start
+    ```
+9. 
 
    
