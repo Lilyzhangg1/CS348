@@ -1,17 +1,30 @@
+// RestaurantCard.jsx
+import React from "react";
+import styles from "./RestaurantCard.module.css";
+import { FaStar, FaHeart, FaShareAlt } from "react-icons/fa";
+
 export default function RestaurantCard({ r }) {
   return (
-    <div
-      style={{
-        backgroundColor: "#FFF9C4",
-        border: "1px solid #F0E68C",
-        borderRadius: "8px",
-        margin: "10px 0",
-        padding: "10px",
-      }}
-    >
-      <h3>{r.name}</h3>
-      <p>{r.street}, {r.city} {r.postalCode}</p>
-      <p>⭐ {r.avgRating ?? "No ratings yet"}</p>
+    <div className={styles.card}>
+      {r.isNew && <div className={styles.card__badge}>NEW!</div>}
+
+      <div className={styles.card__header}>{r.name}</div>
+      <div className={styles.card__subheader}>
+        {r.street}, {r.city} {r.postalCode}
+      </div>
+
+      <div className={styles.card__footer}>
+        <div className={styles.card__rating}>
+          <FaStar />
+          <span style={{ marginLeft: "0.25rem" }}>
+            {r.avgRating ?? "No ratings yet"}
+          </span>
+        </div>
+        <div className={styles.card__actions}>
+          <FaHeart />
+          <FaShareAlt style={{ marginLeft: "0.5rem" }} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,15 @@
-// App.js
-import React,{useEffect} from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink
+} from "react-router-dom";
+import styles from "./AppNav.module.css";
+
 import Restaurants from "./pages/Restaurants";
-import Signup     from "./pages/SignUp";
-import Login      from "./pages/Login";
+import Signup      from "./pages/SignUp";
+import Login       from "./pages/Login";
 
 export default function App() {
   useEffect(() => {
@@ -13,27 +19,39 @@ export default function App() {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#fada66",  // global yellow
-        minHeight: "100vh",          // at least fill the screen
-        margin: 0,                   // override any body margin
-        padding: "20px",
-      }}
-    >
-      <BrowserRouter>
-        <nav>
-          <Link to="/restaurants">Browse</Link> |{" "}
-          <Link to="/signup">Sign Up</Link> |{" "}
-          <Link to="/login">Log In</Link>
-        </nav>
+    <BrowserRouter>
+      <nav className={styles.navbar}>
+        <NavLink
+          to="/restaurants"
+          className={styles.navItem}
+          activeClassName={styles.active}
+        >
+          Browse
+        </NavLink>
+        <NavLink
+          to="/signup"
+          className={styles.navItem}
+          activeClassName={styles.active}
+        >
+          Sign Up
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={styles.navItem}
+          activeClassName={styles.active}
+        >
+          Log In
+        </NavLink>
+      </nav>
+
+      <div style={{ padding: "0 20px" }}>
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
           <Route path="*"            element={<Restaurants />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }

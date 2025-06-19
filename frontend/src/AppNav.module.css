@@ -1,0 +1,41 @@
+/* AppNav.module.css */
+
+.navbar {
+  display: flex;
+  background-color: #fff2c9;      /* very pale cream */
+  border: 1px solid #e0c060;      /* a soft gold */
+  border-radius: 10px;            /* softer pill, not insane 9999px */
+  overflow: hidden;               /* clip child BGs to this shape */
+  width: 25%;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.navItem {
+  flex: 1;
+  padding: 0.6rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #5a4630;
+  font-weight: 500;
+  background: transparent;        /* let container show through */
+  transition: background-color .2s, color .2s;
+  font-size: 1rem;
+}
+
+/* divider */
+.navItem + .navItem {
+  border-left: 1px solid #e0c060;
+}
+
+/* hover */
+.navItem:hover {
+  background-color: rgba(224, 192, 96, 0.2);
+}
+
+/* active */
+.active {
+  background-color: #e0c060;
+  color: white;
+}
