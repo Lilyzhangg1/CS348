@@ -3,7 +3,7 @@ CREATE TABLE Restaurant (
     name VARCHAR(100),
     street VARCHAR(100),
     city VARCHAR(100),
-    postalCode VARCHAR(20),
+    postalCode VARCHAR(20)
 );
 
 CREATE TABLE User (
