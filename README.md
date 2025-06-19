@@ -56,6 +56,5 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
     npm i
     npm start
     ```
-9. 
-
+   
    
