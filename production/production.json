@@ -1,0 +1,1465 @@
+[
+  {
+    "placeId": "ChIJsfm4W973K4gRrM6NYHn6IGg",
+    "name": "Rebel Creek Golf Club",
+    "street": "1517 Snyder's Rd E",
+    "city": "Petersburg",
+    "postalCode": "N0B 2H0"
+  },
+  {
+    "placeId": "ChIJ3XcvPXL2K4gRHYvs8-tFA6U",
+    "name": "Tim Hortons",
+    "street": "1500 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2N 3K6"
+  },
+  {
+    "placeId": "ChIJ0eMhByj3K4gRhul_4JMUewY",
+    "name": "TandooriTwist Pizza",
+    "street": "540 Westforest Trail C",
+    "city": "Kitchener",
+    "postalCode": "N2N 3J4"
+  },
+  {
+    "placeId": "ChIJbUpDVgj3K4gRDhukxM3dPhI",
+    "name": "Burger Stack - smashburgers",
+    "street": "255 Highview Dr #3",
+    "city": "Kitchener",
+    "postalCode": "N2N 2K7"
+  },
+  {
+    "placeId": "ChIJ_SLAX2H2K4gRCyChIFdLi_8",
+    "name": "Coffee Culture Cafe & Eatery",
+    "street": "215 The Boardwalk",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJESZNb2H2K4gR9B3yl3hNIZY",
+    "name": "Popeyes Louisiana Kitchen",
+    "street": "235 The Boardwalk Unit 04",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJAQAAANz1K4gRUp2TMchDea8",
+    "name": "McDonald's",
+    "street": "100 The Boardwalk",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJHyDLvP33K4gRgPH5kst_nzc",
+    "name": "Edo Japan",
+    "street": "205 The Boardwalk #4",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJ2QwYeA72K4gRei_sshtuZHI",
+    "name": "Harvey's",
+    "street": "235 Ira Needles Blvd",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B2"
+  },
+  {
+    "placeId": "ChIJ2QwYeA72K4gRoQY_TtI2scA",
+    "name": "Sunset Grill",
+    "street": "235 Ira Needles Blvd",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B5"
+  },
+  {
+    "placeId": "ChIJ0-i2gar3K4gRFTEVHUmfcS8",
+    "name": "BeaverTails - Queues de Castor (Waterloo Boardwalk)",
+    "street": "235 The Boardwalk #3",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B7"
+  },
+  {
+    "placeId": "ChIJOSFC1A32K4gRX0jG1DbDcLA",
+    "name": "Pizza Express (Highview/Ira Needles)",
+    "street": "255 Highview Dr",
+    "city": "Kitchener",
+    "postalCode": "N2N 2K7"
+  },
+  {
+    "placeId": "ChIJJw-HK0r3K4gRycdPupVib1Y",
+    "name": "Firehouse Subs The Boardwalk",
+    "street": "200 The Boardwalk Unit 1",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJ2QwYeA72K4gRIR_WT_H10jA",
+    "name": "Pizzaville",
+    "street": "235 Ira Needles Blvd Unit B9",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B2"
+  },
+  {
+    "placeId": "ChIJ79cgxIr2K4gRAaMyaNG5PF8",
+    "name": "barBURRITO",
+    "street": "205 The Boardwalk",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJwfzhbmH2K4gRglW1wCz5W4Y",
+    "name": "Chopped Leaf",
+    "street": "235 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2J 3Z4"
+  },
+  {
+    "placeId": "ChIJnZ9wcWT2K4gRiiQPwvYfrlg",
+    "name": "Booster Juice",
+    "street": "6 The Boardwalk #235",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJq6qqqu72K4gRhA_rECo4MVE",
+    "name": "Subway",
+    "street": "345 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJPaFOYGH2K4gR2U4dx1Rxjvc",
+    "name": "South St. Burger",
+    "street": "205 The Boardwalk",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJrytsZ2H2K4gRn8L0Bxmfm_0",
+    "name": "Little Caesars Pizza",
+    "street": "2 The Boardwalk",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJ2QwYeA72K4gR1FTuOajGgJc",
+    "name": "Subway",
+    "street": "235 Ira Needles Blvd Bldg B",
+    "city": "Kitchener",
+    "postalCode": "N2N 0B1"
+  },
+  {
+    "placeId": "ChIJ_1Vv_pf1K4gRwdMmq3F1cR8",
+    "name": "Tim Hortons",
+    "street": "685 Fischer-Hallman Rd",
+    "city": "Kitchener",
+    "postalCode": "N2E 1L7"
+  },
+  {
+    "placeId": "ChIJedXCV731K4gRKESD1vAETlU",
+    "name": "Pizza Hut",
+    "street": "685 Fischer-Hallman Rd",
+    "city": "Kitchener",
+    "postalCode": "N2L 6M4"
+  },
+  {
+    "placeId": "ChIJu-75PgD1K4gR8foHYt27Nd8",
+    "name": "Mr Khaman",
+    "street": "192 Activa Ave",
+    "city": "Kitchener",
+    "postalCode": "N2E 4K5"
+  },
+  {
+    "placeId": "ChIJ_1Vv_pf1K4gRQoXlgPApDl0",
+    "name": "Wendy's",
+    "street": "685 Fischer-Hallman Rd",
+    "city": "Kitchener",
+    "postalCode": "N2E 1L7"
+  },
+  {
+    "placeId": "ChIJk1sgMsn1K4gRTtJOok55MOk",
+    "name": "KFC",
+    "street": "875 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2N 2Y2"
+  },
+  {
+    "placeId": "ChIJxYg6nZb1K4gRrWJTX-B4rP8",
+    "name": "Kelseys Original Roadhouse",
+    "street": "South",
+    "city": "1440 Ottawa St S",
+    "postalCode": "N2E 4E2"
+  },
+  {
+    "placeId": "ChIJOaWEnb31K4gRcfin_f-gflI",
+    "name": "Pho Dau Bo Restaurant",
+    "street": "685 Fischer-Hallman Rd G",
+    "city": "Kitchener",
+    "postalCode": "N2E 4E9"
+  },
+  {
+    "placeId": "ChIJk1sgMsn1K4gRgeraCZZ08NU",
+    "name": "Pizza Pizza",
+    "street": "875 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2N 2Y2"
+  },
+  {
+    "placeId": "ChIJUeuY5ZX1K4gRxDV6ZILyCSw",
+    "name": "Pho Sunrise",
+    "street": "1400 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 4E2"
+  },
+  {
+    "placeId": "ChIJM5px_JX1K4gRJ7pQNGTydGM",
+    "name": "McDonald's",
+    "street": "1400 Ottawa St S e",
+    "city": "Kitchener",
+    "postalCode": "N2E 4E2"
+  },
+  {
+    "placeId": "ChIJ_1Vv_pf1K4gRWRJ9T43-3GQ",
+    "name": "Omega Family Restaurant",
+    "street": "685 Fischer-Hallman Rd",
+    "city": "Kitchener",
+    "postalCode": "N2E 4E9"
+  },
+  {
+    "placeId": "ChIJmW9ZcN31K4gR4KkSK8_Ox1Q",
+    "name": "Magic Pizza",
+    "street": "450 Westheights Dr",
+    "city": "Kitchener",
+    "postalCode": "N2N 1M2"
+  },
+  {
+    "placeId": "ChIJn65CnFL1K4gR2PIg3VBfHcM",
+    "name": "BarNaan - Wraps and Bowls",
+    "street": "1400 Ottawa St S B8",
+    "city": "Kitchener",
+    "postalCode": "N2E 4E2"
+  },
+  {
+    "placeId": "ChIJd6HID030K4gRXapG9NuImpg",
+    "name": "McDonald's",
+    "street": "431 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 3C6"
+  },
+  {
+    "placeId": "ChIJ3_drkAX1K4gRewlq8Rj0KNk",
+    "name": "Choice Indian Restaurant | Best Indian Restaurant in Kitchener | Authentic Indian Restaurant",
+    "street": "720 Westmount Rd E Unit 103",
+    "city": "Kitchener",
+    "postalCode": "N2E 1J2"
+  },
+  {
+    "placeId": "ChIJKS4CMxr1K4gRkw4EcvjdQUg",
+    "name": "McDonald's",
+    "street": "715 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJRQDnyaj1K4gRTcO9QnZWK20",
+    "name": "Panj Taara Bar & Grill",
+    "street": "725 Ottawa St S #110",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJgRu53LD1K4gRurbqT4b7l4M",
+    "name": "Nilkanth Kathiyawadi Restaurant",
+    "street": "1241 Strasburg Rd",
+    "city": "Kitchener",
+    "postalCode": "N2R 0S1"
+  },
+  {
+    "placeId": "ChIJ_-QCRnj1K4gRwAwT3M_aTU4",
+    "name": "McDonald's",
+    "street": "& Westmount",
+    "city": "1191 Fischer-Hallman Rd",
+    "postalCode": "N2R 1P4"
+  },
+  {
+    "placeId": "ChIJp1sM-aL1K4gRoJJQAbQfGNM",
+    "name": "Shishalicious Cafe & Resto",
+    "street": "721 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJO7FdBHn1K4gR1EklzzybjiU",
+    "name": "Shivas Dosa Restaurant",
+    "street": "1187 Fischer-Hallman Rd #430",
+    "city": "Kitchener",
+    "postalCode": "N2E 4H9"
+  },
+  {
+    "placeId": "ChIJi7B4g8P1K4gRMoE4k9Q4ElM",
+    "name": "Chuck's Roadhouse Bar & Grill",
+    "street": "446 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 3C7"
+  },
+  {
+    "placeId": "ChIJqQ344w_1K4gRDSuh2XNuLdc",
+    "name": "Tim Hortons",
+    "street": "795 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJ5S69eT_1K4gRS-taw_zt2lY",
+    "name": "Pizza CraviN",
+    "street": "725 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJNb4oxab1K4gRtyg19jKeIBU",
+    "name": "Mel's Diner",
+    "street": "645 Westmount Rd E",
+    "city": "Kitchener",
+    "postalCode": "N2E 2K1"
+  },
+  {
+    "placeId": "ChIJNyn47DD1K4gR0tY9o6oyFAA",
+    "name": "Damask Resto Market",
+    "street": "645 Westmount Rd E",
+    "city": "Kitchener",
+    "postalCode": "N2E 3S3"
+  },
+  {
+    "placeId": "ChIJ2WXuNxr1K4gRoseFTQgXzNU",
+    "name": "Popeyes Louisiana Kitchen",
+    "street": "725 Ottawa St S F",
+    "city": "Kitchener",
+    "postalCode": "N2E 3H5"
+  },
+  {
+    "placeId": "ChIJyXG2-in0K4gRdeL_b_cjknI",
+    "name": "Tim Hortons",
+    "street": "1201 Fischer-Hallman Rd",
+    "city": "Kitchener",
+    "postalCode": "N2N 4X8"
+  },
+  {
+    "placeId": "ChIJ8y1M-w_1K4gR9erOyLVifzw",
+    "name": "Fireside Deli & Family Restaurant",
+    "street": "800 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2E 3M6"
+  },
+  {
+    "placeId": "ChIJ0ZARJJeLK4gRF_eM3RPtcKY",
+    "name": "Chick-fil-A",
+    "street": "225 Fairway Rd S #200",
+    "city": "Kitchener",
+    "postalCode": "N2C 1X2"
+  },
+  {
+    "placeId": "ChIJ8510gs2KK4gRPwjWoT9El1o",
+    "name": "McDonald's",
+    "street": "666 Fairway Rd S",
+    "city": "Kitchener",
+    "postalCode": "N2C 1X3"
+  },
+  {
+    "placeId": "ChIJzzQgVFKLK4gRTk6mPPnZ97U",
+    "name": "Royal Paan",
+    "street": "509 Wilson Ave Unit No 7",
+    "city": "Kitchener",
+    "postalCode": "N2C 2M4"
+  },
+  {
+    "placeId": "ChIJJehNzh_1K4gR6kWbo3M1PVI",
+    "name": "Concordia Club",
+    "street": "429 Ottawa St S",
+    "city": "Kitchener",
+    "postalCode": "N2M 3P6"
+  },
+  {
+    "placeId": "ChIJiS7fF9uKK4gRS7O82HXzxzQ",
+    "name": "Farm Boy",
+    "street": "Fairway Plaza",
+    "city": "385 Fairway Rd S",
+    "postalCode": "N2C 2N9"
+  },
+  {
+    "placeId": "ChIJRfZR76X1K4gR10LAuDWCZ4E",
+    "name": "Hakka Aroma",
+    "street": "270 Bleams Rd",
+    "city": "Kitchener",
+    "postalCode": "N2C 2K6"
+  },
+  {
+    "placeId": "ChIJOd_-MZ2LK4gRpKOFR5PrlDU",
+    "name": "Madras Chettinaad",
+    "street": "509 Wilson Ave #16",
+    "city": "Kitchener",
+    "postalCode": "N2C 2M4"
+  },
+  {
+    "placeId": "ChIJQfYAOs6KK4gRNqYnq8oMeoo",
+    "name": "Jersey Mike's Subs",
+    "street": "589 Fairway Rd S",
+    "city": "Kitchener",
+    "postalCode": "N2C 1X4"
+  },
+  {
+    "placeId": "ChIJ7xzujUWLK4gReNSi4nfPDdI",
+    "name": "Turkish Flames",
+    "street": "569 Fairway Rd S",
+    "city": "Kitchener",
+    "postalCode": "N2C 1X4"
+  },
+  {
+    "placeId": "ChIJSfqwSWKLK4gR4yiEN1aGBVk",
+    "name": "Kachori House Kitchener",
+    "street": "600 Doon Village Rd Unit 102",
+    "city": "Kitchener",
+    "postalCode": "N2P 1G6"
+  },
+  {
+    "placeId": "ChIJPTAQOeKLK4gRLOGk_3hnt8k",
+    "name": "Punjabi Chaap Kitchener",
+    "street": "5 Manitou Dr Unit 106B",
+    "city": "Kitchener",
+    "postalCode": "N2C 2J6"
+  },
+  {
+    "placeId": "ChIJY47u1tqKK4gRYWfpBKiw2AE",
+    "name": "Moxies Kitchener Restaurant",
+    "street": "385 Fairway Rd S",
+    "city": "Kitchener",
+    "postalCode": "N2C 2N9"
+  },
+  {
+    "placeId": "ChIJN1xmyXSLK4gRgMC4ql90vx0",
+    "name": "Tim Hortons",
+    "street": "340 Fairway Rd S",
+    "city": "Kitchener",
+    "postalCode": "N2C 1X3"
+  },
+  {
+    "placeId": "ChIJIZe3L5mLK4gRlwfJiLwPlrY",
+    "name": "Sardar Ji Kitchener",
+    "street": "1458 Weber St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 2Y5"
+  },
+  {
+    "placeId": "ChIJ3Sdd-R-LK4gReeW3jYFn_gU",
+    "name": "Charcoal Steak House",
+    "street": "2980 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 1A9"
+  },
+  {
+    "placeId": "ChIJuTn-iTeLK4gR37ixA8mfsBo",
+    "name": "The Grand Mehfil",
+    "street": "1400 Weber St E Unit B2-4",
+    "city": "Kitchener",
+    "postalCode": "N2A 3Z8"
+  },
+  {
+    "placeId": "ChIJy3FzVW2LK4gRm4AzJkgpIwU",
+    "name": "Paranthe Wali Gali",
+    "street": "2979 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 1A8"
+  },
+  {
+    "placeId": "ChIJV6uf6KeLK4gRA4ay8zMRyFs",
+    "name": "Jay Bhavani Vadapav Kitchener",
+    "street": "1400 Weber St E B1",
+    "city": "Kitchener",
+    "postalCode": "N2A 3Z8"
+  },
+  {
+    "placeId": "ChIJyfj-RbT1K4gRvCtGbFnmgZY",
+    "name": "HomeTaste - Indian Cuisine, Indian Restaurant, Indian Food, Takeout Restaurant, Tiffin & Catering Services kitchener",
+    "street": "1601 River Rd E Unit 29",
+    "city": "Kitchener",
+    "postalCode": "N2A 2R6"
+  },
+  {
+    "placeId": "ChIJe1AkziaLK4gRRlquQzrDvt0",
+    "name": "Tim Hortons",
+    "street": "1426 Weber St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 3A7"
+  },
+  {
+    "placeId": "ChIJI0YX0iiLK4gR276Vsqeq9aw",
+    "name": "Del's Italian Kitchen",
+    "street": "2980 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 1A9"
+  },
+  {
+    "placeId": "ChIJs1deGWiLK4gRHwtGUzrCAXU",
+    "name": "Stacked Pancake & Breakfast House",
+    "street": "1335 Weber St E",
+    "city": "Kitchener",
+    "postalCode": "N2A 1C4"
+  },
+  {
+    "placeId": "ChIJy0yYmw73K4gRze3YRKPOmhQ",
+    "name": "McDonalds",
+    "street": "924 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJ38Rd3vD2K4gRiYH98vdSxVE",
+    "name": "Symposium Cafe Restaurant Waterloo",
+    "street": "668 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2K8"
+  },
+  {
+    "placeId": "ChIJr9Uv8MX3K4gR9ZJUw5G7Fw8",
+    "name": "A&W Canada",
+    "street": "656 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2Z7"
+  },
+  {
+    "placeId": "ChIJbUzoNwD3K4gRbWjSF-Ck79k",
+    "name": "Stacked Pancake & Breakfast House",
+    "street": "922 Erb St. W #1",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJGUww5PD2K4gR3GyEGT1-_K4",
+    "name": "Panago Pizza",
+    "street": "668 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2Z7"
+  },
+  {
+    "placeId": "ChIJu7G4tSb3K4gRKcAeVtK2GNw",
+    "name": "Osmow's Shawarma",
+    "street": "922 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJfYGzXvH2K4gRbPtHlbl4FtU",
+    "name": "Pita Pit",
+    "street": "655 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C5"
+  },
+  {
+    "placeId": "ChIJe4qPZtb3K4gRDApca0eJj-A",
+    "name": "WOW Indian Kitchen",
+    "street": "668 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2Z7"
+  },
+  {
+    "placeId": "ChIJpbTeLmr3K4gRmXILMWMgw80",
+    "name": "Gino's Pizza",
+    "street": "922 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJRVFOfIj3K4gRZQgRiAJDC6o",
+    "name": "Kennedy's Restaurant & Catering",
+    "street": "1750 Erbs Rd",
+    "city": "St. Agatha",
+    "postalCode": "N0B 2L0"
+  },
+  {
+    "placeId": "ChIJrctBr3b3K4gRhuhYk3Brric",
+    "name": "Church's Texas Chicken",
+    "street": "916 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJB89Ek3P3K4gRTOKHEzLFGbU",
+    "name": "Wok Box - Waterloo West",
+    "street": "922 Erb St. W #7",
+    "city": "Waterloo",
+    "postalCode": "N2J3Z4"
+  },
+  {
+    "placeId": "ChIJGcFF5_D2K4gRhTakbpDWZAo",
+    "name": "Perogies And Poutine",
+    "street": "668 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2Z7"
+  },
+  {
+    "placeId": "ChIJ9b7ftlX3K4gRb7-4SkJNGCE",
+    "name": "My Dosa Place ( South Indian Pure VEG)",
+    "street": "922 Erb St. W Unit C3#3",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C3"
+  },
+  {
+    "placeId": "ChIJGcFF5_D2K4gRXRPJBwAYxlQ",
+    "name": "Sandwich Chef",
+    "street": "668 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2Z7"
+  },
+  {
+    "placeId": "ChIJ5Y_uoOX3K4gR-w79dThSjYE",
+    "name": "OPA! Of Greece West Waterloo",
+    "street": "922 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2J 3Z4"
+  },
+  {
+    "placeId": "ChIJqftyCRL3K4gRkjtasZEoxf4",
+    "name": "Tim Hortons",
+    "street": "5 Westhill Dr",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C4"
+  },
+  {
+    "placeId": "ChIJYxoX2S73K4gRQ2OvIe7S6x0",
+    "name": "Chuck's Roadhouse Bar & Grill",
+    "street": "651 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0C5"
+  },
+  {
+    "placeId": "ChIJq6qqqu72K4gRlbIS5M8ZPVU",
+    "name": "Milestones",
+    "street": "410 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJq6qqqu72K4gRHxrNMaWhatM",
+    "name": "Montana\u2019s BBQ & Bar",
+    "street": "310 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJPaFOYGH2K4gRPupLaedA8zo",
+    "name": "ALMADINA Woodstone Oven & Grill",
+    "street": "330 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJxQbvgGH2K4gR82JIu4VREbA",
+    "name": "Dairy Queen Grill & Chill",
+    "street": "330 The Boardwalk #1",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJu1kztQD3K4gREWEJOHiBuGM",
+    "name": "Kerala Swad - Indian Cuisine",
+    "street": "646 Erb St. W",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A8"
+  },
+  {
+    "placeId": "ChIJpy9zHJr2K4gR8YxjcYw5tJY",
+    "name": "Pizza Pizza",
+    "street": "450 Erb St. W Unit 4",
+    "city": "Waterloo",
+    "postalCode": "N2T 1H4"
+  },
+  {
+    "placeId": "ChIJq6qqqu72K4gRSvATI0Ryx1Y",
+    "name": "Swiss Chalet",
+    "street": "340 The Boardwalk",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJlRkS3tT3K4gRZsh-a_vn0lI",
+    "name": "Madhu's Roti & Doubles",
+    "street": "851 Fischer-Hallman Rd #11",
+    "city": "Kitchener",
+    "postalCode": "N2M 5N8"
+  },
+  {
+    "placeId": "ChIJmRIADTT0K4gRbI4Xv4jEUrc",
+    "name": "Onkar Foods & Spices",
+    "street": "13-15",
+    "city": "101 Hazelglen Drive",
+    "postalCode": "N2M 5A2"
+  },
+  {
+    "placeId": "ChIJ4QpP0kH0K4gRWfl9xwbLgcc",
+    "name": "Raja Chettinad Fine Indian Cuisine (South and North Indian, Indo-Chinese, Halal)",
+    "street": "725 Belmont Ave W",
+    "city": "Kitchener",
+    "postalCode": "N2M 1P3"
+  },
+  {
+    "placeId": "ChIJF_n75UT1K4gRwxMFVznfZng",
+    "name": "Graffiti Market",
+    "street": "137 Glasgow St suite 385",
+    "city": "Kitchener",
+    "postalCode": "N2G 4X8"
+  },
+  {
+    "placeId": "ChIJyd_961H3K4gRcnb1zRZLcPE",
+    "name": "The Grand Malabar Indian Cuisine",
+    "street": "347 Erb St. W #4",
+    "city": "Waterloo",
+    "postalCode": "N2L 1W4"
+  },
+  {
+    "placeId": "ChIJgf8gDkr0K4gRdJ4yLWYB2bE",
+    "name": "Tim Hortons",
+    "street": "340 Westmount Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 5C4"
+  },
+  {
+    "placeId": "ChIJr5z73cv1K4gRhQVal_a3l4Y",
+    "name": "LaTikka Indian Restaurant",
+    "street": "200 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 3C2"
+  },
+  {
+    "placeId": "ChIJUdvy_TX1K4gRzU75pPXvhGY",
+    "name": "Flame House Grill & Bar - KITCHENER ( Fine Indian, Hakka Chinese & Momos )",
+    "street": "370 Highland Rd W Unit 12",
+    "city": "Kitchener",
+    "postalCode": "N2M 5J9"
+  },
+  {
+    "placeId": "ChIJUR_C7Ir1K4gR7vsqV0oK74M",
+    "name": "AGHA Turkish Restaurant Waterloo",
+    "street": "50 Westmount Rd N D4-D5",
+    "city": "Waterloo",
+    "postalCode": "N2L 6N9"
+  },
+  {
+    "placeId": "ChIJdfy3PDb0K4gRGDK-_xbnKLY",
+    "name": "Wendy's",
+    "street": "350 Westmount Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 5C4"
+  },
+  {
+    "placeId": "ChIJNfiMlk30K4gRUjevAVH4Mgw",
+    "name": "Lazeez Shawarma",
+    "street": "370 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 5J9"
+  },
+  {
+    "placeId": "ChIJX1pP8aX1K4gR9OLEtq1Wr5U",
+    "name": "Red Swan Pizza - Waterloo Westmount Rd",
+    "street": "Besides T&T Supermarket",
+    "city": "50 Westmount Rd N C3-A",
+    "postalCode": "N2L 2R5"
+  },
+  {
+    "placeId": "ChIJwbGxFk30K4gR_pQ3-61z7Qo",
+    "name": "A&W Canada",
+    "street": "443 Highland Rd W",
+    "city": "Kitchener",
+    "postalCode": "N2M 3C6"
+  },
+  {
+    "placeId": "ChIJM40rfmv0K4gREJ3wKht5ey4",
+    "name": "The Bauer Kitchen",
+    "street": "187 King St S #102",
+    "city": "Waterloo",
+    "postalCode": "N2L 0A5"
+  },
+  {
+    "placeId": "ChIJVVV5tO30K4gR_utDUrrlPq8",
+    "name": "SMK African Foods Inc",
+    "street": "206-C King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 2L1"
+  },
+  {
+    "placeId": "ChIJC6QpPYD1K4gRZ-yrlkDFN2Q",
+    "name": "Tim Hortons",
+    "street": "4 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 1A3"
+  },
+  {
+    "placeId": "ChIJbab-Z_P0K4gRQaB6jd_oCrM",
+    "name": "Kinkaku Izakaya",
+    "street": "217 King St W",
+    "city": "Kitchener",
+    "postalCode": "N2G 0C9"
+  },
+  {
+    "placeId": "ChIJcdqCn-31K4gRn6K6D2dHm3Y",
+    "name": "Jayalakshmi South Indian Cuisine",
+    "street": "265 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 4N4"
+  },
+  {
+    "placeId": "ChIJFV5C-8L0K4gRlwTGIs9VSnY",
+    "name": "Tim Hortons",
+    "street": "925 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 3R5"
+  },
+  {
+    "placeId": "ChIJW33HJGf0K4gR7QZ0yw5KRw8",
+    "name": "Tim Hortons",
+    "street": "730 King St W",
+    "city": "Kitchener",
+    "postalCode": "N2G 1E2"
+  },
+  {
+    "placeId": "ChIJr7LKKTb1K4gR_RYas2LuOcI",
+    "name": "Holly's Neighbourhood Cafe & Bar",
+    "street": "27 Roy St",
+    "city": "Kitchener",
+    "postalCode": "N2H 4B4"
+  },
+  {
+    "placeId": "ChIJ7dmpVQP1K4gRArPe0CZlhOY",
+    "name": "Culture Crust (Kitchener)",
+    "street": "825 Weber St E unit#4",
+    "city": "Kitchener",
+    "postalCode": "N2H 1H5"
+  },
+  {
+    "placeId": "ChIJRYbDIrz0K4gRkqJUKe0eEdI",
+    "name": "AMF Frederick Lanes",
+    "street": "385 Frederick St",
+    "city": "Kitchener",
+    "postalCode": "N2H 2P2"
+  },
+  {
+    "placeId": "ChIJw12U-vL0K4gRTL2omy1bWsE",
+    "name": "Leung Yue Hot Pot - Members Only",
+    "street": "1508 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 2P1"
+  },
+  {
+    "placeId": "ChIJ0-ESf9H0K4gRygzi-c3v59g",
+    "name": "Red Lobster",
+    "street": "1732 King St E",
+    "city": "Kitchener",
+    "postalCode": "N2G 2P1"
+  },
+  {
+    "placeId": "ChIJ2TtaoUiLK4gRsZoqWZL6A7Y",
+    "name": "McDonald's",
+    "street": "1020 Ottawa St N",
+    "city": "Kitchener",
+    "postalCode": "N2A 3Z3"
+  },
+  {
+    "placeId": "ChIJ_79zEWf1K4gRNMuhpIIxneo",
+    "name": "Palm Valley Indian Restaurant",
+    "street": "Frederick Mall",
+    "city": "385 Frederick St #34",
+    "postalCode": "N2H 2P2"
+  },
+  {
+    "placeId": "ChIJBeL58uWIK4gRtiS6Vqr_bSw",
+    "name": "The Java Garden",
+    "street": "600 Laurelwood Dr",
+    "city": "Waterloo",
+    "postalCode": "N2V 0A2"
+  },
+  {
+    "placeId": "ChIJgSDBrij3K4gR1Ktnop5JIis",
+    "name": "Big Bite Pizza + Wings",
+    "street": "645 Laurelwood Dr",
+    "city": "Waterloo",
+    "postalCode": "N2V 2W9"
+  },
+  {
+    "placeId": "ChIJZ-8FkiX3K4gRXfczp9KJlMU",
+    "name": "Twice The Deal Pizza",
+    "street": "600 Laurelwood Dr",
+    "city": "Waterloo",
+    "postalCode": "N2V 0A2"
+  },
+  {
+    "placeId": "ChIJHVm1l6v3K4gRxSL0xL5-UwE",
+    "name": "Kiwi Bowl Chinese Restaurant(Formerly Lin\u2019s Garden)",
+    "street": "600 Laurelwood Dr unit 130",
+    "city": "Waterloo",
+    "postalCode": "N2V 0A2"
+  },
+  {
+    "placeId": "ChIJZ-8FkiX3K4gRqURZOtYNQi8",
+    "name": "Subway",
+    "street": "600 Laurelwood Dr Unit 125",
+    "city": "Waterloo",
+    "postalCode": "N2T 0A6"
+  },
+  {
+    "placeId": "ChIJaTjdgyj3K4gR_WPRukX9BqA",
+    "name": "Shawarma Lounge",
+    "street": "645 Laurelwood Dr Unit D",
+    "city": "Waterloo",
+    "postalCode": "N2V 2W9"
+  },
+  {
+    "placeId": "ChIJcapqnUf3K4gRJ3JDJNks7Y0",
+    "name": "barBURRITO",
+    "street": "606 Laurelwood Dr Unit 300b",
+    "city": "Waterloo",
+    "postalCode": "N2V 2S7"
+  },
+  {
+    "placeId": "ChIJhYyhjgP0K4gRu0X3M86RPO8",
+    "name": "Tim Hortons",
+    "street": "200 University Ave W Suite 111",
+    "city": "Waterloo",
+    "postalCode": "N2L 3G1"
+  },
+  {
+    "placeId": "ChIJ-fl5khv0K4gRyh8cE7xWpko",
+    "name": "Dairy Queen Grill & Chill",
+    "street": "50 Westmount Rd N",
+    "city": "Waterloo",
+    "postalCode": "N2L 2R5"
+  },
+  {
+    "placeId": "ChIJQXFpf8j2K4gRrZaurf4BVaM",
+    "name": "Domino's Pizza",
+    "street": "450 Columbia St W",
+    "city": "Waterloo",
+    "postalCode": "N2T 2W1"
+  },
+  {
+    "placeId": "ChIJT-SS4zr1K4gRt8bUxHyik1Q",
+    "name": "Popeyes Louisiana Kitchen",
+    "street": "50 Westmount Rd N",
+    "city": "Waterloo",
+    "postalCode": "N2L 6N9"
+  },
+  {
+    "placeId": "ChIJp6htNPLzK4gRwU7zutTnBQM",
+    "name": "McDonald's",
+    "street": "362 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z2"
+  },
+  {
+    "placeId": "ChIJy4uAuxL0K4gR4GQtmdL7XK8",
+    "name": "Beertown Public House Waterloo",
+    "street": "Square",
+    "city": "75 King St S Unit 37",
+    "postalCode": "N2J 1N9"
+  },
+  {
+    "placeId": "ChIJ_0UexkzzK4gREdtZRiQ0SZA",
+    "name": "Farm Boy",
+    "street": "417 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z5"
+  },
+  {
+    "placeId": "ChIJf93czgb0K4gR2anL3Rkcy3c",
+    "name": "Williams Fresh Cafe",
+    "street": "170 University Ave W",
+    "city": "Waterloo",
+    "postalCode": "N2L 3E9"
+  },
+  {
+    "placeId": "ChIJq0aXi2PzK4gRBQWgpVkTeXM",
+    "name": "Gyubee Japanese Grill (Waterloo)",
+    "street": "253 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Y8"
+  },
+  {
+    "placeId": "ChIJWUvfTqKMK4gRK19ENBIx9eg",
+    "name": "Korner Kitchen Breakfast and Lunch Eatery",
+    "street": "183 Weber St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 3H3"
+  },
+  {
+    "placeId": "ChIJPfyO4Xb0K4gRt2chkToZwtA",
+    "name": "Tim Hortons",
+    "street": "109 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2X5"
+  },
+  {
+    "placeId": "ChIJYZgb-Wb1K4gRl-AHJ22cTxE",
+    "name": "P\u00fcr & Simple",
+    "street": "2 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 1N8"
+  },
+  {
+    "placeId": "ChIJ8Rps6Qz0K4gR_DjWtOnvsiY",
+    "name": "The Pub On King",
+    "street": "77 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2X3"
+  },
+  {
+    "placeId": "ChIJNy3KGxL0K4gR_rxOs0N3mOE",
+    "name": "Sol\u00e9 Uptown",
+    "street": "83 Erb St. W Building Two",
+    "city": "Waterloo",
+    "postalCode": "N2L 6L9"
+  },
+  {
+    "placeId": "ChIJu5tPi8n1K4gRdBocxztBI9E",
+    "name": "KINTON RAMEN WATERLOO",
+    "street": "31 King St N 1st Floor",
+    "city": "Waterloo",
+    "postalCode": "N2J 2W6"
+  },
+  {
+    "placeId": "ChIJDwoPGJz1K4gRJM--u_HMpMk",
+    "name": "Daldongnae Korean BBQ - Waterloo",
+    "street": "51 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2W9"
+  },
+  {
+    "placeId": "ChIJ3Q1cmgP0K4gRMg_ATXh0ClY",
+    "name": "Tim Hortons",
+    "street": "65 University Ave E",
+    "city": "Waterloo",
+    "postalCode": "N2J 2V9"
+  },
+  {
+    "placeId": "ChIJs8S1iNdGhFQRPR4QhVbQxtA",
+    "name": "Domino's Pizza",
+    "street": "65 University Ave E",
+    "city": "Waterloo",
+    "postalCode": "N2J 2V9"
+  },
+  {
+    "placeId": "ChIJA0G-vz3zK4gRFNBuJcb2ico",
+    "name": "Royal Paan ( Waterloo) 100% Veg Indian Street food , Sweets, Snacks & Milkshakes",
+    "street": "27 University Ave E",
+    "city": "Waterloo",
+    "postalCode": "N2J 2V9"
+  },
+  {
+    "placeId": "ChIJf5tZkmXzK4gRJpVwTctxHxI",
+    "name": "The Lancaster Smokehouse",
+    "street": "574 Lancaster St W",
+    "city": "Kitchener",
+    "postalCode": "N2K 1M3"
+  },
+  {
+    "placeId": "ChIJ1wMSTdPzK4gRiZPX9OYf9AA",
+    "name": "Splitsville Waterloo",
+    "street": "341 Marsland Dr unit 1",
+    "city": "Waterloo",
+    "postalCode": "N2J 3Z2"
+  },
+  {
+    "placeId": "ChIJTboWTaqMK4gR7_HvJ9Mjqj4",
+    "name": "Waterloo Brewing Beer Store",
+    "street": "400 Bingemans Centre Dr",
+    "city": "Kitchener",
+    "postalCode": "N2B 3X9"
+  },
+  {
+    "placeId": "ChIJB2zK56r0K4gRG7AHQgvUfXA",
+    "name": "McDonald's",
+    "street": "1138 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C9"
+  },
+  {
+    "placeId": "ChIJs2YQ4auMK4gRJ2yXPgC2V2k",
+    "name": "Kingpin Bowlounge Boston Pizza",
+    "street": "425 Bingemans Centre Dr",
+    "city": "Kitchener",
+    "postalCode": "N2B 3X7"
+  },
+  {
+    "placeId": "ChIJp1-W86X0K4gR_GMElbM3KYQ",
+    "name": "Arabesque Family Restaurant",
+    "street": "869 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C3"
+  },
+  {
+    "placeId": "ChIJPSm_Xm_zK4gR-zzJar-j_HY",
+    "name": "Golf's Steak House & Seafood",
+    "street": "598 Lancaster St W",
+    "city": "Kitchener",
+    "postalCode": "N2K 1M3"
+  },
+  {
+    "placeId": "ChIJ6d0zfqaMK4gRO_e-A4KEL3I",
+    "name": "Tim Hortons",
+    "street": "1475 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3E4"
+  },
+  {
+    "placeId": "ChIJB3wMSQCLK4gRMBNW8KvfuUg",
+    "name": "Tim Hortons",
+    "street": "1020 Ottawa St N",
+    "city": "Kitchener",
+    "postalCode": "N2A 3Z3"
+  },
+  {
+    "placeId": "ChIJ0xUG_qT0K4gRIXV9MItyXmA",
+    "name": "Burger King",
+    "street": "809 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C3"
+  },
+  {
+    "placeId": "ChIJ-26bNK_0K4gR7a_iwEYgJs4",
+    "name": "A&W Canada",
+    "street": "933 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C6"
+  },
+  {
+    "placeId": "ChIJqeKgLUT1K4gRE8X_KFY-gGo",
+    "name": "The Ginger Garlic Indian Cuisine",
+    "street": "809 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C3"
+  },
+  {
+    "placeId": "ChIJ5cHKiJT0K4gR4qJAcsjP1Ts",
+    "name": "Tim Hortons",
+    "street": "385 Frederick St #41",
+    "city": "Kitchener",
+    "postalCode": "N2H 2P2"
+  },
+  {
+    "placeId": "ChIJh5J14Ej1K4gRqQZGcgOP4Fk",
+    "name": "Red Swan Pizza - Kitchener North",
+    "street": "Next to America Latina Grocery & Eatery",
+    "city": "1120 Victoria St N #1b",
+    "postalCode": "N2B 3T2"
+  },
+  {
+    "placeId": "ChIJ2bxlkdL1K4gRqHyWwWDDRSs",
+    "name": "Domino's Pizza",
+    "street": "809 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C3"
+  },
+  {
+    "placeId": "ChIJ1wVuE12LK4gR8sRyGv1NtGc",
+    "name": "Hakka Holic",
+    "street": "200 Lorraine Ave",
+    "city": "Kitchener",
+    "postalCode": "N2B 3R3"
+  },
+  {
+    "placeId": "ChIJLxtfWKT0K4gRMy96k_GpYvI",
+    "name": "Pho Tran",
+    "street": "809 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 1Y4"
+  },
+  {
+    "placeId": "ChIJrYnlSKDxK4gRrDemNP7ZrHo",
+    "name": "State & Main",
+    "street": "578 Weber St N Unit L01",
+    "city": "Waterloo",
+    "postalCode": "N2V 1V8"
+  },
+  {
+    "placeId": "ChIJ66C8vHDxK4gR6myDf8pj4fE",
+    "name": "Jack's Family Restaurant",
+    "street": "20 Benjamin Rd",
+    "city": "Waterloo",
+    "postalCode": "N2V 2J9"
+  },
+  {
+    "placeId": "ChIJJb3mtNzzK4gRkP80qfuJ5jw",
+    "name": "HomeTaste - Best Indian restaurant, Indian Food, Catering, Authentic Food & Tiffin Services Waterloo",
+    "street": "130 Columbia St W unit 912",
+    "city": "Waterloo",
+    "postalCode": "N2L 0G6"
+  },
+  {
+    "placeId": "ChIJH_UURGzxK4gRHbXGQqJIjzQ",
+    "name": "Karahi Point Waterloo",
+    "street": "655 Parkside Dr Unit 1",
+    "city": "Waterloo",
+    "postalCode": "N2L 5E7"
+  },
+  {
+    "placeId": "ChIJFei-a2fxK4gRwGZUEv6ZNdo",
+    "name": "Tim Hortons",
+    "street": "585 Weber St N",
+    "city": "Waterloo",
+    "postalCode": "N2V 1V8"
+  },
+  {
+    "placeId": "ChIJAU-_2fzzK4gR5C93JyGq_aY",
+    "name": "Tim Hortons",
+    "street": "465 Phillip St",
+    "city": "Waterloo",
+    "postalCode": "N2L 6C7"
+  },
+  {
+    "placeId": "ChIJF0tC0pvzK4gRRH_6CrH7obM",
+    "name": "Medusa Shisha Bar and Lounge",
+    "street": "462 Albert St",
+    "city": "Waterloo",
+    "postalCode": "N2L 3V4"
+  },
+  {
+    "placeId": "ChIJn25ny6LzK4gRxUnGsU_3vDo",
+    "name": "Chef On Call",
+    "street": "130 Columbia St W #812",
+    "city": "Waterloo",
+    "postalCode": "N2L 0G6"
+  },
+  {
+    "placeId": "ChIJa4WfFv_zK4gR6W1w1QjLZJg",
+    "name": "Tim Hortons",
+    "street": "151 Columbia St W",
+    "city": "Waterloo",
+    "postalCode": "N2L 5Z5"
+  },
+  {
+    "placeId": "ChIJ_3Kbq9PzK4gRJgMcdj76jFc",
+    "name": "OnCoal Halal Restaurant",
+    "street": "464 Albert St",
+    "city": "Waterloo",
+    "postalCode": "N2L 3V4"
+  },
+  {
+    "placeId": "ChIJR4eL--LzK4gRLoJ90xHcsAs",
+    "name": "Homestyle Diner",
+    "street": "504 Albert St",
+    "city": "Waterloo",
+    "postalCode": "N2L 3V4"
+  },
+  {
+    "placeId": "ChIJOd851_zzK4gRPKI3WeLPXGk",
+    "name": "The Cactus Mexican Restaurant",
+    "street": "465 Phillip St",
+    "city": "Waterloo",
+    "postalCode": "N2L 6C7"
+  },
+  {
+    "placeId": "ChIJ71XStyvzK4gRVgJPV_ujHfA",
+    "name": "Tsujiri Waterloo",
+    "street": "330 Phillip St Unit 3",
+    "city": "Waterloo",
+    "postalCode": "N2L 3W9"
+  },
+  {
+    "placeId": "ChIJk0XJABnxK4gRAja1a4sGRKI",
+    "name": "Firehouse Subs Waterloo Weber St.",
+    "street": "578 Weber St N Unit K2",
+    "city": "Waterloo",
+    "postalCode": "N2V 1V8"
+  },
+  {
+    "placeId": "ChIJ_SJ8EePzK4gRCux1o8ZIVQg",
+    "name": "Pizza Pizza",
+    "street": "496 Albert St",
+    "city": "Waterloo",
+    "postalCode": "N2L 3V4"
+  },
+  {
+    "placeId": "ChIJmb73hB7xK4gR44lruzw-eyk",
+    "name": "Noodlebox",
+    "street": "655 Parkside Dr Unit F-03",
+    "city": "Waterloo",
+    "postalCode": "N2L 0C7"
+  },
+  {
+    "placeId": "ChIJAU-_2fzzK4gRGUQWAzB-qCI",
+    "name": "Little Caesars Pizza",
+    "street": "465 Phillip St",
+    "city": "Waterloo",
+    "postalCode": "N2L 6C7"
+  },
+  {
+    "placeId": "ChIJU-MJLmfxK4gRZbB05PI1kIA",
+    "name": "Sunset Grill",
+    "street": "584 Weber St N",
+    "city": "Waterloo",
+    "postalCode": "N2V 1K4"
+  },
+  {
+    "placeId": "ChIJdwGOhu7zK4gRZNK6OlAN-H8",
+    "name": "Wildcraft Grill + Long Bar",
+    "street": "425 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z5"
+  },
+  {
+    "placeId": "ChIJ2drVF-zzK4gRcfVpe3fGJH4",
+    "name": "East Side Mario's",
+    "street": "450 King St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z6"
+  },
+  {
+    "placeId": "ChIJx7roV9jzK4gRFt8QIpJLNnw",
+    "name": "McDonald's",
+    "street": "55 Northfield Dr E",
+    "city": "Waterloo",
+    "postalCode": "N2L 4E6"
+  },
+  {
+    "placeId": "ChIJcevHznL0K4gRSPXcykDIW5k",
+    "name": "Seven Shores",
+    "street": "10 Regina St N",
+    "city": "Waterloo",
+    "postalCode": "N2J 2Z7"
+  },
+  {
+    "placeId": "ChIJy4EHzDTzK4gRuwnTxdOG58A",
+    "name": "Indian Spice",
+    "street": "373 Bridge St W",
+    "city": "Waterloo",
+    "postalCode": "N2K 3K3"
+  },
+  {
+    "placeId": "ChIJYxAXYHPzK4gRm8kEYTawTjU",
+    "name": "Tim Hortons",
+    "street": "425 University Ave E",
+    "city": "Waterloo",
+    "postalCode": "N2K 4C9"
+  },
+  {
+    "placeId": "ChIJYxAXYHPzK4gRHwEa3eam6_Y",
+    "name": "Mediterraneo Family Restaurant",
+    "street": "425 University Ave",
+    "city": "Waterloo",
+    "postalCode": "N2K 1K9"
+  },
+  {
+    "placeId": "ChIJ8RmNPZvzK4gRacFJzTsfd3Q",
+    "name": "A&W Canada",
+    "street": "315 Lincoln Rd",
+    "city": "Waterloo",
+    "postalCode": "N2J 4H7"
+  },
+  {
+    "placeId": "ChIJW-EHimPzK4gRu1nKS4n-NUw",
+    "name": "Tim Hortons",
+    "street": "526 Lancaster St W",
+    "city": "Kitchener",
+    "postalCode": "N2K 1L9"
+  },
+  {
+    "placeId": "ChIJkYmUUpLzK4gRE38fWKwE5-E",
+    "name": "Oh Bombay - Waterloo",
+    "street": "425 University Ave E unit f",
+    "city": "Waterloo",
+    "postalCode": "N2K 1K9"
+  },
+  {
+    "placeId": "ChIJAQAw5qv0K4gRCU_nF9YQE6w",
+    "name": "SMK African Superstore (Fomerly Yam Seller)",
+    "street": "1031 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C7"
+  },
+  {
+    "placeId": "ChIJx83ZQKn0K4gRRFoHHbtRNwU",
+    "name": "Tim Hortons",
+    "street": "1000 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C4"
+  },
+  {
+    "placeId": "ChIJd2CN3e3zK4gR7ZH4VL9eBrc",
+    "name": "Harvey's",
+    "street": "1157 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C8"
+  },
+  {
+    "placeId": "ChIJHcmOOan0K4gRHk9OqLGgumM",
+    "name": "Arby's",
+    "street": "971 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C6"
+  },
+  {
+    "placeId": "ChIJj5Y3T6r0K4gR4vpbD5BQeno",
+    "name": "Whale & Ale British Pub",
+    "street": "1120 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3T2"
+  },
+  {
+    "placeId": "ChIJH7hpw6r0K4gRXPSkqEG93pI",
+    "name": "Swiss Chalet",
+    "street": "1151 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C8"
+  },
+  {
+    "placeId": "ChIJATRLBKqMK4gRk69oYrwYFk4",
+    "name": "Howl At The Moon",
+    "street": "1271 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3E1"
+  },
+  {
+    "placeId": "ChIJj5Y3T6r0K4gReHpYF9oMEwg",
+    "name": "Casey's Grill Bar",
+    "street": "1120 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3T2"
+  },
+  {
+    "placeId": "ChIJz-t-uluLK4gRPa1MPJ9eDt4",
+    "name": "Little Caesars Pizza",
+    "street": "210 Lorraine Ave",
+    "city": "Kitchener",
+    "postalCode": "N2B 3T4"
+  },
+  {
+    "placeId": "ChIJc8g41Kr0K4gRQvaa4X00zys",
+    "name": "Queen of Hearts Tea House",
+    "street": "1151 Victoria St N",
+    "city": "Kitchener",
+    "postalCode": "N2B 3C8"
+  },
+  {
+    "placeId": "ChIJi5dLIgCNK4gRDSbzhmJQOtw",
+    "name": "Waterloo Brewing Taphouse",
+    "street": "400 Bingemans Centre Dr",
+    "city": "Kitchener",
+    "postalCode": "N2B 3X9"
+  },
+  {
+    "placeId": "ChIJ5XeWut-NK4gRxQn_51V5dBQ",
+    "name": "LITTLE GYROS GREEK GRILL (BRESLAU)",
+    "street": "10 Townsend Dr",
+    "city": "Breslau",
+    "postalCode": "N0B 1M0"
+  },
+  {
+    "placeId": "ChIJldMGTXz1K4gRFt9pXh6T7CA",
+    "name": "Counterpoint Brewing Company",
+    "street": "1601 Victoria St N C105",
+    "city": "Kitchener",
+    "postalCode": "N2B 3E6"
+  },
+  {
+    "placeId": "ChIJo6DqRayNK4gR3EbV427rlow",
+    "name": "D&D Smoked Eats",
+    "street": "2067 Victoria St N",
+    "city": "Breslau",
+    "postalCode": "N0B 1M0"
+  }
+]

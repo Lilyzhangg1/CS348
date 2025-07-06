@@ -4,14 +4,18 @@ import time
 import json
 import requests
 from dotenv import load_dotenv
+import re
 
 load_dotenv(".env")
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# 1. Bounding box for Waterloo–Kitchener
-LAT_MIN, LAT_MAX = 43.36, 43.53
-LNG_MIN, LNG_MAX = -80.59, -80.38
+# bounding box for Waterloo–Kitchener, changed it up real quick
+LAT_MIN = 43.411510
+LAT_MAX = 43.492104
+LNG_MIN = -80.606232
+LNG_MAX = -80.411313
 
+POSTAL_RE = re.compile(r"[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d")
 RADIUS = 3000  
 TYPE = "restaurant"
 MAX_RESULTS = 20       # max 20 per call
@@ -24,21 +28,13 @@ HEADERS = {
 }
 
 def get_address_parts(formatted_address: str):
-    # naive split: "street, city, province postal, country"
     parts = [p.strip() for p in formatted_address.split(",")]
     street = parts[0] if len(parts) > 0 else None
-    city = parts[1] if len(parts) > 1 else None
+    city   = parts[1] if len(parts) > 1 else None
 
-    # try extract postal code from part[2]
-    postal = None
-    if len(parts) > 2:
-        tokens = parts[2].split()
-        # postal codes are alphanumeric patterns like "N2L 3G1"
-        for t in tokens:
-            if len(t) >= 5 and any(ch.isdigit() for ch in t):
-                postal = t
-                break
-
+    # extract the full postal code (e.g. "N2R 0R3")
+    m = POSTAL_RE.search(formatted_address)
+    postal = m.group() if m else None
     return street, city, postal
 
 def nearby_search_v1(lat, lng):
@@ -54,9 +50,7 @@ def nearby_search_v1(lat, lng):
         }
     }
     resp = requests.post(url, headers=HEADERS, json=body)
-    print(resp.status_code, resp.reason)
     data = resp.json()
-    print("Response:", data)
     if resp.status_code != 200:
         print("ERROR", data.get("error", data))
         return []
