@@ -82,6 +82,7 @@ export default function App() {
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
+          {/* <Route path="/wishlist"       element={<Wishlist />} /> */}
           <Route path="*"            element={<Restaurants />} />
         </Routes>
       </div>
