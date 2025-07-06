@@ -3,20 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function RestaurantCard({ r }) {
-  const handleWishlist = async () => {
-    const userId = localStorage.getItem("userId");
-    if (!userId) {
-      alert("You must be logged in to add to wishlist.");
-      return;
-    }
-    try {
-      await API.post("/wishlist", { userId, placeId: r.placeId });
-      alert("Added to wishlist!");
-    } catch (err) {
-      alert(err.response?.data?.detail || "Could not add to wishlist");
-    }
-  };
-
   return (
     <div className="bg-[#FDF6E3] p-5 rounded-xl shadow-[8px_8px_0px_#b7a5df] w-full max-w-sm min-h-[380px] flex flex-col justify-between border-2 border-gray-700">
       {/* Badge with first letter */}
