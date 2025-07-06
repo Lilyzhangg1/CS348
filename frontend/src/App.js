@@ -11,6 +11,7 @@ import Restaurants from "./pages/Restaurants";
 import Signup      from "./pages/SignUp";
 import Login       from "./pages/Login";
 import Wishlist    from "./pages/Wishlist";
+import backgroundColor from "./assets/background.jpeg"; // Example import, adjust as needed
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"));
@@ -18,7 +19,8 @@ export default function App() {
   useEffect(() => {
     document.body.style.margin = "0";
     document.body.style.padding = "0";
-    document.body.style.backgroundColor = "#fada66";
+    document.body.style.backgroundImage = `url(${backgroundColor})`;
+    document.body.style.backgroundPosition = "center center";
     
     const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"));
     window.addEventListener("storage", syncLogin);

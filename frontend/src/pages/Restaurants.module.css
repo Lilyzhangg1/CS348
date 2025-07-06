@@ -71,6 +71,12 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-} 
+  /* four equal columns */
+  grid-template-columns: repeat(4, 1fr);
+  /* spacing between cards */
+  gap: 1rem;
+  /* align all cards to top of their grid cell */
+  align-items: start;
+  /* optional padding around the grid */
+  padding: 0.5rem 0;
+}

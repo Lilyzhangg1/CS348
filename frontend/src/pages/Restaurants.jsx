@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import API from '../api/api';
 import RestaurantCard from '../components/RestaurantCard';
+import styles from './Restaurants.module.css';  // ← new import
+import backgroundImage from '../assets/background.jpeg'; // ← new import
 
 function TopRatedCard() {
   const [top, setTop] = useState([]);
@@ -10,12 +12,10 @@ function TopRatedCard() {
   if (!top.length) return null;
   return (
     <div style={{
-      background: '#fffbe6',
-      border: '2px solid #ffe082',
-      borderRadius: '1.25rem',
-      padding: '1.5rem',
-      marginBottom: '2rem',
-      boxShadow: '0 4px 24px rgba(250, 218, 102, 0.12)'
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundSize: 'cover'
     }}>
       <h3 style={{ color: '#b48a00', marginTop: 0 }}>Top 3 Rated This Week</h3>
       <ol style={{ paddingLeft: '1.2rem', margin: 0 }}>
@@ -47,24 +47,23 @@ export default function Restaurants() {
     }
     API.get(url)
       .then(res => {
-        console.log("✅ Restaurants:", res.data);  // Good to keep for debugging
+        console.log("✅ Restaurants:", res.data);
         setRestaurants(res.data);
       })
       .catch(console.error);
   }, [page, searchTerm, orderByRating]);
 
   const btnStyle = {
-    backgroundColor: "#FFF9C4",      // light yellow
-    border: "1px solid #F0E68C",      // slightly darker
-    borderRadius: "9999px",           // full pill
-    padding: "0.5rem 1rem",           // comfy click target
+    backgroundColor: "#FFF9C4",
+    border: "1px solid #F0E68C",
+    borderRadius: "9999px",
+    padding: "0.5rem 1rem",
     margin: "0 0.25rem",
     cursor: "pointer",
     fontWeight: "bold",
     transition: "background-color .2s",
   };
   const hoverStyle = { backgroundColor: "#FFEE99" };
-
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(search);
@@ -74,8 +73,17 @@ export default function Restaurants() {
   return (
     <div>
       <TopRatedCard />
+
       <h2>Restaurants</h2>
-      <form onSubmit={handleSearch} style={{ marginBottom: "1.5rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+      <form
+        onSubmit={handleSearch}
+        style={{
+          marginBottom: "1.5rem",
+          display: "flex",
+          gap: "0.5rem",
+          alignItems: "center"
+        }}
+      >
         <input
           type="text"
           placeholder="Search restaurants..."
@@ -89,7 +97,12 @@ export default function Restaurants() {
             flex: 1
           }}
         />
-        <button type="submit" style={btnStyle} onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)} onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}>
+        <button
+          type="submit"
+          style={btnStyle}
+          onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
+          onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
+        >
           Search
         </button>
         <button
@@ -102,7 +115,9 @@ export default function Restaurants() {
           {orderByRating ? 'Order: Rating' : 'Order: Name'}
         </button>
       </form>
-      <div>
+
+      {/* ← wrap your cards in a grid container: */}
+      <div className={styles.grid}>
         {restaurants.map(r => (
           <RestaurantCard key={r.placeId} r={r} />
         ))}
