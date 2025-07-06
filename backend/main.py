@@ -129,6 +129,30 @@ def get_wishlist(user_id: str):
     )
     return [dict(row) for row in cur.fetchall()]
 
+@app.get("/wishlist/{user_id}/check/{place_id}")
+def check_wishlist_status(user_id: str, place_id: str):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT 1 FROM Wishlist WHERE userId = ? AND placeId = ?",
+        (user_id, place_id)
+    )
+    is_in_wishlist = cur.fetchone() is not None
+    conn.close()
+    return {"isInWishlist": is_in_wishlist}
+
+@app.delete("/wishlist")
+def remove_from_wishlist(req: WishlistAddRequest):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        "DELETE FROM Wishlist WHERE userId = ? AND placeId = ?",
+        (req.userId, req.placeId)
+    )
+    conn.commit()
+    conn.close()
+    return {"message": "Removed from wishlist"}
+
 class TopRatedOut(BaseModel):
     placeId: str
     name: str

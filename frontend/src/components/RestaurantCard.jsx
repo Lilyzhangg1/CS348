@@ -1,28 +1,63 @@
 // RestaurantCard.jsx
 
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { MoonStarIcon, HeartIcon, ArrowDownIcon } from 'raster-react';
 import styles from './RestaurantCard.module.css';
 import API from '../api/api';
 
 export default function RestaurantCard({ r }) {
+  const [isInWishlist, setIsInWishlist] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      checkWishlistStatus();
+    }
+  }, [r.placeId]);
+
+  const checkWishlistStatus = async () => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+    
+    try {
+      const response = await API.get(`/wishlist/${userId}/check/${r.placeId}`);
+      setIsInWishlist(response.data.isInWishlist);
+    } catch (error) {
+      console.error('Error checking wishlist status:', error);
+    }
+  };
+
   const handleWishlist = async () => {
     const userId = localStorage.getItem('userId');
     if (!userId) {
-      alert('You must be logged in to add to wishlist.');
+      alert('You must be logged in to manage wishlist.');
       return;
     }
+
+    setIsLoading(true);
     try {
-      await API.post('/wishlist', { userId, placeId: r.placeId });
-      alert('Added to wishlist!');
+      if (isInWishlist) {
+        // Remove from wishlist
+        await API.delete('/wishlist', { data: { userId, placeId: r.placeId } });
+        setIsInWishlist(false);
+        alert('Removed from wishlist!');
+      } else {
+        // Add to wishlist
+        await API.post('/wishlist', { userId, placeId: r.placeId });
+        setIsInWishlist(true);
+        alert('Added to wishlist!');
+      }
     } catch (err) {
-      alert(err.response?.data?.detail || 'Could not add to wishlist');
+      alert(err.response?.data?.detail || 'Could not update wishlist');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className={styles.card}>
-      {/* — Name / “Speaker” badge spot (we’ll drop it for restaurants) — */}
+      {/* — Name / "Speaker" badge spot (we'll drop it for restaurants) — */}
       <h3 className={styles.title}>{r.name}</h3>
 
       {/* — Address — */}
@@ -44,7 +79,16 @@ export default function RestaurantCard({ r }) {
           </span>
         </div>
         <div className={styles.actions}>
-          <HeartIcon size={16} strokeWidth={0.25} style={{ cursor: 'pointer' }} onClick={handleWishlist}/>
+          <HeartIcon 
+            size={16} 
+            strokeWidth={0.25} 
+            style={{ 
+              cursor: isLoading ? 'not-allowed' : 'pointer',
+              fill: isInWishlist ? 'currentColor' : 'lightgrey',
+              opacity: isLoading ? 0.5 : 1
+            }} 
+            onClick={isLoading ? undefined : handleWishlist}
+          />
 
           <ArrowDownIcon size={16} strokeWidth={0.25} />
         </div>
