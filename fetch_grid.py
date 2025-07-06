@@ -18,7 +18,7 @@ LNG_MAX = -80.411313
 POSTAL_RE = re.compile(r"[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d")
 RADIUS = 1000 
 TYPE = "restaurant"
-MAX_RESULTS = 20       # max 20 per call
+MAX_RESULTS = 20
 OUTPUT_FILE = "restaurants_v1.json"
 # need headers!!
 HEADERS = {

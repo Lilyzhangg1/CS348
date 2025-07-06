@@ -32,3 +32,23 @@ CREATE TABLE Rating (
     FOREIGN KEY (userId) REFERENCES User(userId),
     FOREIGN KEY (placeId) REFERENCES Restaurant(placeId)
 );
+
+CREATE TABLE FriendRequest (
+  requesterId TEXT NOT NULL,
+  requesteeId  TEXT NOT NULL,
+  requestDate  DATE    NOT NULL DEFAULT (DATE('now')),
+  status       TEXT    NOT NULL CHECK(status IN ('pending','accepted','rejected')),
+  PRIMARY KEY (requesterId, requesteeId),
+  FOREIGN KEY (requesterId) REFERENCES User(userId),
+  FOREIGN KEY (requesteeId)  REFERENCES User(userId)
+);
+
+CREATE TABLE Friendship (
+  userA TEXT NOT NULL,
+  userB TEXT NOT NULL,
+  friendedDate DATE NOT NULL DEFAULT (DATE('now')),
+  PRIMARY KEY (userA, userB),
+  FOREIGN KEY (userA) REFERENCES User(userId),
+  FOREIGN KEY (userB) REFERENCES User(userId),
+  CHECK (userA < userB)
+);
