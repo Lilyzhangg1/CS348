@@ -2,6 +2,34 @@ import React, { useEffect, useState } from 'react';
 import API from '../api/api';
 import RestaurantCard from '../components/RestaurantCard';
 
+function TopRatedCard() {
+  const [top, setTop] = useState([]);
+  useEffect(() => {
+    API.get('/top-rated-weekly').then(res => setTop(res.data));
+  }, []);
+  if (!top.length) return null;
+  return (
+    <div style={{
+      background: '#fffbe6',
+      border: '2px solid #ffe082',
+      borderRadius: '1.25rem',
+      padding: '1.5rem',
+      marginBottom: '2rem',
+      boxShadow: '0 4px 24px rgba(250, 218, 102, 0.12)'
+    }}>
+      <h3 style={{ color: '#b48a00', marginTop: 0 }}>Top 3 Rated This Week</h3>
+      <ol style={{ paddingLeft: '1.2rem', margin: 0 }}>
+        {top.map((r, i) => (
+          <li key={r.placeId} style={{ marginBottom: '0.7rem', fontWeight: 500 }}>
+            <span style={{ color: '#7c5a00', fontWeight: 700 }}>{r.name}</span>
+            <span style={{ color: '#b48a00', marginLeft: 8 }}>({r.avgRating}★ avg)</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
   const [page, setPage] = useState(1);
@@ -45,6 +73,7 @@ export default function Restaurants() {
 
   return (
     <div>
+      <TopRatedCard />
       <h2>Restaurants</h2>
       <form onSubmit={handleSearch} style={{ marginBottom: "1.5rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <input

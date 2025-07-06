@@ -7,7 +7,7 @@ from models.user_create_request import UserCreate
 from models.user_login_request import UserLogin
 from models.get_restaurants_response import RestaurantOut
 from fastapi.middleware.cors import CORSMiddleware
-from datetime import date
+from datetime import date, timedelta
 
 app = FastAPI()
 app.add_middleware(
@@ -123,5 +123,34 @@ def get_wishlist(user_id: str):
         ORDER BY w.addedDate DESC
         """,
         (user_id,)
+    )
+    return [dict(row) for row in cur.fetchall()]
+
+class TopRatedOut(BaseModel):
+    placeId: str
+    name: str
+    street: str
+    city: str
+    postalCode: str
+    avgRating: float
+
+@app.get("/top-rated-weekly", response_model=List[TopRatedOut])
+def top_rated_weekly():
+    conn = get_db()
+    cur = conn.cursor()
+    week_ago = (date.today() - timedelta(days=7)).isoformat()
+    cur.execute(
+        """
+        SELECT r.placeId, r.name, r.street, r.city, r.postalCode,
+               ROUND(AVG(rt.rating), 2) as avgRating
+        FROM Rating rt
+        JOIN Restaurant r ON rt.placeId = r.placeId
+        WHERE rt.ratingDate >= ?
+        GROUP BY r.placeId
+        HAVING COUNT(rt.rating) > 0
+        ORDER BY avgRating DESC, r.name ASC
+        LIMIT 3
+        """,
+        (week_ago,)
     )
     return [dict(row) for row in cur.fetchall()]
