@@ -7,11 +7,15 @@ export default function Restaurants() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [orderByRating, setOrderByRating] = useState(false);
 
   useEffect(() => {
     let url = `/restaurants?page=${page}`;
     if (searchTerm) {
       url += `&search=${encodeURIComponent(searchTerm)}`;
+    }
+    if (orderByRating) {
+      url += `&order=rating`;
     }
     API.get(url)
       .then(res => {
@@ -19,7 +23,7 @@ export default function Restaurants() {
         setRestaurants(res.data);
       })
       .catch(console.error);
-  }, [page, searchTerm]);
+  }, [page, searchTerm, orderByRating]);
 
   const btnStyle = {
     backgroundColor: "#FFF9C4",      // light yellow
@@ -58,6 +62,15 @@ export default function Restaurants() {
         />
         <button type="submit" style={btnStyle} onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)} onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}>
           Search
+        </button>
+        <button
+          type="button"
+          style={{ ...btnStyle, backgroundColor: orderByRating ? '#ffe082' : btnStyle.backgroundColor }}
+          onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
+          onMouseOut={e => (e.currentTarget.style.backgroundColor = orderByRating ? '#ffe082' : btnStyle.backgroundColor)}
+          onClick={() => { setOrderByRating(v => !v); setPage(1); }}
+        >
+          {orderByRating ? 'Order: Rating (High → Low)' : 'Order: Name (A → Z)'}
         </button>
       </form>
       <div>
