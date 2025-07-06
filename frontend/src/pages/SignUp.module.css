@@ -1,0 +1,72 @@
+.signupContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fada66;
+}
+
+.signupForm {
+  background: #fffbe6;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(250, 218, 102, 0.12);
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #7c5A00;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #b48a00;
+  margin-bottom: 0.1rem;
+}
+
+.input {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ffe082;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  background: #fffde7;
+  color: #7c5a00;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border: 1.5px solid #ffd54f;
+  outline: none;
+}
+
+.submitButton {
+  margin-top: 0.7rem;
+  padding: 0.7rem 0;
+  background: linear-gradient(90deg, #ffe082 0%, #fada66 100%);
+  color: #7c5a00;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(250, 218, 102, 0.12);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.submitButton:hover {
+  background: linear-gradient(90deg, #fada66 0%, #ffe082 100%);
+  box-shadow: 0 4px 16px rgba(250, 218, 102, 0.18);
+} 

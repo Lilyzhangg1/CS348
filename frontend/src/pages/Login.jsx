@@ -17,8 +17,8 @@ export default function Login() {
       console.log(res.data);
       alert("Login successful!");
 
-      // Optionally store token or userId (if using JWT/session later)
       localStorage.setItem("userId", userId);
+      window.dispatchEvent(new Event("storage"));
 
       nav("/restaurants"); // go to homepage
     } catch (err) {
