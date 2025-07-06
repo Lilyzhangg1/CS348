@@ -56,16 +56,16 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
    python3 insert_production.py
    ```
 8. **Run backend server**:
+   make sure you're at the top level directory (above backend)
    ```bash
-    cd ../backend
-    uvicorn main:app --reload
+    uvicorn backend.main:app --reload
     ```
 9.  **Run frontend server**:
    In a new terminal, run:
-   ```bash
+    ```bash
     cd frontend
     npm i
     npm start
-   ```
+    ```
    
    
