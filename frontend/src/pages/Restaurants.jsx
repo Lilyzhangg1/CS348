@@ -70,7 +70,7 @@ export default function Restaurants() {
           onMouseOut={e => (e.currentTarget.style.backgroundColor = orderByRating ? '#ffe082' : btnStyle.backgroundColor)}
           onClick={() => { setOrderByRating(v => !v); setPage(1); }}
         >
-          {orderByRating ? 'Order: Rating (High → Low)' : 'Order: Name (A → Z)'}
+          {orderByRating ? 'Order: Rating' : 'Order: Name'}
         </button>
       </form>
       <div>
