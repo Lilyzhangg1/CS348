@@ -10,7 +10,7 @@ SELECT * FROM Wishlist LIMIT 5;
 -- show all ratings
 SELECT * FROM Rating LIMIT 5;
 
--- show average ratting per restaurant
+-- show average rating per restaurant
 SELECT r.name, ROUND(AVG(rt.rating), 2) AS avg_rating
 FROM Restaurant r
 LEFT JOIN Rating rt ON r.placeId = rt.placeId

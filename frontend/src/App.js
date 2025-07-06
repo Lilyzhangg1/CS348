@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -12,11 +12,26 @@ import Signup      from "./pages/SignUp";
 import Login       from "./pages/Login";
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"));
+
   useEffect(() => {
     document.body.style.margin = "0";
     document.body.style.padding = "0";
     document.body.style.backgroundColor = "#fada66";
+    
+    const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"));
+    window.addEventListener("storage", syncLogin);
+    return () => window.removeEventListener("storage", syncLogin);
   }, []);
+
+  useEffect(() => {
+    setLoggedIn(!!localStorage.getItem("userId"));
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    setLoggedIn(false);
+  };
 
   return (
     <BrowserRouter>
@@ -28,20 +43,38 @@ export default function App() {
         >
           Browse
         </NavLink>
-        <NavLink
-          to="/signup"
-          className={styles.navItem}
-          activeClassName={styles.active}
-        >
-          Sign Up
-        </NavLink>
-        <NavLink
-          to="/login"
-          className={styles.navItem}
-          activeClassName={styles.active}
-        >
-          Log In
-        </NavLink>
+        {!loggedIn && (
+          <>
+            <NavLink
+              to="/signup"
+              className={styles.navItem}
+              activeClassName={styles.active}
+            >
+              Sign Up
+            </NavLink>
+            <NavLink
+              to="/login"
+              className={styles.navItem}
+              activeClassName={styles.active}
+            >
+              Log In
+            </NavLink>
+          </>
+        )}
+        {loggedIn && (
+          <NavLink
+            to="#"
+            className={styles.navItem}
+            activeClassName={styles.active}
+            onClick={e => {
+              e.preventDefault();
+              handleLogout();
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            Log Out
+          </NavLink>
+        )}
       </nav>
 
       <div style={{ padding: "0 20px" }}>
