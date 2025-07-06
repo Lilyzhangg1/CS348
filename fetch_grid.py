@@ -16,7 +16,7 @@ LNG_MIN = -80.606232
 LNG_MAX = -80.411313
 
 POSTAL_RE = re.compile(r"[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d")
-RADIUS = 3000  
+RADIUS = 1000 
 TYPE = "restaurant"
 MAX_RESULTS = 20       # max 20 per call
 OUTPUT_FILE = "restaurants_v1.json"
@@ -59,7 +59,7 @@ def nearby_search_v1(lat, lng):
 def make_grid():
     # convert meters→degrees lat/lng
     deg_per_m = 1 / 111000
-    step_lat = RADIUS * deg_per_m * 0.9
+    step_lat = RADIUS * deg_per_m * 0.8
     latitudes = []
     lat = LAT_MIN
     while lat <= LAT_MAX:
