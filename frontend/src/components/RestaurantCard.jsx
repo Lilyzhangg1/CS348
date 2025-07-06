@@ -1,28 +1,36 @@
 // RestaurantCard.jsx
-import React from "react";
-import styles from "./RestaurantCard.module.css";
-import { FaStar, FaHeart, FaShareAlt } from "react-icons/fa";
+
+import React from 'react';
+import { MoonStarIcon, HeartIcon, ArrowDownIcon } from 'raster-react';
+import styles from './RestaurantCard.module.css';
 
 export default function RestaurantCard({ r }) {
   return (
     <div className={styles.card}>
-      {r.isNew && <div className={styles.card__badge}>NEW!</div>}
+      {/* — Name / “Speaker” badge spot (we’ll drop it for restaurants) — */}
+      <h3 className={styles.title}>{r.name}</h3>
 
-      <div className={styles.card__header}>{r.name}</div>
-      <div className={styles.card__subheader}>
+      {/* — Address — */}
+      <p className={styles.address}>
         {r.street}, {r.city} {r.postalCode}
+      </p>
+
+      {/* — Placeholder for an image (if you ever add one) — */}
+      <div className={styles.imagePlaceholder}>
+        <span>Restaurant Image</span>
       </div>
 
-      <div className={styles.card__footer}>
-        <div className={styles.card__rating}>
-          <FaStar />
-          <span style={{ marginLeft: "0.25rem" }}>
-            {r.avgRating ?? "No ratings yet"}
+      {/* — Rating + actions bar — */}
+      <div className={styles.footer}>
+        <div className={styles.rating}>
+          <MoonStarIcon size={16} strokeWidth={0.25} />
+          <span className={styles.ratingText}>
+            {r.avgRating ?? 'No ratings yet'}
           </span>
         </div>
-        <div className={styles.card__actions}>
-          <FaHeart />
-          <FaShareAlt style={{ marginLeft: "0.5rem" }} />
+        <div className={styles.actions}>
+          <HeartIcon size={16} strokeWidth={0.25} />
+          <ArrowDownIcon size={16} strokeWidth={0.25} />
         </div>
       </div>
     </div>
