@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB = "../sample/waterlooeats.db" # we'll change to production after generating production set
+DB = "../production/waterlooeats.db"
 
 # --------------------- UTILS ---------------------
 
