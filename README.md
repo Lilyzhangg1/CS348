@@ -35,6 +35,7 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
     ```bash
     pip install -r requirements.txt
     ```
+#### Sample (Do this to setup the sample database)
 4. **Create sample database**:
    ```bash
    cd sample
@@ -44,17 +45,27 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
     ```bash
     python3 insert_sample.py
     ```
-6. **Run backend server**:
+#### Production (Do this to setup the production database)
+6. **Create production database**:
+    ```bash
+    cd production
+    sqlite3 waterlooeats.db < ../db/tables_up.sql
+    ```
+7. **Insert production restaurant data**
+   ```bash
+   python3 insert_production.py
+   ```
+8. **Run backend server**:
    ```bash
     cd ../backend
     uvicorn main:app --reload
     ```
-7. **Run frontend server**:
+9.  **Run frontend server**:
    In a new terminal, run:
    ```bash
     cd frontend
     npm i
     npm start
-    ```
+   ```
    
    
