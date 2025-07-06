@@ -93,7 +93,6 @@ export default function App() {
           <Route path="/wishlist"    element={<Wishlist />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
-          {/* <Route path="/wishlist"       element={<Wishlist />} /> */}
           <Route path="*"            element={<Restaurants />} />
         </Routes>
       </div>

@@ -3,8 +3,23 @@
 import React from 'react';
 import { MoonStarIcon, HeartIcon, ArrowDownIcon } from 'raster-react';
 import styles from './RestaurantCard.module.css';
+import API from '../api/api';
 
 export default function RestaurantCard({ r }) {
+  const handleWishlist = async () => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      alert('You must be logged in to add to wishlist.');
+      return;
+    }
+    try {
+      await API.post('/wishlist', { userId, placeId: r.placeId });
+      alert('Added to wishlist!');
+    } catch (err) {
+      alert(err.response?.data?.detail || 'Could not add to wishlist');
+    }
+  };
+
   return (
     <div className={styles.card}>
       {/* — Name / “Speaker” badge spot (we’ll drop it for restaurants) — */}
@@ -29,7 +44,8 @@ export default function RestaurantCard({ r }) {
           </span>
         </div>
         <div className={styles.actions}>
-          <HeartIcon size={16} strokeWidth={0.25} />
+          <HeartIcon size={16} strokeWidth={0.25} style={{ cursor: 'pointer' }} onClick={handleWishlist}/>
+
           <ArrowDownIcon size={16} strokeWidth={0.25} />
         </div>
       </div>

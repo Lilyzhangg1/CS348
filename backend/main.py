@@ -106,6 +106,8 @@ def add_to_wishlist(req: WishlistAddRequest):
         conn.commit()
     except sqlite3.IntegrityError:
         raise HTTPException(status_code=409, detail="Already in wishlist")
+    finally:
+        conn.close()
     return {"message": "Added to wishlist"}
 
 @app.get("/wishlist/{user_id}", response_model=List[RestaurantOut])
