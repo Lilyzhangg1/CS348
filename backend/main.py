@@ -7,6 +7,7 @@ from models.user_create_request import UserCreate
 from models.user_login_request import UserLogin
 from models.get_restaurants_response import RestaurantOut
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import date
 
 app = FastAPI()
 app.add_middleware(
@@ -86,4 +87,41 @@ def get_restaurants(page: int = Query(1, ge=1), search: str = Query(None), order
             LIMIT ? OFFSET ?
         """, (page_size, offset))
 
+    return [dict(row) for row in cur.fetchall()]
+
+class WishlistAddRequest(BaseModel):
+    userId: str
+    placeId: str
+
+@app.post("/wishlist")
+def add_to_wishlist(req: WishlistAddRequest):
+    conn = get_db()
+    cur = conn.cursor()
+    try:
+        cur.execute(
+            "INSERT INTO Wishlist (userId, placeId, addedDate) VALUES (?, ?, ?)",
+            (req.userId, req.placeId, date.today())
+        )
+        conn.commit()
+    except sqlite3.IntegrityError:
+        raise HTTPException(status_code=409, detail="Already in wishlist")
+    return {"message": "Added to wishlist"}
+
+@app.get("/wishlist/{user_id}", response_model=List[RestaurantOut])
+def get_wishlist(user_id: str):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT r.placeId, r.name, r.street, r.city, r.postalCode,
+               ROUND(AVG(rt.rating), 2) as avgRating
+        FROM Wishlist w
+        JOIN Restaurant r ON w.placeId = r.placeId
+        LEFT JOIN Rating rt ON r.placeId = rt.placeId
+        WHERE w.userId = ?
+        GROUP BY r.placeId
+        ORDER BY w.addedDate DESC
+        """,
+        (user_id,)
+    )
     return [dict(row) for row in cur.fetchall()]

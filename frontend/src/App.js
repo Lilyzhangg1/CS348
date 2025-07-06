@@ -10,6 +10,7 @@ import styles from "./AppNav.module.css";
 import Restaurants from "./pages/Restaurants";
 import Signup      from "./pages/SignUp";
 import Login       from "./pages/Login";
+import Wishlist    from "./pages/Wishlist";
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"));
@@ -43,6 +44,15 @@ export default function App() {
         >
           Browse
         </NavLink>
+        {loggedIn && (
+          <NavLink
+            to="/wishlist"
+            className={styles.navItem}
+            activeClassName={styles.active}
+          >
+            Wishlist
+          </NavLink>
+        )}
         {!loggedIn && (
           <>
             <NavLink
@@ -80,6 +90,7 @@ export default function App() {
       <div style={{ padding: "0 20px" }}>
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/wishlist"    element={<Wishlist />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
           {/* <Route path="/wishlist"       element={<Wishlist />} /> */}
