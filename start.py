@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROD_DIR = os.path.join(BASE_DIR, "production")
 DB_FILE = "waterlooeats.db"
 SCHEMA_UP = os.path.join(BASE_DIR, "db", "tables_up.sql")
-DATA_SCRIPT = "insert.production.py"  
+DATA_SCRIPT = "insert.production.py"
 
 # Step 1: Change to production directory
 print(f"📂 Switching to production directory: {PROD_DIR}")
