@@ -12,7 +12,9 @@ import Signup      from "./pages/SignUp";
 import Login       from "./pages/Login";
 import Wishlist    from "./pages/Wishlist";
 import Ratings       from "./pages/Ratings";
-import backgroundColor from "./assets/background.jpeg"; // Example import, adjust as needed
+import backgroundColor from "./assets/background.jpeg";
+import Friends from "./pages/Friends"
+
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"));
@@ -57,6 +59,7 @@ export default function App() {
           </NavLink>
         )}
         {loggedIn && (
+        <>
           <NavLink
             to="/wishlist"
             className={styles.navItem}
@@ -64,6 +67,10 @@ export default function App() {
           >
             Wishlist
           </NavLink>
+          <NavLink to="/friends" className={styles.navItem} activeClassName={styles.active}>
+              Friends
+            </NavLink>
+          </>
         )}
         {!loggedIn && (
           <>
@@ -103,6 +110,7 @@ export default function App() {
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/wishlist"    element={<Wishlist />} />
+          <Route path="/friends" element={<Friends />} />
           <Route path="/ratings"    element={<Ratings />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
