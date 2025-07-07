@@ -52,7 +52,7 @@ CREATE TABLE Friendship (
   FOREIGN KEY (userB) REFERENCES User(userId),
   CHECK (userA < userB)
 );
-
+-- user indexes
 CREATE INDEX idx_user_userId ON User(userId);
 CREATE INDEX idx_user_firstName ON User(firstName);
 CREATE INDEX idx_user_lastName ON User(lastName);
