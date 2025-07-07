@@ -13,6 +13,9 @@ To fetch the production data we have migrated from `fetch_clean_data.py` script 
 
 To get the api key, hit up Bk (😭 please don't query too much, money money)
 
+
+## Hosting
+The backend is hosted on railway so you do not need to setup the backend anymore!
 ## 📦 Installation & Setup
 
 ### Prerequisites
@@ -57,11 +60,12 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
    ```bash
    python3 insert_production.py
    ```
-8. **Run backend server**:
-   make sure you're at the top level directory (above backend)
+8. **Connect to backend server**:
+   Add the line
    ```bash
-    uvicorn backend.main:app --reload
-    ```
+   REACT_APP_API_URL=https://cs348-production.up.railway.app
+   ```
+   to your `.env` file in the frontend directory
 9.  **Run frontend server**:
    In a new terminal, run:
     ```bash
