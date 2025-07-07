@@ -53,13 +53,13 @@ CREATE TABLE Friendship (
   CHECK (userA < userB)
 );
 
-CREATE INDEX idx_user_userId      ON User(userId);
-CREATE INDEX idx_user_firstName   ON User(firstName);
-CREATE INDEX idx_user_lastName    ON User(lastName);
+CREATE INDEX idx_user_userId ON User(userId);
+CREATE INDEX idx_user_firstName ON User(firstName);
+CREATE INDEX idx_user_lastName ON User(lastName);
 
 -- restaurant indexes
-CREATE INDEX idx_restaurant_name      ON Restaurant(name);
-CREATE INDEX idx_restaurant_city      ON Restaurant(city);
+CREATE INDEX idx_restaurant_name ON Restaurant(name);
+CREATE INDEX idx_restaurant_city ON Restaurant(city);
 CREATE INDEX idx_restaurant_postalCode ON Restaurant(postalCode);
 
 -- wishlist index for faster lookups
