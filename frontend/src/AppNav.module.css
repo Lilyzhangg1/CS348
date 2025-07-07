@@ -6,7 +6,7 @@
   border: 1px solid #e0c060;      /* a soft gold */
   border-radius: 10px;            /* softer pill, not insane 9999px */
   overflow: hidden;               /* clip child BGs to this shape */
-  width: 25%;
+  width: 30%;
   margin-bottom: 2rem;
   margin-left: 2rem;
   margin-top: 1rem;
