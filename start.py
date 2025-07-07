@@ -54,7 +54,8 @@ def main():
     subprocess.run([
         "uvicorn", "backend.main:app",
         "--host", "0.0.0.0",
-        "--port", os.getenv("PORT", "8000")
+        "--port", os.getenv("PORT", "8000"),
+        "--proxy-headers",
     ])
 
 
