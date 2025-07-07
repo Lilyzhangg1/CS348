@@ -13,8 +13,25 @@ export default function RestaurantCard({ r }) {
     const userId = localStorage.getItem('userId');
     if (userId) {
       checkWishlistStatus();
+    } else {
+      setIsInWishlist(false);
     }
   }, [r.placeId]);
+
+  // Listen for storage changes (login/logout)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        checkWishlistStatus();
+      } else {
+        setIsInWishlist(false);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   const checkWishlistStatus = async () => {
     const userId = localStorage.getItem('userId');
@@ -48,6 +65,10 @@ export default function RestaurantCard({ r }) {
         setIsInWishlist(true);
         alert('Added to wishlist!');
       }
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new CustomEvent('wishlistChanged', { 
+        detail: { placeId: r.placeId, isInWishlist: !isInWishlist } 
+      }));
     } catch (err) {
       alert(err.response?.data?.detail || 'Could not update wishlist');
     } finally {
