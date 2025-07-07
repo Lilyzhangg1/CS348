@@ -1,43 +1,62 @@
 import os
+import sqlite3
 import subprocess
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROD_DIR = os.path.join(BASE_DIR, "production")
+DB_DIR = "/data"  # Railway persistent volume
 DB_FILE = "waterlooeats.db"
+DB_PATH = os.path.join(DB_DIR, DB_FILE)
 SCHEMA_UP = os.path.join(BASE_DIR, "db", "tables_up.sql")
-DATA_SCRIPT = "insert.production.py"
+DATA_SCRIPT = os.path.join(PROD_DIR, "insert.production.py")
 
-# Step 1: Change to production directory
-print(f"📂 Switching to production directory: {PROD_DIR}")
-os.chdir(PROD_DIR)
 
-# Step 2: Check if DB exists
-if os.path.exists(DB_FILE):
-    print("✅ Database already exists. Skipping schema creation and data load.")
-else:
-    print("🔧 Creating new waterlooeats.db and loading schema/data...")
+def initialize_database():
+    """
+    Creates waterlooeats.db and runs tables_up.sql
+    """
+    print("🔧 Initializing database schema...")
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
 
-    # Create schema
-    subprocess.run(
-        ["sqlite3", DB_FILE, f".read {SCHEMA_UP}"],
-        check=True
-    )
+    with open(SCHEMA_UP, "r", encoding="utf-8") as f:
+        schema_sql = f.read()
+        cur.executescript(schema_sql)
 
-    # Load production data
+    conn.commit()
+    conn.close()
+    print("✅ Schema creation complete.")
+
+
+def load_production_data():
+    """
+    Runs the insert.production.py script to populate database.
+    """
     print("📥 Loading production data...")
-    subprocess.run(
-        ["python3", DATA_SCRIPT],
-        check=True
-    )
+    subprocess.run(["python3", DATA_SCRIPT], check=True)
+    print("✅ Production data loaded.")
 
-# Step 3: Change back to root directory
-print(f"📂 Returning to root directory: {BASE_DIR}")
-os.chdir(BASE_DIR)
 
-# Step 4: Start Uvicorn in production mode
-print("🚀 Starting FastAPI app...")
-subprocess.run([
-    "uvicorn", "backend.main:app",
-    "--host", "0.0.0.0", "--port", os.getenv("PORT", "8000")
-])
+def main():
+    # Ensure /data directory exists
+    os.makedirs(DB_DIR, exist_ok=True)
+
+    if os.path.exists(DB_PATH):
+        print("✅ Database already exists in /data. Skipping schema creation and data load.")
+    else:
+        print("📂 waterlooeats.db not found. Creating and initializing...")
+        initialize_database()
+        load_production_data()
+
+    # Start FastAPI app
+    print("🚀 Starting FastAPI app...")
+    subprocess.run([
+        "uvicorn", "backend.main:app",
+        "--host", "0.0.0.0",
+        "--port", os.getenv("PORT", "8000")
+    ])
+
+
+if __name__ == "__main__":
+    main()

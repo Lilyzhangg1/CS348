@@ -1,9 +1,8 @@
 import sqlite3
 import json
 
-DB_FILE = "waterlooeats.db"
-RESTAURANT_FILE = "production.json"
-
+DB_PATH = "/data/waterlooeats.db"  # Mounted Railway volume
+RESTAURANT_FILE = "production.json"  # stays in /production
 
 def insert_restaurants(conn):
     cur = conn.cursor()
@@ -19,7 +18,7 @@ def insert_restaurants(conn):
     return [r["placeId"] for r in restaurants]
 
 def main():
-    conn = sqlite3.connect(DB_FILE)
+    conn = sqlite3.connect(DB_PATH)
     print("📌 Inserting Restaurants...")
     insert_restaurants(conn)
 
