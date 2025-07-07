@@ -11,6 +11,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.middleware("http")
+async def log_requests(request, call_next):
+    print(f"🌐 {request.method} {request.url} - Origin: {request.headers.get('origin')}")
+    response = await call_next(request)
+    return response
+
+
 app.include_router(auth.router,prefix="/auth",tags=["auth"])
 app.include_router(restaurants.router, prefix="/restaurants", tags=["restaurants"])
 app.include_router(wishlist.router, prefix="/wishlist", tags=["wishlist"])
