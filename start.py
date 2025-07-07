@@ -9,7 +9,7 @@ DB_DIR = "/data"  # Railway persistent volume
 DB_FILE = "waterlooeats.db"
 DB_PATH = os.path.join(DB_DIR, DB_FILE)
 SCHEMA_UP = os.path.join(BASE_DIR, "db", "tables_up.sql")
-DATA_SCRIPT = os.path.join(PROD_DIR, "insert.production.py")
+DATA_SCRIPT = os.path.join(PROD_DIR, "insert_production.py")
 
 
 def initialize_database():
