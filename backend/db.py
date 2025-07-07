@@ -1,6 +1,7 @@
 import sqlite3
-# relative to CS348 directory
-DB_PATH = "production/waterlooeats.db"
+
+#volime mounted on railway
+DB_PATH = "/data/waterlooeats.db"
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
