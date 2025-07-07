@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.get("", response_model=List[RestaurantOut])
 def get_restaurants(page: int = Query(1, ge=1), search: str = Query(None), order: str = Query(None)):
-    page_size = 10
+    page_size = 12
     offset = (page - 1) * page_size
 
     conn = get_db()
