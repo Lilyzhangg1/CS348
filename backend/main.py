@@ -4,7 +4,7 @@ from backend.routers import auth, restaurants, wishlist, ratings, top_rated_week
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"
+    allow_origins=["http://localhost:3000",
                     "https://localhost:3000",],
     allow_credentials=True,
     allow_methods=["*"],
@@ -15,6 +15,12 @@ app.add_middleware(
 async def log_requests(request, call_next):
     print(f"🌐 {request.method} {request.url} - Origin: {request.headers.get('origin')}")
     response = await call_next(request)
+    return response
+
+@app.middleware("http")
+async def log_cors_headers(request, call_next):
+    response = await call_next(request)
+    print(f"🌐 Response headers: {dict(response.headers)}")
     return response
 
 
