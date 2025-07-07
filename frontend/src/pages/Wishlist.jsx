@@ -7,17 +7,32 @@ export default function Wishlist() {
   const [loading, setLoading] = useState(true);
   const userId = localStorage.getItem("userId");
 
-  useEffect(() => {
+  const loadWishlist = () => {
     if (!userId) {
       setLoading(false);
       return;
     }
+    setLoading(true);
     API.get(`/wishlist/${userId}`)
       .then(res => {
         setRestaurants(res.data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadWishlist();
+  }, [userId]);
+
+  // Listen for wishlist changes from other components
+  useEffect(() => {
+    const handleWishlistChange = () => {
+      loadWishlist();
+    };
+
+    window.addEventListener('wishlistChanged', handleWishlistChange);
+    return () => window.removeEventListener('wishlistChanged', handleWishlistChange);
   }, [userId]);
 
   if (!userId) {

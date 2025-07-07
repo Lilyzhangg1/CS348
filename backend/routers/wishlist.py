@@ -43,7 +43,7 @@ def get_wishlist(user_id: str):
     )
     return [dict(row) for row in cur.fetchall()]
 
-@router.get("{user_id}/check/{place_id}")
+@router.get("/{user_id}/check/{place_id}")
 def check_wishlist_status(user_id: str, place_id: str):
     conn = get_db()
     cur = conn.cursor()
