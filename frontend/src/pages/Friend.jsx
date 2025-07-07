@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import API from "../api/api"
-import styles from "./Friends.module.css"
+import styles from "./Friend.module.css"
 
 export default function Friends() {
   const [friends, setFriends] = useState([])
