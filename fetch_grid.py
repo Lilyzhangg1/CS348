@@ -19,7 +19,7 @@ POSTAL_RE = re.compile(r"[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d")
 RADIUS = 1000 
 TYPE = "restaurant"
 MAX_RESULTS = 20
-OUTPUT_FILE = "restaurants_v1.json"
+OUTPUT_FILE = "production.json"
 # need headers!!
 HEADERS = {
     "Content-Type": "application/json",
@@ -57,7 +57,7 @@ def nearby_search_v1(lat, lng):
     return data.get("places", [])
 
 def make_grid():
-    # convert meters→degrees lat/lng
+    # convert meters -> degrees lat/lng
     deg_per_m = 1 / 111000
     step_lat = RADIUS * deg_per_m * 0.8
     latitudes = []
@@ -66,7 +66,7 @@ def make_grid():
         latitudes.append(lat)
         lat += step_lat
 
-    # adjust lng step by cos(lat_center)
+    # adjust lng step by cos(lat_center), the earth is weird
     lat_c = (LAT_MIN + LAT_MAX)/2
     deg_per_m_lng = 1/(111000 * math.cos(math.radians(lat_c)))
     step_lng = RADIUS * deg_per_m_lng * 0.9

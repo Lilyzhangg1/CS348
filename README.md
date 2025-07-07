@@ -6,8 +6,10 @@ WaterlooEats is a database-driven web application designed to help users in the 
 ## Sample test
 - located in the sample directory
 
-## Fetching data
+## Fetching sample data
 To fetch sample (and ultimately production) data, use the `fetch_clean_data.py` script, specify the range (radius) of the restaurant search to increase the number of tuples fetched.
+## Fetching production data!
+To fetch the production data we have migrated from `fetch_clean_data.py` script to the `fetch_grid.py` script that repeatedly makes places api calls at different co-ordinates, along the bounding box of kitchener waterloo. the bounding box was formed using [this site](http://bboxfinder.com/#43.396964,-80.596848,43.498617,-80.422440), calling the file with the radius parameter set, essentially sets how many calls you want to make (smaller radius, more calls, more accurate)
 
 To get the api key, hit up Bk (😭 please don't query too much, money money)
 
