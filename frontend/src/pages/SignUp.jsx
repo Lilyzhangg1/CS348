@@ -10,7 +10,7 @@ export default function Signup() {
   const submit = async e => {
     e.preventDefault();
     try {
-      await API.post('/signup', form);
+      await API.post('/auth/signup', form);
       localStorage.setItem('userId', form.userId);
       nav('/restaurants');
     } catch (err) {
