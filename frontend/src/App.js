@@ -11,6 +11,7 @@ import Restaurants from "./pages/Restaurants";
 import Signup      from "./pages/SignUp";
 import Login       from "./pages/Login";
 import Wishlist    from "./pages/Wishlist";
+import Ratings       from "./pages/Ratings";
 import backgroundColor from "./assets/background.jpeg"; // Example import, adjust as needed
 
 export default function App() {
@@ -46,6 +47,15 @@ export default function App() {
         >
           Browse
         </NavLink>
+        {loggedIn && (
+          <NavLink
+            to="/ratings"
+            className={styles.navItem}
+            activeClassName={styles.active}
+          >
+            Ratings
+          </NavLink>
+        )}
         {loggedIn && (
           <NavLink
             to="/wishlist"
@@ -93,6 +103,7 @@ export default function App() {
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/wishlist"    element={<Wishlist />} />
+          <Route path="/ratings"    element={<Ratings />} />
           <Route path="/signup"      element={<Signup />} />
           <Route path="/login"       element={<Login />} />
           <Route path="*"            element={<Restaurants />} />
