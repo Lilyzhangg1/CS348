@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { MoonStarIcon, HeartIcon, ArrowDownIcon } from 'raster-react';
 import styles from './RestaurantCard.module.css';
 import API from '../api/api';
+import restaurantImage from '../assets/restaurant.png';
 
 export default function RestaurantCard({ r }) {
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -86,9 +87,12 @@ export default function RestaurantCard({ r }) {
         {r.street}, {r.city} {r.postalCode}
       </p>
 
-      {/* — Placeholder for an image (if you ever add one) — */}
-      <div className={styles.imagePlaceholder}>
-        <span>Restaurant Image</span>
+      <div className={styles.imageWrapper}>
+        <img
+          src={restaurantImage}
+          alt={`${r.name} placeholder`}
+          className={styles.image}
+        />
       </div>
 
       {/* — Rating + actions bar — */}
