@@ -13,7 +13,7 @@ import Login       from "./pages/Login";
 import Wishlist    from "./pages/Wishlist";
 import Ratings       from "./pages/Ratings";
 import backgroundColor from "./assets/background.jpeg";
-import Friends from "./pages/Friends"
+import Friends from "./pages/Friend"
 
 
 export default function App() {
