@@ -7,11 +7,32 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-  text-align: center;
-  color: #333;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
+}
+
+.title {
+  color: #333;
   font-size: 2.5rem;
+  margin: 0;
+}
+
+.findFriendsBtn {
+  background-color: #FFF9C4;
+  border: 1px solid #F0E68C;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color .2s;
+  font-size: 1rem;
+}
+
+.findFriendsBtn:hover {
+  background-color: #FFEE99;
 }
 
 .tabs {

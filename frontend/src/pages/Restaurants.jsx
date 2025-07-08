@@ -36,6 +36,7 @@ export default function Restaurants() {
   const [search, setSearch] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [orderByRating, setOrderByRating] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     let url = `/restaurants?page=${page}`;
@@ -49,6 +50,8 @@ export default function Restaurants() {
       .then(res => {
         console.log("✅ Restaurants:", res.data);
         setRestaurants(res.data);
+        // If we get fewer than 12 items, there are no more pages
+        setHasMore(res.data.length === 12);
       })
       .catch(console.error);
   }, [page, searchTerm, orderByRating]);
@@ -129,6 +132,7 @@ export default function Restaurants() {
           onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
           onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
           onClick={() => setPage(p => Math.max(p - 1, 1))}
+          disabled={page === 1}
         >
           ◀ Prev
         </button>
@@ -137,6 +141,7 @@ export default function Restaurants() {
           onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
           onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
           onClick={() => setPage(p => p + 1)}
+          disabled={!hasMore}
         >
           Next ▶
         </button>

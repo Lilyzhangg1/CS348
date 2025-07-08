@@ -49,3 +49,25 @@ def submit_rating(req: RatingRequest):
         conn.close()
 
     return {"message": "Rating submitted successfully"}
+
+@router.get("/user/{user_id}")
+def get_user_ratings(user_id: str):
+    """
+    Get all ratings for a specific user with restaurant details
+    """
+    conn = get_db()
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    
+    cur.execute("""
+        SELECT r.placeId, r.name, r.street, r.city, r.postalCode,
+               rt.rating, rt.ratingDate, rt.comment
+        FROM Rating rt
+        JOIN Restaurant r ON rt.placeId = r.placeId
+        WHERE rt.userId = ?
+        ORDER BY rt.rating DESC, rt.ratingDate DESC
+    """, (user_id,))
+    
+    ratings = [dict(row) for row in cur.fetchall()]
+    conn.close()
+    return ratings
