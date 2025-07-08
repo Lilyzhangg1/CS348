@@ -1,40 +1,61 @@
-import React, { useEffect, useState } from "react";
-import API from "../api/api";
-import RestaurantCard from "../components/RestaurantCard";
+// src/pages/MyRatings.jsx
 
-export default function Wishlist() {
-  const [restaurants, setRestaurants] = useState([]);
+import React, { useEffect, useState } from 'react';
+import API from '../api/api';
+import RatingCard from '../components/RatingCard';
+
+export default function MyRatings() {
+  const [ratings, setRatings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
     if (!userId) {
       setLoading(false);
       return;
     }
-    API.get(`/ratings/${userId}`) //change here if needed once completed
+
+    API.get(`/users/${userId}/ratings`)
       .then(res => {
-        setRestaurants(res.data);
+        setRatings(res.data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [userId]);
 
   if (!userId) {
-    return <div style={{ marginTop: "2rem", textAlign: "center" }}>Log in to view your ratings.</div>;
+    return (
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        Log in to view your ratings.
+      </div>
+    );
   }
+
   if (loading) {
-    return <div style={{ marginTop: "2rem", textAlign: "center" }}>Loading...</div>;
+    return (
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        Loading…
+      </div>
+    );
   }
-  if (restaurants.length === 0) {
-    return <div style={{ marginTop: "2rem", textAlign: "center" }}>Your ratings are empty. Get to rating!</div>;
+
+  if (ratings.length === 0) {
+    return (
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        You haven’t rated anything yet!
+      </div>
+    );
   }
+
   return (
-    <div>
+    <div style={{ padding: '1rem' }}>
       <h2>My Ratings</h2>
-      <div>
-        {restaurants.map(r => (
-          <RestaurantCard key={r.placeId} r={r} />
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+        {ratings.map(r => (
+          <RatingCard key={r.placeId + r.ratingDate} r={r} />
         ))}
       </div>
     </div>

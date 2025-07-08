@@ -1,14 +1,15 @@
-// RestaurantCard.jsx
-
-import { useState, useEffect } from 'react';
-import { MoonStarIcon, HeartIcon, ArrowDownIcon } from 'raster-react';
+import React, { useState, useEffect } from 'react';
+import { MoonStarIcon, HeartIcon } from 'raster-react';
+import { Plus } from 'lucide-react';
 import styles from './RestaurantCard.module.css';
 import API from '../api/api';
 import restaurantImage from '../assets/restaurant.png';
+import RatingModal from './RatingModal';
 
 export default function RestaurantCard({ r }) {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -19,7 +20,6 @@ export default function RestaurantCard({ r }) {
     }
   }, [r.placeId]);
 
-  // Listen for storage changes (login/logout)
   useEffect(() => {
     const handleStorageChange = () => {
       const userId = localStorage.getItem('userId');
@@ -29,64 +29,54 @@ export default function RestaurantCard({ r }) {
         setIsInWishlist(false);
       }
     };
-
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  const checkWishlistStatus = async () => {
+  async function checkWishlistStatus() {
     const userId = localStorage.getItem('userId');
     if (!userId) return;
-    
     try {
-      const response = await API.get(`/wishlist/${userId}/check/${r.placeId}`);
-      setIsInWishlist(response.data.isInWishlist);
-    } catch (error) {
-      console.error('Error checking wishlist status:', error);
+      const res = await API.get(`/wishlist/${userId}/check/${r.placeId}`);
+      setIsInWishlist(res.data.isInWishlist);
+    } catch (err) {
+      console.error('Error checking wishlist status:', err);
     }
-  };
+  }
 
-  const handleWishlist = async () => {
+  async function handleWishlist() {
     const userId = localStorage.getItem('userId');
     if (!userId) {
       alert('You must be logged in to manage wishlist.');
       return;
     }
-
     setIsLoading(true);
     try {
       if (isInWishlist) {
-        // Remove from wishlist
         await API.delete('/wishlist', { data: { userId, placeId: r.placeId } });
         setIsInWishlist(false);
         alert('Removed from wishlist!');
       } else {
-        // Add to wishlist
         await API.post('/wishlist', { userId, placeId: r.placeId });
         setIsInWishlist(true);
         alert('Added to wishlist!');
       }
-      // Dispatch custom event to notify other components
-      window.dispatchEvent(new CustomEvent('wishlistChanged', { 
-        detail: { placeId: r.placeId, isInWishlist: !isInWishlist } 
+      window.dispatchEvent(new CustomEvent('wishlistChanged', {
+        detail: { placeId: r.placeId, isInWishlist: !isInWishlist }
       }));
     } catch (err) {
       alert(err.response?.data?.detail || 'Could not update wishlist');
     } finally {
       setIsLoading(false);
     }
-  };
+  }
 
   return (
     <div className={styles.card}>
-      {/* — Name / "Speaker" badge spot (we'll drop it for restaurants) — */}
       <h3 className={styles.title}>{r.name}</h3>
-
-      {/* — Address — */}
       <p className={styles.address}>
         {r.street}, {r.city} {r.postalCode}
       </p>
-
       <div className={styles.imageWrapper}>
         <img
           src={restaurantImage}
@@ -94,8 +84,6 @@ export default function RestaurantCard({ r }) {
           className={styles.image}
         />
       </div>
-
-      {/* — Rating + actions bar — */}
       <div className={styles.footer}>
         <div className={styles.rating}>
           <MoonStarIcon size={16} strokeWidth={0.25} />
@@ -104,20 +92,31 @@ export default function RestaurantCard({ r }) {
           </span>
         </div>
         <div className={styles.actions}>
-          <HeartIcon 
-            size={16} 
-            strokeWidth={0.25} 
-            style={{ 
+          <HeartIcon
+            size={16}
+            strokeWidth={0.25}
+            style={{
               cursor: isLoading ? 'not-allowed' : 'pointer',
               fill: isInWishlist ? 'currentColor' : 'lightgrey',
               opacity: isLoading ? 0.5 : 1
-            }} 
+            }}
             onClick={isLoading ? undefined : handleWishlist}
           />
-
-          <ArrowDownIcon size={16} strokeWidth={0.25} />
+          <Plus
+            size={16}
+            strokeWidth={1.5}
+            style={{ cursor: 'pointer', marginLeft: '0.5rem' }}
+            onClick={() => setShowModal(true)}
+          />
         </div>
       </div>
+
+      {showModal && (
+        <RatingModal
+          placeId={r.placeId}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 }
