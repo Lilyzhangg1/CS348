@@ -1,5 +1,3 @@
-// src/pages/MyRatings.jsx
-
 import React, { useEffect, useState } from 'react';
 import API from '../api/api';
 import RatingCard from '../components/RatingCard';

@@ -10,16 +10,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 20rem;                  /* ≈ max-w-sm */
+  width: 18rem;                  /* ≈ max-w-sm */
 }
 
 .title {
-  /* ≈ text-lg font-bold text-gray-900 */
   font-size: 1.125rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
+  min-width: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
 
 .address {
   /* ≈ text-gray-700 text-sm */

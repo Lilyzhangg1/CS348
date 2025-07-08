@@ -28,3 +28,8 @@ DROP TABLE IF EXISTS Rating;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Restaurant;
 DROP TABLE IF EXISTS FriendRequest;
+
+-- Drop trigger
+DROP TRIGGER IF EXISTS trg_remove_wishlist_after_rating;
+
+
