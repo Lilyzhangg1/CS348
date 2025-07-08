@@ -18,9 +18,9 @@ function TopRatedSection() {
 
   return (
     <section style={{ marginBottom: '2rem' }}>
-      <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>
+      <h2 style={{ marginTop: 0, marginBottom: '1rem' }}>
         Top 3 Rated This Week
-      </h3>
+      </h2>
       <div className={styles.grid}>
         {top.map(r => (
           <RestaurantCard key={r.placeId} r={r} />
