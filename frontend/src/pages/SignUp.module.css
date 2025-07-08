@@ -1,72 +1,94 @@
+/* center on screen */
 .signupContainer {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fada66;
 }
 
+/* the lavender “window” */
 .signupForm {
-  background: #fffbe6;
-  padding: 2.5rem 2rem 2rem 2rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 24px rgba(250, 218, 102, 0.12);
-  min-width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  position: relative;
+  width: 500px;
+  background: #ddd5eb;
+  border: 2px solid #000;
+  box-shadow: 8px 8px 0 #000;
+  border-radius: 4px;
+
+  /* space for the title bar + padding for content */
+  padding-top: 4rem;
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  box-sizing: border-box;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 0.5rem;
-  color: #7c5A00;
-  font-size: 2rem;
-  font-weight: 700;
+/* title bar */
+.signupForm .title {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3rem;
+  line-height: 3rem;
+  background: #ccc3e0;
+  border-bottom: 2px solid #000;
+  padding-left: 1rem;
+  margin: 0;
+
+  font: 500 1rem monospace;
+  color: #111;
 }
 
+/* each input row, centered */
 .inputGroup {
+  margin: 1rem 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  justify-content: center;
 }
 
-.label {
-  font-size: 1rem;
-  color: #b48a00;
-  margin-bottom: 0.1rem;
-}
-
+/* big retro inputs */
 .input {
-  padding: 0.6rem 0.9rem;
-  border: 1px solid #ffe082;
-  border-radius: 0.7rem;
-  font-size: 1rem;
-  background: #fffde7;
-  color: #7c5a00;
-  transition: border 0.2s;
+  width: 60%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  background: #fff;
+  font: 1rem monospace;
+  box-sizing: border-box;
+  color: #333;
 }
 
-.input:focus {
-  border: 1.5px solid #ffd54f;
-  outline: none;
+/* placeholder text inside */
+.input::placeholder {
+  color: #888;
+  font-style: italic;
+  font-family: monospace;
 }
 
+/* the “Sign Up” button with cut-out shadow */
 .submitButton {
-  margin-top: 0.7rem;
-  padding: 0.7rem 0;
-  background: linear-gradient(90deg, #ffe082 0%, #fada66 100%);
-  color: #7c5a00;
-  border: none;
-  border-radius: 0.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  position: relative;
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.5rem 2rem;
+  background: #fff8e8;
+  color: #000;
+  font: bold 1rem monospace;
+  border: 2px solid #000;
+  z-index: 1;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(250, 218, 102, 0.12);
-  transition: background 0.2s, box-shadow 0.2s;
 }
 
-.submitButton:hover {
-  background: linear-gradient(90deg, #fada66 0%, #ffe082 100%);
-  box-shadow: 0 4px 16px rgba(250, 218, 102, 0.18);
-} 
+.submitButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ddd5eb;
+  border: 2px solid #000;
+  transform: translate(-4px, 4px);
+  z-index: -1;
+  transition: transform 0.15s ease-out;
+}
+
+.submitButton:hover::after {
+  transform: translate(0, 0);
+}

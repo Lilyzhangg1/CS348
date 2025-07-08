@@ -29,28 +29,36 @@ export default function Login() {
     <div className={styles.loginContainer}>
       <form onSubmit={handleLogin} className={styles.loginForm}>
         <h2 className={styles.title}>Login</h2>
+
+        {/* — USERNAME — */}
         <div className={styles.inputGroup}>
-          <label className={styles.label}>User ID:</label>
           <input
             className={styles.input}
             type="text"
+            placeholder="Username"
             value={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            onChange={e => setUserId(e.target.value)}
             required
           />
         </div>
+
+        {/* — PASSWORD — */}
         <div className={styles.inputGroup}>
-          <label className={styles.label}>Password:</label>
           <input
             className={styles.input}
             type="password"
+            placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             required
           />
         </div>
-        {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
-        <button type="submit" className={styles.submitButton}>Login</button>
+
+        {errorMsg && <p className={styles.error}>{errorMsg}</p>}
+
+        <button type="submit" className={styles.submitButton}>
+          Login
+        </button>
       </form>
     </div>
   );

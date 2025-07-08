@@ -3,11 +3,16 @@ import API from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import styles from './SignUp.module.css';
 
-export default function Signup() {
-  const [form, setForm] = useState({ userId: '', firstName: '', lastName: '', password: '' });
+export default function SignUp() {
+  const [form, setForm] = useState({
+    userId: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+  });
   const nav = useNavigate();
 
-  const submit = async e => {
+  const submit = async (e) => {
     e.preventDefault();
     try {
       await API.post('/auth/signup', form);
@@ -22,19 +27,33 @@ export default function Signup() {
     <div className={styles.signupContainer}>
       <form onSubmit={submit} className={styles.signupForm}>
         <h2 className={styles.title}>Sign Up</h2>
-        {['userId','firstName','lastName','password'].map(f => (
-          <div key={f} className={styles.inputGroup}>
-            <label className={styles.label}>{f === 'userId' ? 'User ID' : f === 'firstName' ? 'First Name' : f === 'lastName' ? 'Last Name' : 'Password'}:</label>
-            <input
-              className={styles.input}
-              type={f==='password'?'password':'text'}
-              value={form[f]}
-              onChange={e=>setForm({...form, [f]:e.target.value})}
-              required
-            />
-          </div>
-        ))}
-        <button type="submit" className={styles.submitButton}>Sign Up</button>
+
+        {['userId', 'firstName', 'lastName', 'password'].map((f) => {
+          const placeholder =
+            f === 'userId'
+              ? 'User ID'
+              : f === 'firstName'
+              ? 'First Name'
+              : f === 'lastName'
+              ? 'Last Name'
+              : 'Password';
+          return (
+            <div key={f} className={styles.inputGroup}>
+              <input
+                className={styles.input}
+                type={f === 'password' ? 'password' : 'text'}
+                placeholder={placeholder}
+                value={form[f]}
+                onChange={(e) => setForm({ ...form, [f]: e.target.value })}
+                required
+              />
+            </div>
+          );
+        })}
+
+        <button type="submit" className={styles.submitButton}>
+          Sign Up
+        </button>
       </form>
     </div>
   );
