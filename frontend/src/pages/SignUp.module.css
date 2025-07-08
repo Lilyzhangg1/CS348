@@ -2,8 +2,9 @@
 .signupContainer {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 10rem;
 }
 
 /* the lavender “window” */
@@ -23,7 +24,6 @@
   box-sizing: border-box;
 }
 
-/* title bar */
 .signupForm .title {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -31,7 +31,9 @@
   line-height: 3rem;
   background: #ccc3e0;
   border-bottom: 2px solid #000;
-  padding-left: 1rem;
+  padding-left: 0;
+  padding-top: 1.5rem;
+  text-align: center;
   margin: 0;
 
   font: 500 1rem monospace;
@@ -43,6 +45,10 @@
   margin: 1rem 0;
   display: flex;
   justify-content: center;
+}
+
+.inputGroup:first-of-type {
+  margin-top: 2rem;
 }
 
 /* big retro inputs */
