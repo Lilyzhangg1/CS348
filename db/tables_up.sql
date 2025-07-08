@@ -91,3 +91,17 @@ BEGIN
    WHERE placeId = NEW.placeId
      AND userId  = NEW.userId;
 END;
+
+-- view on restaurant ratings
+CREATE VIEW RestaurantRatings AS
+SELECT r.placeId,
+        r.name,
+        r.street,
+        r.city,
+        r.postalCode,
+        AVG(rt.rating) AS averageRating,
+        COUNT(rt.rating) AS ratingCount
+FROM Restaurant r
+LEFT JOIN Rating rt ON r.placeId = rt.placeId
+GROUP BY r.placeId, r.name, r.street, r.city, r.postalCode
+HAVING COUNT(rt.rating) > 0;
