@@ -75,3 +75,19 @@ CREATE INDEX idx_friend_request_requesterId ON FriendRequest(requesterId);
 -- friendship index for user lookups
 CREATE INDEX idx_friendship_userA ON Friendship(userA);
 CREATE INDEX idx_friendship_userB ON Friendship(userB);
+
+-- 5.2 Trigger: remove wishlist entry when a rating is submitted
+CREATE TRIGGER trg_remove_wishlist_after_rating
+AFTER INSERT ON Rating
+FOR EACH ROW
+WHEN EXISTS (
+  SELECT 1
+    FROM Wishlist
+   WHERE placeId = NEW.placeId
+     AND userId  = NEW.userId
+)
+BEGIN
+  DELETE FROM Wishlist
+   WHERE placeId = NEW.placeId
+     AND userId  = NEW.userId;
+END;
