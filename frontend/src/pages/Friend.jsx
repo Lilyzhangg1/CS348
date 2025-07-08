@@ -388,7 +388,7 @@ export default function Friends() {
                 padding: "0.5rem 0"
               }}>
                 {restaurants.map((restaurant) => (
-                  <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} />
+                  <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} hideImage={true} comment={restaurant.comment} />
                 ))}
               </div>
             </div>

@@ -6,7 +6,7 @@ import API from '../api/api';
 import restaurantImage from '../assets/restaurant.png';
 import RatingModal from './RatingModal';
 
-export default function RestaurantCard({ r }) {
+export default function RestaurantCard({ r, hideImage, comment }) {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -77,13 +77,20 @@ export default function RestaurantCard({ r }) {
       <p className={styles.address}>
         {r.street}, {r.city} {r.postalCode}
       </p>
-      <div className={styles.imageWrapper}>
-        <img
-          src={restaurantImage}
-          alt={`${r.name} placeholder`}
-          className={styles.image}
-        />
-      </div>
+      {!hideImage && (
+        <div className={styles.imageWrapper}>
+          <img
+            src={restaurantImage}
+            alt={`${r.name} placeholder`}
+            className={styles.image}
+          />
+        </div>
+      )}
+      {hideImage && comment && (
+        <div style={{ minHeight: 40, margin: '0.5rem 0', color: '#555', fontStyle: 'italic', fontSize: '0.97rem' }}>
+          “{comment}”
+        </div>
+      )}
       <div className={styles.footer}>
         <div className={styles.rating}>
           <MoonStarIcon size={16} strokeWidth={0.25} />

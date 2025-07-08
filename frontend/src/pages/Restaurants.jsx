@@ -23,7 +23,7 @@ function TopRatedSection() {
       </h2>
       <div className={styles.grid}>
         {top.map(r => (
-          <RestaurantCard key={r.placeId} r={r} />
+          <RestaurantCard key={r.placeId} r={r} hideImage={true} />
         ))}
       </div>
     </section>
