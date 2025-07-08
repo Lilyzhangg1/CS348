@@ -43,11 +43,15 @@ export default function Friends() {
       for (const friend of friends) {
         try {
           const response = await API.get(`/users/${friend.friendId}/ratings`)
-          const ratings = response.data
+          let ratings = response.data
+
+          // Sort by rating DESC, then by ratingDate DESC
+          ratings = ratings.sort((a, b) => {
+            if (b.rating !== a.rating) return b.rating - a.rating;
+            return new Date(b.ratingDate) - new Date(a.ratingDate);
+          })
           
-          console.log(`📊 ${friend.friendId}: ${ratings.length} ratings`)
-          
-          // Take top 4 ratings (they're already sorted by rating DESC)
+          // Take top 4 ratings
           const top4 = ratings.slice(0, 4).map(rating => ({
             ...rating,
             avgRating: rating.rating, // Use individual rating as avgRating for display
@@ -202,7 +206,7 @@ export default function Friends() {
         margin: "0 auto 2rem auto",
         padding: "0 20px"
       }}>
-        <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0 }}>Friends</h1>
+        <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0, marginLeft: "-6rem" }}>Friends</h1>
         <button
           className={styles.findFriendsBtn}
           onClick={() => setShowFriendsBox(!showFriendsBox)}
@@ -374,7 +378,7 @@ export default function Friends() {
           </p>
         ) : (
           Object.entries(groupedByFriend).map(([friendId, restaurants]) => (
-            <div key={friendId} style={{ marginBottom: "2.5rem" }}>
+            <div key={friendId} style={{ marginBottom: "2.5rem", marginLeft: "-6rem" }}>
               <h3 style={{ color: "#222", marginBottom: "1rem" }}>{friendId}'s Top Rated</h3>
               <div style={{
                 display: "grid",
