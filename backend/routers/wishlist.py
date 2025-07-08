@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from typing import List
 from backend.models.wishlist_request import WishlistAddRequest
 from backend.models.get_restaurants_response import RestaurantOut
@@ -41,7 +41,9 @@ def get_wishlist(user_id: str):
         """,
         (user_id,)
     )
-    return [dict(row) for row in cur.fetchall()]
+    results = [dict(row) for row in cur.fetchall()]
+    conn.close()
+    return results
 
 @router.get("/{user_id}/check/{place_id}")
 def check_wishlist_status(user_id: str, place_id: str):
