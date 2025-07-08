@@ -1,0 +1,65 @@
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background-color: #FDF6E3;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid #444;
+    box-shadow: 8px 8px 0 #b7a5df;
+    width: 90%;
+    max-width: 24rem;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .form label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    color: #333;
+  }
+  
+  .form select,
+  .form textarea {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid #888;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .buttons button {
+    background: #FFF9C4;
+    border: 1px solid #F0E68C;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  
+  .buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
