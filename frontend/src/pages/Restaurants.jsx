@@ -1,40 +1,40 @@
+// src/pages/Restaurants.jsx
+
 import React, { useEffect, useState } from 'react';
 import API from '../api/api';
 import RestaurantCard from '../components/RestaurantCard';
-import styles from './Restaurants.module.css';  // ← new import
-import backgroundImage from '../assets/background.jpeg'; // ← new import
+import styles from './Restaurants.module.css';
 
-function TopRatedCard() {
+function TopRatedSection() {
   const [top, setTop] = useState([]);
+
   useEffect(() => {
-    API.get('/top-rated-weekly').then(res => setTop(res.data));
+    API.get('/top-rated-weekly')
+       .then(res => setTop(res.data))
+       .catch(() => {});
   }, []);
-  if (!top.length) return null;
+
+  if (top.length === 0) return null;
+
   return (
-    <div style={{
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
-      backgroundSize: 'cover'
-    }}>
-      <h3 style={{ color: '#b48a00', marginTop: 0 }}>Top 3 Rated This Week</h3>
-      <ol style={{ paddingLeft: '1.2rem', margin: 0 }}>
-        {top.map((r, i) => (
-          <li key={r.placeId} style={{ marginBottom: '0.7rem', fontWeight: 500 }}>
-            <span style={{ color: '#7c5a00', fontWeight: 700 }}>{r.name}</span>
-            <span style={{ color: '#b48a00', marginLeft: 8 }}>({r.avgRating}★ avg)</span>
-          </li>
+    <section style={{ marginBottom: '2rem' }}>
+      <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>
+        Top 3 Rated This Week
+      </h3>
+      <div className={styles.grid}>
+        {top.map(r => (
+          <RestaurantCard key={r.placeId} r={r} />
         ))}
-      </ol>
-    </div>
+      </div>
+    </section>
   );
 }
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [orderByRating, setOrderByRating] = useState(false);
 
   useEffect(() => {
@@ -46,10 +46,7 @@ export default function Restaurants() {
       url += `&order=rating`;
     }
     API.get(url)
-      .then(res => {
-        console.log("✅ Restaurants:", res.data);
-        setRestaurants(res.data);
-      })
+      .then(res => setRestaurants(res.data))
       .catch(console.error);
   }, [page, searchTerm, orderByRating]);
 
@@ -64,15 +61,16 @@ export default function Restaurants() {
     transition: "background-color .2s",
   };
   const hoverStyle = { backgroundColor: "#FFEE99" };
-  const handleSearch = (e) => {
+
+  const handleSearch = e => {
     e.preventDefault();
     setSearchTerm(search);
     setPage(1);
   };
 
   return (
-    <div>
-      <TopRatedCard />
+    <div style={{ padding: '1rem' }}>
+      <TopRatedSection />
 
       <h2>Restaurants</h2>
       <form
@@ -107,7 +105,10 @@ export default function Restaurants() {
         </button>
         <button
           type="button"
-          style={{ ...btnStyle, backgroundColor: orderByRating ? '#ffe082' : btnStyle.backgroundColor }}
+          style={{
+            ...btnStyle,
+            backgroundColor: orderByRating ? '#ffe082' : btnStyle.backgroundColor
+          }}
           onMouseOver={e => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
           onMouseOut={e => (e.currentTarget.style.backgroundColor = orderByRating ? '#ffe082' : btnStyle.backgroundColor)}
           onClick={() => { setOrderByRating(v => !v); setPage(1); }}
@@ -116,7 +117,6 @@ export default function Restaurants() {
         </button>
       </form>
 
-      {/* ← wrap your cards in a grid container: */}
       <div className={styles.grid}>
         {restaurants.map(r => (
           <RestaurantCard key={r.placeId} r={r} />
