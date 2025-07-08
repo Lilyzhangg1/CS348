@@ -21,6 +21,9 @@ export default function RatingCard({ r }) {
     <>
       <div className={styles.card}>
         <h3 className={styles.title}>{r.name || r.placeId}</h3>
+        <p className={styles.address}>
+           {r.street}, {r.city} {r.postalCode}
+        </p>
         <div className={styles.footer}>
           <div className={styles.rating}>
             <MoonStarIcon size={16} strokeWidth={0.25} />

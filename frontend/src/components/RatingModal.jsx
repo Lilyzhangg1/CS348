@@ -20,12 +20,9 @@ export default function RatingModal({
     setIsSubmitting(true);
     try {
       await API.post('/rating', { userId, placeId, rating, comment });
-      onSave({ rating, comment, ratingDate: new Date().toISOString() });
       onClose();
     } catch (err) {
       alert(err.response?.data?.detail || 'Could not submit rating');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
