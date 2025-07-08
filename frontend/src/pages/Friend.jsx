@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import API from "../api/api"
 import styles from "./Friend.module.css"
+import RestaurantCard from "../components/RestaurantCard"
 
 export default function Friends() {
   const [friends, setFriends] = useState([])
@@ -12,6 +13,8 @@ export default function Friends() {
   const [incomingRequests, setIncomingRequests] = useState([])
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("friends")
+  const [friendsRestaurants, setFriendsRestaurants] = useState([])
+  const [showFriendsBox, setShowFriendsBox] = useState(false)
 
   const userId = localStorage.getItem("userId")
 
@@ -25,6 +28,43 @@ export default function Friends() {
         setFriends(res.data)
       })
       .catch(console.error)
+  }
+
+  // Fetch friends' top rated restaurants
+  const fetchFriendsRestaurants = async () => {
+    if (!userId || friends.length === 0) return
+
+    console.log(`🔍 Fetching ratings for ${friends.length} friends`)
+    
+    try {
+      const allFriendsRestaurants = []
+      
+      // Fetch ratings for each friend
+      for (const friend of friends) {
+        try {
+          const response = await API.get(`/users/${friend.friendId}/ratings`)
+          const ratings = response.data
+          
+          console.log(`📊 ${friend.friendId}: ${ratings.length} ratings`)
+          
+          // Take top 4 ratings (they're already sorted by rating DESC)
+          const top4 = ratings.slice(0, 4).map(rating => ({
+            ...rating,
+            avgRating: rating.rating, // Use individual rating as avgRating for display
+            friendId: friend.friendId
+          }))
+          
+          allFriendsRestaurants.push(...top4)
+        } catch (error) {
+          console.error(`❌ Error fetching ratings for ${friend.friendId}:`, error)
+        }
+      }
+      
+      console.log(`✅ Total restaurants from friends: ${allFriendsRestaurants.length}`)
+      setFriendsRestaurants(allFriendsRestaurants)
+    } catch (error) {
+      console.error("❌ Error fetching friends' restaurants:", error)
+    }
   }
 
   // Fetch incoming friend requests
@@ -93,6 +133,7 @@ export default function Friends() {
         fetchIncomingRequests()
         if (accept) {
           fetchFriends()
+          fetchFriendsRestaurants()
         }
       })
       .catch((err) => {
@@ -113,6 +154,13 @@ export default function Friends() {
       fetchIncomingRequests()
     }
   }, [userId])
+
+  // Fetch friends' restaurants when friends list changes
+  useEffect(() => {
+    if (friends.length > 0) {
+      fetchFriendsRestaurants()
+    }
+  }, [friends])
 
   useEffect(() => {
     searchUsers()
@@ -135,155 +183,214 @@ export default function Friends() {
     return <div className={styles.container}>Please log in to view friends.</div>
   }
 
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Friends</h1>
+  // Group restaurants by friendId
+  const groupedByFriend = friendsRestaurants.reduce((acc, restaurant) => {
+    if (!acc[restaurant.friendId]) acc[restaurant.friendId] = [];
+    acc[restaurant.friendId].push(restaurant);
+    return acc;
+  }, {});
 
-      {/* Tab Navigation */}
-      <div className={styles.tabs}>
+  return (
+    <div>
+      {/* Find Friends Button - Outside the white box */}
+      <div style={{ 
+        display: "flex", 
+        justifyContent: "space-between", 
+        alignItems: "center", 
+        marginBottom: "2rem",
+        maxWidth: "1200px",
+        margin: "0 auto 2rem auto",
+        padding: "0 20px"
+      }}>
+        <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0 }}>Friends</h1>
         <button
-          className={`${styles.tab} ${activeTab === "friends" ? styles.activeTab : ""}`}
-          onClick={() => setActiveTab("friends")}
+          className={styles.findFriendsBtn}
+          onClick={() => setShowFriendsBox(!showFriendsBox)}
         >
-          My Friends ({friends.length})
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === "search" ? styles.activeTab : ""}`}
-          onClick={() => setActiveTab("search")}
-        >
-          Find Friends
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === "requests" ? styles.activeTab : ""}`}
-          onClick={() => setActiveTab("requests")}
-        >
-          Requests ({incomingRequests.length})
+          {showFriendsBox ? "Hide Find Friends" : "Find Friends"}
         </button>
       </div>
 
-      {/* Friends List Tab */}
-      {activeTab === "friends" && (
-        <div className={styles.tabContent}>
-          <h2>Your Friends</h2>
-          {friends.length === 0 ? (
-            <p className={styles.emptyState}>You don't have any friends yet. Search for people to add!</p>
-          ) : (
-            <div className={styles.friendsList}>
-              {friends.map((friend) => (
-                <div key={friend.friendId} className={styles.friendCard}>
-                  <div className={styles.friendInfo}>
-                    <strong>{friend.friendId}</strong>
-                    <small>Friends since: {new Date(friend.friendedDate).toLocaleDateString()}</small>
-                  </div>
+      {/* Friends Management Box - Toggleable */}
+      {showFriendsBox && (
+        <div className={styles.container}>
+          {/* Tab Navigation */}
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.tab} ${activeTab === "friends" ? styles.activeTab : ""}`}
+              onClick={() => setActiveTab("friends")}
+            >
+              My Friends ({friends.length})
+            </button>
+            <button
+              className={`${styles.tab} ${activeTab === "search" ? styles.activeTab : ""}`}
+              onClick={() => setActiveTab("search")}
+            >
+              Find Friends
+            </button>
+            <button
+              className={`${styles.tab} ${activeTab === "requests" ? styles.activeTab : ""}`}
+              onClick={() => setActiveTab("requests")}
+            >
+              Requests ({incomingRequests.length})
+            </button>
+          </div>
+
+          {/* Friends List Tab */}
+          {activeTab === "friends" && (
+            <div className={styles.tabContent}>
+              <h2>Your Friends</h2>
+              {friends.length === 0 ? (
+                <p className={styles.emptyState}>You don't have any friends yet. Search for people to add!</p>
+              ) : (
+                <div className={styles.friendsList}>
+                  {friends.map((friend) => (
+                    <div key={friend.friendId} className={styles.friendCard}>
+                      <div className={styles.friendInfo}>
+                        <strong>{friend.friendId}</strong>
+                        <small>Friends since: {new Date(friend.friendedDate).toLocaleDateString()}</small>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           )}
-        </div>
-      )}
 
-      {/* Search Tab */}
-      {activeTab === "search" && (
-        <div className={styles.tabContent}>
-          <h2>Find New Friends</h2>
-          <form
-            onSubmit={handleSearch}
-            style={{
-              marginBottom: "1.5rem",
-              display: "flex",
-              gap: "0.5rem",
-              alignItems: "center",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search by name or user ID..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{
-                padding: "0.5rem 1rem",
-                borderRadius: "9999px",
-                border: "1px solid #F0E68C",
-                fontSize: "1rem",
-                flex: 1,
-              }}
-            />
-            <button
-              type="submit"
-              style={btnStyle}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
-            >
-              Search
-            </button>
-          </form>
-
-          {loading && <p>Searching...</p>}
-
-          <div className={styles.searchResults}>
-            {searchResults.map((user) => (
-              <div key={user.userId} className={styles.userCard}>
-                <div className={styles.userInfo}>
-                  <strong>
-                    {user.firstName} {user.lastName}
-                  </strong>
-                  <small>@{user.userId}</small>
-                </div>
+          {/* Search Tab */}
+          {activeTab === "search" && (
+            <div className={styles.tabContent}>
+              <h2>Find New Friends</h2>
+              <form
+                onSubmit={handleSearch}
+                style={{
+                  marginBottom: "1.5rem",
+                  display: "flex",
+                  gap: "0.5rem",
+                  alignItems: "center",
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Search by name or user ID..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{
+                    padding: "0.5rem 1rem",
+                    borderRadius: "9999px",
+                    border: "1px solid #F0E68C",
+                    fontSize: "1rem",
+                    flex: 1,
+                  }}
+                />
                 <button
-                  onClick={() => sendFriendRequest(user.userId)}
+                  type="submit"
                   style={btnStyle}
                   onMouseOver={(e) => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
                   onMouseOut={(e) => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
                 >
-                  Add Friend
+                  Search
                 </button>
-              </div>
-            ))}
-            {searchTerm && !loading && searchResults.length === 0 && (
-              <p className={styles.emptyState}>No users found matching "{searchTerm}"</p>
-            )}
-          </div>
-        </div>
-      )}
+              </form>
 
-      {/* Requests Tab */}
-      {activeTab === "requests" && (
-        <div className={styles.tabContent}>
-          <h2>Friend Requests</h2>
-          {incomingRequests.length === 0 ? (
-            <p className={styles.emptyState}>No pending friend requests.</p>
-          ) : (
-            <div className={styles.requestsList}>
-              {incomingRequests.map((request) => (
-                <div key={request.requesterId} className={styles.requestCard}>
-                  <div className={styles.requestInfo}>
-                    <strong>{request.requesterId}</strong>
-                    <small>Sent: {new Date(request.requestDate).toLocaleDateString()}</small>
-                  </div>
-                  <div className={styles.requestActions}>
+              {loading && <p>Searching...</p>}
+
+              <div className={styles.searchResults}>
+                {searchResults.map((user) => (
+                  <div key={user.userId} className={styles.userCard}>
+                    <div className={styles.userInfo}>
+                      <strong>
+                        {user.firstName} {user.lastName}
+                      </strong>
+                      <small>@{user.userId}</small>
+                    </div>
                     <button
-                      onClick={() => respondToRequest(request.requesterId, true)}
-                      style={{ ...btnStyle, backgroundColor: "#c8e6c9" }}
-                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#a5d6a7")}
-                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#c8e6c9")}
+                      onClick={() => sendFriendRequest(user.userId)}
+                      style={btnStyle}
+                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor)}
+                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor)}
                     >
-                      Accept
-                    </button>
-                    <button
-                      onClick={() => respondToRequest(request.requesterId, false)}
-                      style={{ ...btnStyle, backgroundColor: "#ffcdd2" }}
-                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#ef9a9a")}
-                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#ffcdd2")}
-                    >
-                      Reject
+                      Add Friend
                     </button>
                   </div>
+                ))}
+                {searchTerm && !loading && searchResults.length === 0 && (
+                  <p className={styles.emptyState}>No users found matching "{searchTerm}"</p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Requests Tab */}
+          {activeTab === "requests" && (
+            <div className={styles.tabContent}>
+              <h2>Friend Requests</h2>
+              {incomingRequests.length === 0 ? (
+                <p className={styles.emptyState}>No pending friend requests.</p>
+              ) : (
+                <div className={styles.requestsList}>
+                  {incomingRequests.map((request) => (
+                    <div key={request.requesterId} className={styles.requestCard}>
+                      <div className={styles.requestInfo}>
+                        <strong>{request.requesterId}</strong>
+                        <small>Sent: {new Date(request.requestDate).toLocaleDateString()}</small>
+                      </div>
+                      <div className={styles.requestActions}>
+                        <button
+                          onClick={() => respondToRequest(request.requesterId, true)}
+                          style={{ ...btnStyle, backgroundColor: "#c8e6c9" }}
+                          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#a5d6a7")}
+                          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#c8e6c9")}
+                        >
+                          Accept
+                        </button>
+                        <button
+                          onClick={() => respondToRequest(request.requesterId, false)}
+                          style={{ ...btnStyle, backgroundColor: "#ffcdd2" }}
+                          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#ef9a9a")}
+                          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#ffcdd2")}
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           )}
         </div>
       )}
+
+      {/* Friends' Top Rated Restaurants - Grouped by friend */}
+      <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
+        {friends.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
+            You don't have any friends yet. Add some friends to see their recommendations!
+          </p>
+        ) : friendsRestaurants.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
+            Your friends haven't rated any restaurants yet.
+          </p>
+        ) : (
+          Object.entries(groupedByFriend).map(([friendId, restaurants]) => (
+            <div key={friendId} style={{ marginBottom: "2.5rem" }}>
+              <h3 style={{ color: "#222", marginBottom: "1rem" }}>{friendId}'s Top Rated</h3>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "1rem",
+                alignItems: "start",
+                padding: "0.5rem 0"
+              }}>
+                {restaurants.map((restaurant) => (
+                  <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} />
+                ))}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   )
 }
