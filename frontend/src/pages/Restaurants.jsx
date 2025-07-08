@@ -71,7 +71,7 @@ export default function Restaurants() {
   };
 
   return (
-    <div>
+    <div style={{ paddingBottom: "1.5rem" }}>
       <TopRatedCard />
 
       <h2>Restaurants</h2>
