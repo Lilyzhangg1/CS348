@@ -1,19 +1,23 @@
+// src/components/RatingModal.jsx
+
 import React, { useState } from 'react';
 import API from '../api/api';
-import styles from './RatingModal.module.css'; // we’ll create this
+import styles from './RatingModal.module.css';
 
-export default function RatingModal({ placeId, onClose }) {
-  const [rating, setRating] = useState(5);
-  const [comment, setComment] = useState('');
+export default function RatingModal({
+  placeId,
+  initialRating = 5,
+  initialComment = '',
+  onClose,
+  onSave,               // new prop
+}) {
+  const [rating, setRating] = useState(initialRating);
+  const [comment, setComment] = useState(initialComment);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async e => {
     e.preventDefault();
     const userId = localStorage.getItem('userId');
-    if (!userId) {
-      alert('Please log in to rate.');
-      return;
-    }
     setIsSubmitting(true);
     try {
       await API.post('/rating', {
@@ -22,10 +26,9 @@ export default function RatingModal({ placeId, onClose }) {
         rating,
         comment,
       });
-      alert('Thanks for your rating!');
+      // notify parent of new values:
+      onSave({ rating, comment, ratingDate: new Date().toISOString() });
       onClose();
-      // Optionally, dispatch an event to refresh avgRating in parent
-      window.dispatchEvent(new Event('ratingSubmitted'));
     } catch (err) {
       alert(err.response?.data?.detail || 'Could not submit rating');
     } finally {
@@ -35,10 +38,7 @@ export default function RatingModal({ placeId, onClose }) {
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.modal}
-        onClick={e => e.stopPropagation()}
-      >
+      <div className={styles.modal} onClick={e => e.stopPropagation()}>
         <h3 className={styles.title}>Rate this place</h3>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
@@ -63,11 +63,7 @@ export default function RatingModal({ placeId, onClose }) {
             />
           </label>
           <div className={styles.buttons}>
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={isSubmitting}
-            >
+            <button type="button" disabled={isSubmitting} onClick={onClose}>
               Cancel
             </button>
             <button type="submit" disabled={isSubmitting}>
