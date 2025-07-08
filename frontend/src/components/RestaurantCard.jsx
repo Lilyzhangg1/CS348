@@ -114,6 +114,7 @@ export default function RestaurantCard({ r }) {
       {showModal && (
         <RatingModal
           placeId={r.placeId}
+          restaurantName={r.name || r.placeId}
           onClose={() => setShowModal(false)}
         />
       )}

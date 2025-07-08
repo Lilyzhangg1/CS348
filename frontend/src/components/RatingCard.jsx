@@ -1,5 +1,3 @@
-// src/components/RatingCard.jsx
-
 import React, { useState } from 'react';
 import { MoonStarIcon } from 'raster-react';
 import { Edit2 } from 'lucide-react';
@@ -23,7 +21,6 @@ export default function RatingCard({ r }) {
     <>
       <div className={styles.card}>
         <h3 className={styles.title}>{r.name || r.placeId}</h3>
-
         <div className={styles.footer}>
           <div className={styles.rating}>
             <MoonStarIcon size={16} strokeWidth={0.25} />
@@ -50,6 +47,7 @@ export default function RatingCard({ r }) {
       {showModal && (
         <RatingModal
           placeId={r.placeId}
+          restaurantName={r.name || r.placeId}
           initialRating={userRating.rating}
           initialComment={userRating.comment}
           onSave={handleSave}

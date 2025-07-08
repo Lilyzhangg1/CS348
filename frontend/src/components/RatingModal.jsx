@@ -1,15 +1,14 @@
-// src/components/RatingModal.jsx
-
 import React, { useState } from 'react';
 import API from '../api/api';
 import styles from './RatingModal.module.css';
 
 export default function RatingModal({
   placeId,
+  restaurantName,
   initialRating = 5,
   initialComment = '',
   onClose,
-  onSave,               // new prop
+  onSave,
 }) {
   const [rating, setRating] = useState(initialRating);
   const [comment, setComment] = useState(initialComment);
@@ -20,13 +19,7 @@ export default function RatingModal({
     const userId = localStorage.getItem('userId');
     setIsSubmitting(true);
     try {
-      await API.post('/rating', {
-        userId,
-        placeId,
-        rating,
-        comment,
-      });
-      // notify parent of new values:
+      await API.post('/rating', { userId, placeId, rating, comment });
       onSave({ rating, comment, ratingDate: new Date().toISOString() });
       onClose();
     } catch (err) {
@@ -39,7 +32,9 @@ export default function RatingModal({
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
-        <h3 className={styles.title}>Rate this place</h3>
+        <h3 className={styles.title}>
+          {restaurantName}
+        </h3>
         <form onSubmit={handleSubmit} className={styles.form}>
           <label>
             Stars:
