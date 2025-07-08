@@ -42,7 +42,7 @@ export default function Friends() {
       // Fetch ratings for each friend
       for (const friend of friends) {
         try {
-          const response = await API.get(`/rating/user/${friend.friendId}`)
+          const response = await API.get(`/users/${friend.friendId}/ratings`)
           const ratings = response.data
           
           console.log(`📊 ${friend.friendId}: ${ratings.length} ratings`)
@@ -183,8 +183,12 @@ export default function Friends() {
     return <div className={styles.container}>Please log in to view friends.</div>
   }
 
-  // Flatten all friends' restaurants into a single array for display
-  const allFriendsRestaurants = friendsRestaurants
+  // Group restaurants by friendId
+  const groupedByFriend = friendsRestaurants.reduce((acc, restaurant) => {
+    if (!acc[restaurant.friendId]) acc[restaurant.friendId] = [];
+    acc[restaurant.friendId].push(restaurant);
+    return acc;
+  }, {});
 
   return (
     <div>
@@ -358,9 +362,8 @@ export default function Friends() {
         </div>
       )}
 
-      {/* Friends' Top Rated Restaurants - Outside the white box */}
+      {/* Friends' Top Rated Restaurants - Grouped by friend */}
       <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        <h2>Friends' Top Rated Restaurants</h2>
         {friends.length === 0 ? (
           <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
             You don't have any friends yet. Add some friends to see their recommendations!
@@ -370,17 +373,22 @@ export default function Friends() {
             Your friends haven't rated any restaurants yet.
           </p>
         ) : (
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1rem",
-            alignItems: "start",
-            padding: "0.5rem 0"
-          }}>
-            {friendsRestaurants.map((restaurant) => (
-              <RestaurantCard key={`${restaurant.friendId}-${restaurant.placeId}`} r={restaurant} />
-            ))}
-          </div>
+          Object.entries(groupedByFriend).map(([friendId, restaurants]) => (
+            <div key={friendId} style={{ marginBottom: "2.5rem" }}>
+              <h3 style={{ color: "#222", marginBottom: "1rem" }}>{friendId}'s Top Rated</h3>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "1rem",
+                alignItems: "start",
+                padding: "0.5rem 0"
+              }}>
+                {restaurants.map((restaurant) => (
+                  <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} />
+                ))}
+              </div>
+            </div>
+          ))
         )}
       </div>
     </div>
