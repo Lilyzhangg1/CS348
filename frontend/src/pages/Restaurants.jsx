@@ -1,4 +1,3 @@
-// src/pages/Restaurants.jsx
 
 import React, { useEffect, useState } from 'react';
 import API from '../api/api';

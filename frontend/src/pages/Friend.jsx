@@ -45,7 +45,7 @@ export default function Friends() {
           const response = await API.get(`/users/${friend.friendId}/ratings`)
           let ratings = response.data
 
-          // Sort by rating DESC, then by ratingDate DESC
+          // Sort by rating, then by ratingDate
           ratings = ratings.sort((a, b) => {
             if (b.rating !== a.rating) return b.rating - a.rating;
             return new Date(b.ratingDate) - new Date(a.ratingDate);
@@ -54,7 +54,7 @@ export default function Friends() {
           // Take top 4 ratings
           const top4 = ratings.slice(0, 4).map(rating => ({
             ...rating,
-            avgRating: rating.rating, // Use individual rating as avgRating for display
+            avgRating: rating.rating, 
             friendId: friend.friendId
           }))
           
@@ -168,7 +168,7 @@ export default function Friends() {
 
   useEffect(() => {
     searchUsers()
-  }, [searchTerm, friends]) // Re-search when friends list changes
+  }, [searchTerm, friends]) 
 
   const btnStyle = {
     backgroundColor: "#FFF9C4",
@@ -196,7 +196,7 @@ export default function Friends() {
 
   return (
     <div>
-      {/* Find Friends Button - Outside the white box */}
+
       <div style={{ 
         display: "flex", 
         justifyContent: "space-between", 
@@ -215,10 +215,8 @@ export default function Friends() {
         </button>
       </div>
 
-      {/* Friends Management Box - Toggleable */}
       {showFriendsBox && (
         <div className={styles.container}>
-          {/* Tab Navigation */}
           <div className={styles.tabs}>
             <button
               className={`${styles.tab} ${activeTab === "friends" ? styles.activeTab : ""}`}
@@ -240,7 +238,6 @@ export default function Friends() {
             </button>
           </div>
 
-          {/* Friends List Tab */}
           {activeTab === "friends" && (
             <div className={styles.tabContent}>
               <h2>Your Friends</h2>
@@ -261,7 +258,6 @@ export default function Friends() {
             </div>
           )}
 
-          {/* Search Tab */}
           {activeTab === "search" && (
             <div className={styles.tabContent}>
               <h2>Find New Friends</h2>
@@ -325,7 +321,6 @@ export default function Friends() {
             </div>
           )}
 
-          {/* Requests Tab */}
           {activeTab === "requests" && (
             <div className={styles.tabContent}>
               <h2>Friend Requests</h2>
@@ -366,7 +361,6 @@ export default function Friends() {
         </div>
       )}
 
-      {/* Friends' Top Rated Restaurants - Grouped by friend */}
       <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         {friends.length === 0 ? (
           <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>

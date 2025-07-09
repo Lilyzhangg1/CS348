@@ -5,7 +5,6 @@ import styles from './RestaurantCard.module.css';
 import RatingModal from './RatingModal';
 
 export default function RatingCard({ r }) {
-  // Local state for this card’s rating
   const [userRating, setUserRating] = useState({
     rating: r.rating,
     comment: r.comment,

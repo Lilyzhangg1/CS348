@@ -19,7 +19,7 @@ export default function Login() {
       alert("Login successful!");
       localStorage.setItem("userId", userId);
       window.dispatchEvent(new Event("storage"));
-      nav("/restaurants"); // go to homepage
+      nav("/restaurants");
     } catch (err) {
       setErrorMsg(err.response?.data?.detail || "Login failed");
     }
@@ -30,7 +30,7 @@ export default function Login() {
       <form onSubmit={handleLogin} className={styles.loginForm}>
         <h2 className={styles.title}>Login</h2>
 
-        {/* — USERNAME — */}
+        {/* USERNAME */}
         <div className={styles.inputGroup}>
           <input
             className={styles.input}
@@ -42,7 +42,7 @@ export default function Login() {
           />
         </div>
 
-        {/* — PASSWORD — */}
+        {/* PASSWORD */}
         <div className={styles.inputGroup}>
           <input
             className={styles.input}

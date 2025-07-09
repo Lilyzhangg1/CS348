@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../api/api";
 import RestaurantCard from "../components/RestaurantCard";
-import styles from './Wishlist.module.css';  // ← new import
+import styles from './Wishlist.module.css';
 
 export default function Wishlist() {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -41,7 +41,7 @@ export default function Wishlist() {
     return () => window.removeEventListener('wishlistChanged', handleWishlistChange);
   }, [userId]);
 
-  // Calculate pagination
+  // Calculate
   const totalPages = Math.ceil(allRestaurants.length / itemsPerPage);
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -72,7 +72,6 @@ export default function Wishlist() {
     <div style={{ paddingBottom: "1.5rem" }}>
       <h2>My Wishlist</h2>
       
-      {/* ← wrap your cards in a grid container: */}
       <div className={styles.grid}>
         {currentPageRestaurants.map(r => (
           <RestaurantCard key={r.placeId} r={r} />
