@@ -5,7 +5,8 @@ WaterlooEats is a database-driven web application designed to help users in the 
 ---
 ## Sample test
 - located in the sample directory
-
+## Production test
+- located in the production directory
 ## Fetching sample data
 To fetch sample (and ultimately production) data, use the `fetch_clean_data.py` script, specify the range (radius) of the restaurant search to increase the number of tuples fetched.
 ## Fetching production data!
@@ -16,6 +17,7 @@ To get the api key, hit up Bk (😭 please don't query too much, money money)
 
 ## Hosting
 The backend is hosted on railway so you do not need to setup the backend anymore!
+The database is on a volume in railway and hence recreating the database locally is no longer required but included in the steps! All you now need to do is go to the frontend directory, make a .env file with the URL below, `npm i` and `npm start` and you're all set to join Waterlooeats!
 ## 📦 Installation & Setup
 
 ### Prerequisites
