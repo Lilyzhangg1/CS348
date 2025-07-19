@@ -1,7 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routers import auth, restaurants, wishlist, ratings, top_rated_weekly, friends, users
+from backend.models.user_create_request import UserCreate
+from backend.models.user_login_request import UserLogin
+from backend.models.get_restaurants_response import RestaurantOut
+from backend.db import get_db
 from datetime import date
+import sqlite3
+import hashlib
+from typing import List
+from pydantic import BaseModel
 
 app = FastAPI()
 app.add_middleware(

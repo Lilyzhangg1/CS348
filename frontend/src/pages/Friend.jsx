@@ -148,6 +148,27 @@ export default function Friends() {
       })
   }
 
+  // Remove friend
+  const removeFriend = (friendId) => {
+    if (window.confirm(`Are you sure you want to remove ${friendId} as a friend?`)) {
+      API.delete('/friends/remove', { 
+        data: { userId, friendId } 
+      })
+        .then((res) => {
+          console.log("✅ Friend removed:", res.data)
+          toast.success("Friend removed successfully!")
+          // Refresh data
+          fetchFriends()
+          fetchFriendsRestaurants()
+        })
+        .catch((err) => {
+          console.error("❌ Error removing friend:", err)
+          const errorMsg = err.response?.data?.detail || "Failed to remove friend"
+          toast.error(`Error: ${errorMsg}`)
+        })
+    }
+  }
+
   const handleSearch = (e) => {
     e.preventDefault()
     setSearchTerm(searchQuery)
@@ -283,6 +304,18 @@ export default function Friends() {
                         <strong>{friend.friendId}</strong>
                         <small>Friends since: {new Date(friend.friendedDate).toLocaleDateString()}</small>
                       </div>
+                      <button
+                        onClick={() => removeFriend(friend.friendId)}
+                        style={{ 
+                          ...btnStyle, 
+                          backgroundColor: "#ffcdd2",
+                          marginLeft: "auto"
+                        }}
+                        onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#ef9a9a")}
+                        onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#ffcdd2")}
+                      >
+                        Remove
+                      </button>
                     </div>
                   ))}
                 </div>

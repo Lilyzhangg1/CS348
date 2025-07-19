@@ -1,7 +1,7 @@
 # routers/friends.py
 from fastapi import APIRouter, HTTPException
 from backend.db import get_db
-from backend.models.friend_request import FriendRequestIn, FriendResponseIn
+from backend.models.friend_request import FriendRequestIn, FriendResponseIn, RemoveFriendRequest
 
 router = APIRouter()
 
@@ -82,3 +82,26 @@ def get_friends(user_id: str):
     friends = [dict(row) for row in cur.fetchall()]
     conn.close()
     return friends
+
+# remove a friend
+@router.delete("/remove")
+def remove_friend(req: RemoveFriendRequest):
+    conn = get_db(); cur = conn.cursor()
+
+    if req.userId == req.friendId:
+        raise HTTPException(400, "You cannot remove yourself as a friend")
+
+    # Sort the user IDs to match the Friendship table constraint (userA < userB)
+    userA, userB = sorted([req.userId, req.friendId])
+    
+    cur.execute("""
+        DELETE FROM Friendship
+        WHERE userA = ? AND userB = ?
+    """, (userA, userB))
+
+    if cur.rowcount == 0:
+        raise HTTPException(404, "Friendship not found")
+
+    conn.commit()
+    conn.close()
+    return {"message": "Friend removed successfully"}

@@ -1,7 +1,13 @@
 import sqlite3
+import os
 
-#volime mounted on railway
-DB_PATH = "/data/waterlooeats.db"
+# Use local database for development, production database for deployment
+if os.path.exists("/data/waterlooeats.db"):
+    # Production environment (Railway)
+    DB_PATH = "/data/waterlooeats.db"
+else:
+    # Local development environment
+    DB_PATH = "waterlooeats.db"
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
