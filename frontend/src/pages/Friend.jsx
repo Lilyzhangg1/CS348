@@ -427,7 +427,7 @@ export default function Friends() {
       )}
 
       {/* Recommended by Friends - Average ratings from all friends */}
-      <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px", marginLeft: "20px" }}>
+      <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px", marginLeft: "0px" }}>
         <h2>Recommended by Friends</h2>
           <div style={{
             display: "grid",
