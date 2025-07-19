@@ -113,7 +113,14 @@ export default function RestaurantCard({ r, hideImage, comment }) {
             size={16}
             strokeWidth={1.5}
             style={{ cursor: 'pointer', marginLeft: '0.5rem' }}
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              const userId = localStorage.getItem('userId');
+              if (!userId) {
+                alert('You must be logged in to rate restaurants.');
+                return;
+              }
+              setShowModal(true);
+            }}
           />
         </div>
       </div>
