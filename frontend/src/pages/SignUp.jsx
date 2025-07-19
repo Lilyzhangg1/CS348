@@ -17,6 +17,7 @@ export default function SignUp() {
     try {
       await API.post('/auth/signup', form);
       localStorage.setItem('userId', form.userId);
+      window.dispatchEvent(new Event("storage"));
       nav('/restaurants');
     } catch (err) {
       alert(err.response?.data?.detail || err.message);

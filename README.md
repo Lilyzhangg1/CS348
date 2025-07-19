@@ -58,10 +58,12 @@ The database is on a volume in railway and hence recreating the database locally
     cd production
     sqlite3 waterlooeats.db < ../db/tables_up.sql
     ```
+    ```
 7. **Insert production restaurant data**
    ```bash
    python3 insert_production.py
    ```
+
 8. **Connect to backend server**:
    Add the line
    ```bash
@@ -74,6 +76,6 @@ The database is on a volume in railway and hence recreating the database locally
     cd frontend
     npm i
     npm start
-    ```
+   ```
    
    
