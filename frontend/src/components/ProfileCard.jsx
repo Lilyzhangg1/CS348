@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import styles from "./ProfileCard.module.css"
 
 export default function ProfileCard({ userId, showFriendsBox, setShowFriendsBox }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const location = useLocation()
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -30,7 +31,7 @@ export default function ProfileCard({ userId, showFriendsBox, setShowFriendsBox 
 
   return (
     <div className={styles.profileContainer} ref={dropdownRef}>
-      {showFriendsBox !== undefined && setShowFriendsBox && (
+      {location.pathname === "/friends" && showFriendsBox !== undefined && setShowFriendsBox && (
         <button
           className={styles.findFriendsBtn}
           onClick={() => setShowFriendsBox(!showFriendsBox)}
