@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
   NavLink
 } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
+import { CheckCircle, XCircle } from 'lucide-react';
 import styles from "./AppNav.module.css";
 
 import Restaurants from "./pages/Restaurants";
@@ -43,6 +45,31 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#FEF3C7',
+            color: '#92400E',
+            borderRadius: '8px',
+            padding: '12px 16px',
+            fontSize: '14px',
+          },
+          success: {
+            style: {
+              background: '#FEF3C7',
+            },
+            icon: <CheckCircle size={20} color="#92400E" />,
+          },
+          error: {
+            style: {
+              background: '#FCD34D',
+            },
+            icon: <XCircle size={20} color="#92400E" />,
+          },
+        }}
+      />
       <nav className={styles.navbar}>
         <NavLink
           to="/restaurants"

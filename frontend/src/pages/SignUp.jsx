@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import API from '../api/api';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import styles from './SignUp.module.css';
 
 export default function SignUp() {
@@ -20,7 +21,7 @@ export default function SignUp() {
       window.dispatchEvent(new Event("storage"));
       nav('/restaurants');
     } catch (err) {
-      alert(err.response?.data?.detail || err.message);
+      toast.error(err.response?.data?.detail || err.message);
     }
   };
 

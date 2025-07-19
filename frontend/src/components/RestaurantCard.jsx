@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { HeartIcon } from 'raster-react';
 import { Plus, StarIcon } from 'lucide-react';
+import toast from 'react-hot-toast';
 import styles from './RestaurantCard.module.css';
 import API from '../api/api';
 import restaurantImage from '../assets/restaurant.png';
@@ -47,7 +48,7 @@ export default function RestaurantCard({ r, hideImage, comment }) {
   async function handleWishlist() {
     const userId = localStorage.getItem('userId');
     if (!userId) {
-      alert('You must be logged in to manage wishlist.');
+      toast.error('You must be logged in to manage wishlist.');
       return;
     }
     setIsLoading(true);
@@ -55,17 +56,17 @@ export default function RestaurantCard({ r, hideImage, comment }) {
       if (isInWishlist) {
         await API.delete('/wishlist', { data: { userId, placeId: r.placeId } });
         setIsInWishlist(false);
-        alert('Removed from wishlist!');
+        toast.success('Removed from wishlist!');
       } else {
         await API.post('/wishlist', { userId, placeId: r.placeId });
         setIsInWishlist(true);
-        alert('Added to wishlist!');
+        toast.success('Added to wishlist!');
       }
       window.dispatchEvent(new CustomEvent('wishlistChanged', {
         detail: { placeId: r.placeId, isInWishlist: !isInWishlist }
       }));
     } catch (err) {
-      alert(err.response?.data?.detail || 'Could not update wishlist');
+      toast.error(err.response?.data?.detail || 'Could not update wishlist');
     } finally {
       setIsLoading(false);
     }
@@ -116,7 +117,7 @@ export default function RestaurantCard({ r, hideImage, comment }) {
             onClick={() => {
               const userId = localStorage.getItem('userId');
               if (!userId) {
-                alert('You must be logged in to rate restaurants.');
+                toast.error('You must be logged in to rate restaurants.');
                 return;
               }
               setShowModal(true);

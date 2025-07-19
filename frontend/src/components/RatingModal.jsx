@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 import API from '../api/api';
 import styles from './RatingModal.module.css';
 
@@ -20,12 +21,13 @@ export default function RatingModal({
     setIsSubmitting(true);
     try {
       await API.post('/rating', { userId, placeId, rating, comment });
+      toast.success('Rating submitted!');
       if (onSave) {
         onSave({ rating, comment, ratingDate: new Date().toISOString() });
       }
       onClose();
     } catch (err) {
-      alert(err.response?.data?.detail || 'Could not submit rating');
+      toast.error(err.response?.data?.detail || 'Could not submit rating');
     } finally {
       setIsSubmitting(false);
     }

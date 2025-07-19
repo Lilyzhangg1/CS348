@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 import API from "../api/api";
 import styles from "./Login.module.css";
 
@@ -16,7 +17,7 @@ export default function Login() {
     try {
       const res = await API.post("/auth/login", { userId, password });
       console.log(res.data);
-      alert("Login successful!");
+      toast.success("Login successful!");
       localStorage.setItem("userId", userId);
       window.dispatchEvent(new Event("storage"));
       nav("/restaurants");

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import toast from 'react-hot-toast';
 import API from "../api/api"
 import styles from "./Friend.module.css"
 import RestaurantCard from "../components/RestaurantCard"
@@ -112,14 +113,14 @@ export default function Friends() {
     })
       .then((res) => {
         console.log("✅ Friend request sent:", res.data)
-        alert("Friend request sent!")
+        toast.success("Friend request sent!")
         // Remove from search results
         setSearchResults((prev) => prev.filter((user) => user.userId !== requesteeId))
       })
       .catch((err) => {
         console.error("❌ Error sending friend request:", err)
         const errorMsg = err.response?.data?.detail || "Failed to send friend request"
-        alert(`Error: ${errorMsg}`)
+        toast.error(`Error: ${errorMsg}`)
       })
   }
 
@@ -132,7 +133,7 @@ export default function Friends() {
     })
       .then((res) => {
         console.log("✅ Friend request response:", res.data)
-        alert(accept ? "Friend request accepted!" : "Friend request rejected!")
+        toast.success(accept ? "Friend request accepted!" : "Friend request rejected!")
         // Refresh data
         fetchIncomingRequests()
         if (accept) {
@@ -143,7 +144,7 @@ export default function Friends() {
       .catch((err) => {
         console.error("❌ Error responding to request:", err)
         const errorMsg = err.response?.data?.detail || "Failed to respond to request"
-        alert(`Error: ${errorMsg}`)
+        toast.error(`Error: ${errorMsg}`)
       })
   }
 

@@ -1,7 +1,8 @@
 // LoginModal.jsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
+import toast from 'react-hot-toast';
 import { SquareXIcon, EyeIcon, EyeClosedIcon } from "raster-react";
 
 const LoginModal = ({ onClose }) => {
@@ -14,7 +15,7 @@ const LoginModal = ({ onClose }) => {
       localStorage.setItem("isAuthenticated", "true");
       window.location.reload();
     } else {
-      alert("Invalid credentials!!");
+      toast.error("Invalid credentials!!");
     }
   };
 
@@ -62,7 +63,7 @@ const LoginModal = ({ onClose }) => {
 
           {/* Forgot Password Button */}
           <button
-            onClick={() => alert("Oh no :((")}
+            onClick={() => toast.error("Oh no :((")}
             className="text-gray-700 text-sm mt-2 hover:underline"
           >
             Forgot Password?
