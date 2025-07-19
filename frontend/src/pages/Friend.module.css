@@ -215,3 +215,31 @@
     justify-content: flex-end;
   }
 }
+
+.friendAvatar,
+.requestAvatar,
+.userAvatar {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #F0E68C;
+  border-radius: 50%;    
+  object-fit: cover;
+  background: #fff;
+}
+
+.friendAvatarSmall {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #F0E68C;
+  border-radius: 50%;    
+  object-fit: cover;
+  background: #fff;
+}
+
+.friendCard,
+.requestCard,
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

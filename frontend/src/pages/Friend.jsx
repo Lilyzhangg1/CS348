@@ -17,6 +17,8 @@ export default function Friends({ showFriendsBox, setShowFriendsBox }) {
   const [friendsRestaurants, setFriendsRestaurants] = useState([])
 
   const userId = localStorage.getItem("userId")
+  const identicon = (id) =>
+    `https://github.com/identicons/${encodeURIComponent(id)}.png`;
 
   // Fetch friends list
   const fetchFriends = () => {
@@ -292,14 +294,21 @@ export default function Friends({ showFriendsBox, setShowFriendsBox }) {
                 <div className={styles.friendsList}>
                   {friends.map((friend) => (
                     <div key={friend.friendId} className={styles.friendCard}>
+                      <img
+                        src={identicon(friend.friendId)}
+                        alt={friend.friendId}
+                        className={styles.friendAvatar}
+                      />
                       <div className={styles.friendInfo}>
                         <strong>{friend.friendId}</strong>
-                        <small>Friends since: {new Date(friend.friendedDate).toLocaleDateString()}</small>
+                        <small>
+                          Friends since: {new Date(friend.friendedDate).toLocaleDateString()}
+                        </small>
                       </div>
                       <button
                         onClick={() => removeFriend(friend.friendId)}
-                        style={{ 
-                          ...btnStyle, 
+                        style={{
+                          ...btnStyle,
                           backgroundColor: "#ffcdd2",
                           marginLeft: "auto"
                         }}
