@@ -23,7 +23,8 @@ export default function App() {
     document.body.style.margin = "0";
     document.body.style.padding = "0";
     document.body.style.backgroundImage = `url(${backgroundColor})`;
-    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundPosition = "top center";
+    
     
     const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"));
     window.addEventListener("storage", syncLogin);
