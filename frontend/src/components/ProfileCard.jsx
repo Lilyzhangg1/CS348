@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { NavLink } from "react-router-dom"
 import styles from "./ProfileCard.module.css"
 
-export default function ProfileCard({ userId }) {
+export default function ProfileCard({ userId, showFriendsBox, setShowFriendsBox }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -30,6 +30,15 @@ export default function ProfileCard({ userId }) {
 
   return (
     <div className={styles.profileContainer} ref={dropdownRef}>
+      {showFriendsBox !== undefined && setShowFriendsBox && (
+        <button
+          className={styles.findFriendsBtn}
+          onClick={() => setShowFriendsBox(!showFriendsBox)}
+        >
+          {showFriendsBox ? "Hide Find Friends" : "Find Friends"}
+        </button>
+      )}
+
       <button className={styles.profileButton} onClick={() => setIsOpen(!isOpen)}>
         <img src={profileImageUrl || "/placeholder.svg"} alt={`${userId}'s profile`} className={styles.profileImage} />
         <span className={styles.userId}>@{userId}</span>

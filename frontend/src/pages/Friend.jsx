@@ -6,7 +6,7 @@ import API from "../api/api"
 import styles from "./Friend.module.css"
 import RestaurantCard from "../components/RestaurantCard"
 
-export default function Friends() {
+export default function Friends({ showFriendsBox, setShowFriendsBox }) {
   const [friends, setFriends] = useState([])
   const [searchQuery, setSearchQuery] = useState("")
   const [searchTerm, setSearchTerm] = useState("")
@@ -15,7 +15,6 @@ export default function Friends() {
   const [loading, setLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("friends")
   const [friendsRestaurants, setFriendsRestaurants] = useState([])
-  const [showFriendsBox, setShowFriendsBox] = useState(false)
 
   const userId = localStorage.getItem("userId")
 
@@ -259,13 +258,6 @@ export default function Friends() {
         marginLeft: "0"
       }}>
         <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0 }}>Friends</h1>
-        <button
-          className={styles.findFriendsBtn}
-          onClick={() => setShowFriendsBox(!showFriendsBox)}
-          style={{ marginRight: "-6rem" }}
-        >
-          {showFriendsBox ? "Hide Find Friends" : "Find Friends"}
-        </button>
       </div>
 
       {showFriendsBox && (

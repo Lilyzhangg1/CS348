@@ -1,6 +1,8 @@
 .profileContainer {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .profileButton {
@@ -19,6 +21,22 @@
 
 .profileButton:hover {
   background-color: rgba(224, 192, 96, 0.2); /* Match your navbar hover */
+}
+
+.findFriendsBtn {
+  background-color: #FFF9C4;
+  border: 1px solid #F0E68C;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color .2s;
+  font-size: 0.9rem;
+  color: #5a4630;
+}
+
+.findFriendsBtn:hover {
+  background-color: #FFEE99;
 }
 
 .profileImage {
@@ -87,5 +105,10 @@
 
   .profileButton {
     padding: 8px;
+  }
+
+  .findFriendsBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }

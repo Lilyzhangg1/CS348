@@ -23,6 +23,7 @@ import ProfileCard from "./components/ProfileCard"
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"))
+  const [showFriendsBox, setShowFriendsBox] = useState(false)
   const userId = localStorage.getItem("userId")
 
   useEffect(() => {
@@ -108,7 +109,7 @@ export default function App() {
         {/* Profile Card as separate element */}
         {loggedIn && (
           <div className={styles.profileCardContainer}>
-            <ProfileCard userId={userId} />
+            <ProfileCard userId={userId} showFriendsBox={showFriendsBox} setShowFriendsBox={setShowFriendsBox} />
           </div>
         )}
       </div>
@@ -117,7 +118,7 @@ export default function App() {
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/friends" element={<Friends />} />
+          <Route path="/friends" element={<Friends showFriendsBox={showFriendsBox} setShowFriendsBox={setShowFriendsBox} />} />
           <Route path="/ratings" element={<Ratings />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
