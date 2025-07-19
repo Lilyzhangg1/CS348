@@ -83,25 +83,33 @@ def get_friends(user_id: str):
     conn.close()
     return friends
 
-# remove a friend
 @router.delete("/remove")
 def remove_friend(req: RemoveFriendRequest):
-    conn = get_db(); cur = conn.cursor()
+    conn = get_db()
+    cur  = conn.cursor()
 
     if req.userId == req.friendId:
         raise HTTPException(400, "You cannot remove yourself as a friend")
 
-    # Sort the user IDs to match the Friendship table constraint (userA < userB)
     userA, userB = sorted([req.userId, req.friendId])
-    
-    cur.execute("""
-        DELETE FROM Friendship
-        WHERE userA = ? AND userB = ?
-    """, (userA, userB))
 
+    cur.execute(
+        "DELETE FROM Friendship WHERE userA = ? AND userB = ?",
+        (userA, userB)
+    )
     if cur.rowcount == 0:
+        conn.close()
         raise HTTPException(404, "Friendship not found")
+
+    cur.execute(
+        """
+        DELETE FROM FriendRequest
+         WHERE (requesterId = ? AND requesteeId = ?)
+            OR (requesterId = ? AND requesteeId = ?)
+        """,
+        (req.userId, req.friendId, req.friendId, req.userId)
+    )
 
     conn.commit()
     conn.close()
-    return {"message": "Friend removed successfully"}
+    return {"message": "Friend removed successfully (and any pending requests cleared)"}

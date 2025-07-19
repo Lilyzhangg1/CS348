@@ -44,7 +44,7 @@
 /* Profile card positioning */
 .profileCardContainer {
   position: absolute;
-  top: 1rem;
+  top: 0rem;
   right: 2rem;
   z-index: 1000;
 }

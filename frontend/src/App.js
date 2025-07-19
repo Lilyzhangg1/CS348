@@ -103,20 +103,6 @@ export default function App() {
               </NavLink>
             </>
           )}
-          {loggedIn && (
-            <NavLink
-              to="#"
-              className={styles.navItem}
-              activeClassName={styles.active}
-              onClick={(e) => {
-                e.preventDefault()
-                handleLogout()
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              Log Out
-            </NavLink>
-          )}
         </nav>
 
         {/* Profile Card as separate element */}
