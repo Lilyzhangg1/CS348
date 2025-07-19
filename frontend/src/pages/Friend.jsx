@@ -419,34 +419,32 @@ export default function Friends() {
       </div>
 
       {/* Friends' Top Rated Restaurants - Grouped by friend */}
-      <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        {friends.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
-            You don't have any friends yet. Add some friends to see their recommendations!
-          </p>
-        ) : friendsRestaurants.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
-            Your friends haven't rated any restaurants yet.
-          </p>
-        ) : (
-          Object.entries(groupedByFriend).map(([friendId, restaurants]) => (
-            <div key={friendId} style={{ marginBottom: "2.5rem", marginLeft: "-6rem" }}>
-              <h3 style={{ color: "#222", marginBottom: "1rem" }}>{friendId}'s Top Rated</h3>
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                gap: "1rem",
-                alignItems: "start",
-                padding: "0.5rem 0"
-              }}>
-                {restaurants.map((restaurant) => (
-                  <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} hideImage={true} comment={restaurant.comment} />
-                ))}
+      {friends.length > 0 && (
+        <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
+          {friendsRestaurants.length === 0 ? (
+            <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
+              Your friends haven't rated any restaurants yet.
+            </p>
+          ) : (
+            Object.entries(groupedByFriend).map(([friendId, restaurants]) => (
+              <div key={friendId} style={{ marginBottom: "2.5rem", marginLeft: "-6rem" }}>
+                <h3 style={{ color: "#222", marginBottom: "1rem" }}>{friendId}'s Top Rated</h3>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)",
+                  gap: "1rem",
+                  alignItems: "start",
+                  padding: "0.5rem 0"
+                }}>
+                  {restaurants.map((restaurant) => (
+                    <RestaurantCard key={`${friendId}-${restaurant.placeId}`} r={restaurant} hideImage={true} comment={restaurant.comment} />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))
-        )}
-      </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   )
 }
