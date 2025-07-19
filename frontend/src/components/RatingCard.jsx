@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { MoonStarIcon } from 'raster-react';
-import { Edit2 } from 'lucide-react';
+import { useState } from 'react';
+import { Edit2, StarIcon } from 'lucide-react';
 import styles from './RestaurantCard.module.css';
 import RatingModal from './RatingModal';
 
@@ -28,7 +27,7 @@ export default function RatingCard({ r, onRatingUpdated }) {
         </p>
         <div className={styles.footer}>
           <div className={styles.rating}>
-            <MoonStarIcon size={16} strokeWidth={0.25} />
+            <StarIcon size={16} strokeWidth={0.25} fill="currentColor" />
             <span className={styles.ratingText}>
               {userRating.rating}
             </span>

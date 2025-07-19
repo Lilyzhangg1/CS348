@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MoonStarIcon, HeartIcon } from 'raster-react';
-import { Plus } from 'lucide-react';
+import { HeartIcon } from 'raster-react';
+import { Plus, StarIcon } from 'lucide-react';
 import styles from './RestaurantCard.module.css';
 import API from '../api/api';
 import restaurantImage from '../assets/restaurant.png';
@@ -93,7 +93,7 @@ export default function RestaurantCard({ r, hideImage, comment }) {
       )}
       <div className={styles.footer}>
         <div className={styles.rating}>
-          <MoonStarIcon size={16} strokeWidth={0.25} />
+          <StarIcon size={14} strokeWidth={0.25} fill="current color"/>
           <span className={styles.ratingText}>
             {r.avgRating ?? 'No ratings yet'}
           </span>
