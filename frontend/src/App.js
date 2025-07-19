@@ -18,7 +18,6 @@ import backgroundColor from "./assets/background.jpeg";
 import Friends from "./pages/Friend"
 import Profile from "./pages/Profile"
 import ProfileCard from "./components/ProfileCard"
-"use client"
 
 
 
