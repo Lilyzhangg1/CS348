@@ -16,36 +16,40 @@ import Wishlist    from "./pages/Wishlist";
 import Ratings       from "./pages/Ratings";
 import backgroundColor from "./assets/background.jpeg";
 import Friends from "./pages/Friend"
+import Profile from "./pages/Profile"
+import ProfileCard from "./components/ProfileCard"
+"use client"
+
 
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"));
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("userId"))
+  const userId = localStorage.getItem("userId")
 
   useEffect(() => {
-    document.body.style.margin = "0";
-    document.body.style.padding = "0";
-    document.body.style.backgroundImage = `url(${backgroundColor})`;
-    document.body.style.backgroundPosition = "top center";
-    document.body.style.backgroundSize = "cover";
-    
-    
-    const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"));
-    window.addEventListener("storage", syncLogin);
-    return () => window.removeEventListener("storage", syncLogin);
-  }, []);
+    document.body.style.margin = "0"
+    document.body.style.padding = "0"
+    document.body.style.backgroundImage = `url(${backgroundColor})`
+    document.body.style.backgroundPosition = "top center"
+    document.body.style.backgroundSize = "cover"
+
+    const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"))
+    window.addEventListener("storage", syncLogin)
+    return () => window.removeEventListener("storage", syncLogin)
+  }, [])
 
   useEffect(() => {
-    setLoggedIn(!!localStorage.getItem("userId"));
-  }, []);
+    setLoggedIn(!!localStorage.getItem("userId"))
+  }, [])
 
   const handleLogout = () => {
-    localStorage.removeItem("userId");
-    setLoggedIn(false);
-  };
+    localStorage.removeItem("userId")
+    setLoggedIn(false)
+  }
 
   return (
     <BrowserRouter>
-      <Toaster 
+    <Toaster 
         position="top-right"
         toastOptions={{
           duration: 3000,
@@ -70,82 +74,72 @@ export default function App() {
           },
         }}
       />
-      <nav className={styles.navbar}>
-        <NavLink
-          to="/restaurants"
-          className={styles.navItem}
-          activeClassName={styles.active}
-        >
-          Browse
-        </NavLink>
-        {loggedIn && (
-          <NavLink
-            to="/ratings"
-            className={styles.navItem}
-            activeClassName={styles.active}
-          >
-            Ratings
+      <div style={{ position: "relative" }}>
+        <nav className={styles.navbar}>
+          <NavLink to="/restaurants" className={styles.navItem} activeClassName={styles.active}>
+            Browse
           </NavLink>
-        )}
-        {loggedIn && (
-        <>
-          <NavLink
-            to="/wishlist"
-            className={styles.navItem}
-            activeClassName={styles.active}
-          >
-            Wishlist
-          </NavLink>
-          <NavLink to="/friends" className={styles.navItem} activeClassName={styles.active}>
-              Friends
+          {loggedIn && (
+            <NavLink to="/ratings" className={styles.navItem} activeClassName={styles.active}>
+              Ratings
             </NavLink>
-          </>
-        )}
-        {!loggedIn && (
-          <>
+          )}
+          {loggedIn && (
+            <>
+              <NavLink to="/wishlist" className={styles.navItem} activeClassName={styles.active}>
+                Wishlist
+              </NavLink>
+              <NavLink to="/friends" className={styles.navItem} activeClassName={styles.active}>
+                Friends
+              </NavLink>
+            </>
+          )}
+          {!loggedIn && (
+            <>
+              <NavLink to="/signup" className={styles.navItem} activeClassName={styles.active}>
+                Sign Up
+              </NavLink>
+              <NavLink to="/login" className={styles.navItem} activeClassName={styles.active}>
+                Log In
+              </NavLink>
+            </>
+          )}
+          {loggedIn && (
             <NavLink
-              to="/signup"
+              to="#"
               className={styles.navItem}
               activeClassName={styles.active}
+              onClick={(e) => {
+                e.preventDefault()
+                handleLogout()
+              }}
+              style={{ cursor: "pointer" }}
             >
-              Sign Up
+              Log Out
             </NavLink>
-            <NavLink
-              to="/login"
-              className={styles.navItem}
-              activeClassName={styles.active}
-            >
-              Log In
-            </NavLink>
-          </>
-        )}
+          )}
+        </nav>
+
+        {/* Profile Card as separate element */}
         {loggedIn && (
-          <NavLink
-            to="#"
-            className={styles.navItem}
-            activeClassName={styles.active}
-            onClick={e => {
-              e.preventDefault();
-              handleLogout();
-            }}
-            style={{ cursor: "pointer" }}
-          >
-            Log Out
-          </NavLink>
+          <div className={styles.profileCardContainer}>
+            <ProfileCard userId={userId} />
+          </div>
         )}
-      </nav>
+      </div>
 
       <div style={{ padding: "0 20px" }}>
         <Routes>
           <Route path="/restaurants" element={<Restaurants />} />
-          <Route path="/wishlist"    element={<Wishlist />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/friends" element={<Friends />} />
-          <Route path="/ratings"    element={<Ratings />} />
-          <Route path="/signup"      element={<Signup />} />
-          <Route path="/login"       element={<Login />} />
-          <Route path="*"            element={<Restaurants />} />
+          <Route path="/ratings" element={<Ratings />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Restaurants />} />
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  )
 }

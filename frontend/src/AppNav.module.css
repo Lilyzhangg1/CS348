@@ -1,11 +1,10 @@
 /* AppNav.module.css */
-
 .navbar {
   display: flex;
-  background-color: #fff2c9;      /* very pale cream */
-  border: 1px solid #e0c060;      /* a soft gold */
-  border-radius: 10px;            /* softer pill, not insane 9999px */
-  overflow: hidden;               /* clip child BGs to this shape */
+  background-color: #fff2c9; /* very pale cream */
+  border: 1px solid #e0c060; /* a soft gold */
+  border-radius: 10px; /* softer pill, not insane 9999px */
+  overflow: hidden; /* clip child BGs to this shape */
   width: 35%;
   margin-bottom: 2rem;
   margin-left: 2rem;
@@ -19,9 +18,11 @@
   text-decoration: none;
   color: #5a4630;
   font-weight: 500;
-  background: transparent;        /* let container show through */
+  background: transparent; /* let container show through */
   transition: background-color .2s, color .2s;
   font-size: 1rem;
+  border: none;
+  cursor: pointer;
 }
 
 /* divider */
@@ -40,4 +41,26 @@
   color: white;
 }
 
+/* Profile card positioning */
+.profileCardContainer {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  z-index: 1000;
+}
 
+@media (max-width: 768px) {
+  .navbar {
+    width: 90%;
+    margin-left: 1rem;
+  }
+
+  .profileCardContainer {
+    right: 1rem;
+  }
+
+  .navItem {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

@@ -1,0 +1,91 @@
+.profileContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.profileButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff2c9; /* Match your navbar color */
+  border: 1px solid #e0c060; /* Match your navbar border */
+  border-radius: 10px; /* Match your navbar radius */
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #5a4630; /* Match your navbar text color */
+}
+
+.profileButton:hover {
+  background-color: rgba(224, 192, 96, 0.2); /* Match your navbar hover */
+}
+
+.profileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #e0c060;
+}
+
+.userId {
+  color: #5a4630;
+  font-size: 0.9rem;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background: #fff2c9;
+  border: 1px solid #e0c060;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001; /* Higher than the container */
+  min-width: 150px;
+  overflow: visible; /* Ensure dropdown content is visible */
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5a4630;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(224, 192, 96, 0.2);
+}
+
+.dropdownItem:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.dropdownItem:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.dropdownItem + .dropdownItem {
+  border-top: 1px solid rgba(224, 192, 96, 0.3);
+}
+
+@media (max-width: 600px) {
+  .userId {
+    display: none;
+  }
+
+  .profileButton {
+    padding: 8px;
+  }
+}
