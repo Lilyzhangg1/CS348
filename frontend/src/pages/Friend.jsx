@@ -233,12 +233,14 @@ export default function Friends() {
         marginBottom: "2rem",
         maxWidth: "1200px",
         margin: "0 auto 2rem auto",
-        padding: "0 20px"
+        padding: "0 20px",
+        marginLeft: "0"
       }}>
         <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0 }}>Friends</h1>
         <button
           className={styles.findFriendsBtn}
           onClick={() => setShowFriendsBox(!showFriendsBox)}
+          style={{ marginRight: "-6rem" }}
         >
           {showFriendsBox ? "Hide Find Friends" : "Find Friends"}
         </button>
