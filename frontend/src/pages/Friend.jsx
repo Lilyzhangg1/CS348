@@ -396,15 +396,6 @@ export default function Friends() {
       {/* Recommended by Friends - Average ratings from all friends */}
       <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px", marginLeft: "20px" }}>
         <h2>Recommended by Friends</h2>
-        {friends.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
-            You don't have any friends yet. Add some friends to see recommendations!
-          </p>
-        ) : friendsRestaurants.length === 0 ? (
-          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
-            Your friends haven't rated any restaurants yet.
-          </p>
-        ) : (
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
@@ -416,7 +407,6 @@ export default function Friends() {
               <RestaurantCard key={restaurant.placeId} r={restaurant} hideImage={true} />
             ))}
           </div>
-        )}
       </div>
 
       {/* Friends' Top Rated Restaurants - Grouped by friend */}
