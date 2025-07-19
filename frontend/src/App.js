@@ -24,6 +24,7 @@ export default function App() {
     document.body.style.padding = "0";
     document.body.style.backgroundImage = `url(${backgroundColor})`;
     document.body.style.backgroundPosition = "top center";
+    document.body.style.backgroundSize = "cover";
     
     
     const syncLogin = () => setLoggedIn(!!localStorage.getItem("userId"));
