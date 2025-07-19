@@ -7,7 +7,7 @@ export default function MyRatings() {
   const [loading, setLoading] = useState(true);
   const userId = localStorage.getItem('userId');
 
-  useEffect(() => {
+  const fetchRatings = () => {
     if (!userId) {
       setLoading(false);
       return;
@@ -22,6 +22,10 @@ export default function MyRatings() {
         console.error(err);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchRatings();
   }, [userId]);
 
   if (!userId) {
@@ -53,7 +57,7 @@ export default function MyRatings() {
       <h2>My Ratings</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
         {ratings.map(r => (
-          <RatingCard key={r.placeId + r.ratingDate} r={r} />
+          <RatingCard key={r.placeId + r.ratingDate} r={r} onRatingUpdated={fetchRatings} />
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Edit2 } from 'lucide-react';
 import styles from './RestaurantCard.module.css';
 import RatingModal from './RatingModal';
 
-export default function RatingCard({ r }) {
+export default function RatingCard({ r, onRatingUpdated }) {
   const [userRating, setUserRating] = useState({
     rating: r.rating,
     comment: r.comment,
@@ -14,6 +14,9 @@ export default function RatingCard({ r }) {
 
   const handleSave = ({ rating, comment, ratingDate }) => {
     setUserRating({ rating, comment, ratingDate });
+    if (onRatingUpdated) {
+      onRatingUpdated();
+    }
   };
 
   return (
