@@ -194,9 +194,38 @@ export default function Friends() {
     return acc;
   }, {});
 
+  // Calculate average ratings from all friends
+  const averageRatings = friendsRestaurants.reduce((acc, restaurant) => {
+    const key = restaurant.placeId;
+    if (!acc[key]) {
+      acc[key] = {
+        placeId: restaurant.placeId,
+        name: restaurant.name,
+        street: restaurant.street,
+        city: restaurant.city,
+        postalCode: restaurant.postalCode,
+        ratings: [],
+        totalRating: 0,
+        count: 0
+      };
+    }
+    acc[key].ratings.push(restaurant.rating);
+    acc[key].totalRating += restaurant.rating;
+    acc[key].count += 1;
+    return acc;
+  }, {});
+
+  // Calculate average and sort by average rating
+  const topRecommended = Object.values(averageRatings)
+    .map(restaurant => ({
+      ...restaurant,
+      avgRating: (restaurant.totalRating / restaurant.count).toFixed(1)
+    }))
+    .sort((a, b) => parseFloat(b.avgRating) - parseFloat(a.avgRating))
+    .slice(0, 4);
+
   return (
     <div>
-
       <div style={{ 
         display: "flex", 
         justifyContent: "space-between", 
@@ -206,7 +235,7 @@ export default function Friends() {
         margin: "0 auto 2rem auto",
         padding: "0 20px"
       }}>
-        <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0, marginLeft: "-6rem" }}>Friends</h1>
+        <h1 style={{ color: "#333", fontSize: "2.5rem", margin: 0 }}>Friends</h1>
         <button
           className={styles.findFriendsBtn}
           onClick={() => setShowFriendsBox(!showFriendsBox)}
@@ -361,6 +390,33 @@ export default function Friends() {
         </div>
       )}
 
+      {/* Recommended by Friends - Average ratings from all friends */}
+      <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px", marginLeft: "20px" }}>
+        <h2>Recommended by Friends</h2>
+        {friends.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
+            You don't have any friends yet. Add some friends to see recommendations!
+          </p>
+        ) : friendsRestaurants.length === 0 ? (
+          <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
+            Your friends haven't rated any restaurants yet.
+          </p>
+        ) : (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1rem",
+            alignItems: "start",
+            padding: "0.5rem 0"
+          }}>
+            {topRecommended.map((restaurant) => (
+              <RestaurantCard key={restaurant.placeId} r={restaurant} hideImage={true} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Friends' Top Rated Restaurants - Grouped by friend */}
       <div style={{ marginTop: "2rem", maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         {friends.length === 0 ? (
           <p style={{ textAlign: "center", color: "#666", fontStyle: "italic", padding: "40px 20px" }}>
