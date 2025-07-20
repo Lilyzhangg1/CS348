@@ -9,7 +9,6 @@ export default function ProfileCard({ userId, showFriendsBox, setShowFriendsBox 
   const isOnFriendsPage = location.pathname === "/friends"
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
-  const location = useLocation()
 
   useEffect(() => {
     function handleClickOutside(event) {
