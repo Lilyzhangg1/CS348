@@ -6,7 +6,6 @@ import styles from "./ProfileCard.module.css"
 
 export default function ProfileCard({ userId, showFriendsBox, setShowFriendsBox }) {
   const location = useLocation()
-  const isOnFriendsPage = location.pathname === "/friends"
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
