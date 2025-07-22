@@ -1,6 +1,8 @@
 # routers/friends.py
 from fastapi import APIRouter, HTTPException
 from backend.db import get_db
+from typing import List
+from backend.models.friend_rating import FriendRatingOut
 from backend.models.friend_request import FriendRequestIn, FriendResponseIn, RemoveFriendRequest
 
 router = APIRouter()
@@ -113,3 +115,73 @@ def remove_friend(req: RemoveFriendRequest):
     conn.commit()
     conn.close()
     return {"message": "Friend removed successfully (and any pending requests cleared)"}
+
+@router.get("/recommended/{user_id}", response_model=List[FriendRatingOut])
+def get_recommended_by_friends(
+    user_id: str,
+    min_rating: int = 4,
+    max_per_friend: int = 4
+):
+    """
+    For each of user_id's friends, return up to `max_per_friend`
+    restaurants they rated >= `min_rating` that user_id has not rated.
+    """
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        WITH friends AS (
+          SELECT CASE
+                   WHEN f.userA = ? THEN f.userB
+                   ELSE f.userA
+                 END AS friendId
+          FROM Friendship f
+          WHERE f.userA = ? OR f.userB = ?
+        )
+        SELECT
+          rt.userId       AS friendId,
+          rt.placeId,
+          r.name          AS restaurantName,
+          rt.rating,
+          rt.ratingDate,
+          rt.comment
+        FROM Rating rt
+        JOIN Restaurant r
+          ON r.placeId = rt.placeId
+        JOIN friends fr
+          ON fr.friendId = rt.userId
+        WHERE rt.rating >= ?
+          AND NOT EXISTS (
+            SELECT 1
+            FROM Rating ur
+            WHERE ur.userId = ?
+              AND ur.placeId = rt.placeId
+          )
+          AND (
+            SELECT COUNT(*)
+            FROM Rating r2
+            WHERE r2.userId = rt.userId
+              AND r2.rating >= ?
+              AND NOT EXISTS (
+                SELECT 1
+                FROM Rating ur2
+                WHERE ur2.userId = ?
+                  AND ur2.placeId = r2.placeId
+              )
+              AND (
+                r2.rating > rt.rating
+                OR (r2.rating = rt.rating AND r2.ratingDate > rt.ratingDate)
+              )
+          ) < ?
+        ORDER BY friendId, rt.rating DESC, rt.ratingDate DESC;
+        """,
+        (
+            user_id, user_id, user_id,       # for friends CTE
+            min_rating, user_id,             # for ratings + NOT EXISTS
+            min_rating, user_id, max_per_friend  # for correlated subquery
+        )
+    )
+    rows = cur.fetchall()
+    conn.close()
+    return [dict(row) for row in rows]
+
